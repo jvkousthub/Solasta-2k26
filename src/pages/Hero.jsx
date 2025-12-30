@@ -167,7 +167,7 @@ const Hero = () => {
   }
 
   return (
-    <div className='min-h-screen flex items-center justify-center overflow-hidden relative bg-[#FF7F99] p-4'>
+    <div className='min-h-screen flex items-center justify-center overflow-hidden relative bg-[#FF6B35] p-4'>
       
       <div 
         className='absolute inset-0 bg-cover bg-center opacity-30'
@@ -179,12 +179,9 @@ const Hero = () => {
       <div className='relative z-10 w-full max-w-[95vw] flex flex-col items-center justify-center gap-6 sm:gap-8'>
        
         <p 
-          className='text-white/90 text-[clamp(0.875rem,3.5vw,2rem)] text-center'
+          className='text-white/90 text-[clamp(0.875rem,3.5vw,2rem)] text-center font-semibold tracking-[0.3em] [text-shadow:0_2px_10px_rgba(0,0,0,0.5)]'
           style={{
-            fontFamily: '"Oxanium", sans-serif',
-            fontWeight: 600,
-            letterSpacing: '0.3em',
-            textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)'
+            fontFamily: '"Oxanium", sans-serif'
           }}
         >
           IIITDM KURNOOL PRESENTS
@@ -199,7 +196,7 @@ const Hero = () => {
             fontWeight: weightInit,
             fontStretch: `${stretchInit}%`,
             letterSpacing: '0.008em',
-            textShadow: '0 0.05em 0 #FFB0C0, 0 0.1em 0.1em rgba(70,0,35, 0.3), 0 0.4em 0.3em rgba(70,0,35, 0.1)'
+            textShadow: '0 0.05em 0 #FFB088, 0 0.1em 0.1em rgba(70,30,0, 0.3), 0 0.4em 0.3em rgba(70,30,0, 0.1)'
           }}
         >
           Solasta'26
