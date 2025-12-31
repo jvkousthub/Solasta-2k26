@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Hero from './pages/Hero'
+import WhySponsorUs from './pages/WhySponsorUs'
 
 const App = () => {
   const [showPopup, setShowPopup] = useState(false)
@@ -12,8 +13,13 @@ const App = () => {
 
   return (
     <Router>
+      <div>
+        <Hero />
+        <WhySponsorUs />
+      </div>
+      
       <Routes>
-        <Route path="/" element={<Hero />} />
+        <Route path="/" element={<></>} />
       </Routes>
       
       
