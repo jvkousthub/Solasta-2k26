@@ -49,20 +49,27 @@ const WhySponsorUs = () => {
     if (!container || !track || panels.length === 0) return
 
     let ctx = gsap.context(() => {
-      const trackWidth = track.scrollWidth
-      const windowWidth = window.innerWidth
-
       // Main horizontal scroll animation
-      // Calculate distance so the last card centers on screen
       const scrollTween = gsap.to(track, {
-        x: () => -(trackWidth - windowWidth / 2 - panels[panels.length - 1].offsetWidth / 2),
+        x: () => {
+          const trackWidth = track.scrollWidth
+          const windowWidth = window.innerWidth
+          const lastPanel = panels[panels.length - 1]
+          const lastPanelWidth = lastPanel.offsetWidth
+          // Position so last card centers on screen
+          return -(trackWidth - windowWidth / 2 - lastPanelWidth / 2)
+        },
         ease: "none",
         scrollTrigger: {
           trigger: container,
           pin: true,
-          scrub: 1,
-          start: "center center",
-          end: () => `+=${trackWidth}`,
+          scrub: 0.5,
+          start: "top top",
+          end: () => {
+            const trackWidth = track.scrollWidth
+            const windowWidth = window.innerWidth
+            return `+=${trackWidth - windowWidth + windowWidth / 2}`
+          },
           invalidateOnRefresh: true,
         }
       })
@@ -73,28 +80,30 @@ const WhySponsorUs = () => {
         
         gsap.fromTo(content, 
           { 
-            x: "-15%",
-            opacity: 0.7
+            x: "-10%",
           }, 
           {
-            x: "15%",
-            opacity: 1,
+            x: "10%",
             ease: "none",
             scrollTrigger: {
               trigger: panel,
               containerAnimation: scrollTween,
               start: "left right",
               end: "right left",
-              scrub: true,
+              scrub: 0.5,
             }
           }
         )
       })
     }, container)
 
-    // Refresh on resize
+    // Refresh on resize with debounce
+    let resizeTimer
     const handleResize = () => {
-      ScrollTrigger.refresh()
+      clearTimeout(resizeTimer)
+      resizeTimer = setTimeout(() => {
+        ScrollTrigger.refresh()
+      }, 250)
     }
 
     window.addEventListener('resize', handleResize)
