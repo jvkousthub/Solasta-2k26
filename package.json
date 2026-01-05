@@ -13,6 +13,7 @@
     "@tailwindcss/vite": "^4.1.18",
     "gsap": "^3.14.2",
     "react": "^19.2.0",
+    "react-7-segment-display": "^1.1.5",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.11.0",
     "tailwindcss": "^4.1.18"

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Sponsor1 from '../assets/Sponsor1.jpg'
@@ -13,6 +13,7 @@ gsap.registerPlugin(ScrollTrigger)
 const WhySponsorUs = () => {
   const trackRef = useRef(null)
   const containerRef = useRef(null)
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024)
 
   const sponsorData = [
     {
@@ -48,79 +49,95 @@ const WhySponsorUs = () => {
 
     if (!container || !track || panels.length === 0) return
 
+    // Only apply horizontal scroll on desktop
+    if (!isDesktop) return
+
+    // Use will-change for GPU acceleration
+    gsap.set(track, { willChange: 'transform' })
+    panels.forEach(panel => {
+      gsap.set(panel.querySelector('.panel-content'), { willChange: 'transform, opacity' })
+    })
+
     let ctx = gsap.context(() => {
-      // Main horizontal scroll animation
+      const trackWidth = track.scrollWidth
+      const windowWidth = window.innerWidth
+
+      // Main horizontal scroll animation with optimized scrub
       const scrollTween = gsap.to(track, {
-        x: () => {
-          const trackWidth = track.scrollWidth
-          const windowWidth = window.innerWidth
-          const lastPanel = panels[panels.length - 1]
-          const lastPanelWidth = lastPanel.offsetWidth
-          // Position so last card centers on screen
-          return -(trackWidth - windowWidth / 2 - lastPanelWidth / 2)
-        },
-        ease: "none",
+        x: () => -(trackWidth - windowWidth / 2 - panels[panels.length - 1].offsetWidth / 2),
+        ease: "none", // Linear for smoothest scrolling
         scrollTrigger: {
           trigger: container,
           pin: true,
-          scrub: 0.5,
-          start: "top top",
-          end: () => {
-            const trackWidth = track.scrollWidth
-            const windowWidth = window.innerWidth
-            return `+=${trackWidth - windowWidth + windowWidth / 2}`
-          },
+          scrub: 1, // Reduced for snappier feel
+          start: "center center",
+          end: () => `+=${trackWidth}`,
           invalidateOnRefresh: true,
+          anticipatePin: 1,
         }
       })
 
-      // Parallax effect for each panel
+      // Simplified parallax effect for each panel
       panels.forEach((panel) => {
         const content = panel.querySelector('.panel-content')
         
         gsap.fromTo(content, 
           { 
-            x: "-10%",
+            opacity: 0.8
           }, 
           {
-            x: "10%",
+            opacity: 1,
             ease: "none",
             scrollTrigger: {
               trigger: panel,
               containerAnimation: scrollTween,
               start: "left right",
-              end: "right left",
-              scrub: 0.5,
+              end: "center center",
+              scrub: 1,
             }
           }
         )
       })
     }, container)
 
-    // Refresh on resize with debounce
-    let resizeTimer
+    // Cleanup will-change after animations complete
+    const cleanupWillChange = () => {
+      gsap.set(track, { willChange: 'auto' })
+      panels.forEach(panel => {
+        gsap.set(panel.querySelector('.panel-content'), { willChange: 'auto' })
+      })
+    }
+
+    // Debounced resize handler
+    let resizeTimeout
     const handleResize = () => {
-      clearTimeout(resizeTimer)
-      resizeTimer = setTimeout(() => {
+      clearTimeout(resizeTimeout)
+      resizeTimeout = setTimeout(() => {
+        const nowDesktop = window.innerWidth >= 1024
+        if (nowDesktop !== isDesktop) {
+          setIsDesktop(nowDesktop)
+        }
         ScrollTrigger.refresh()
-      }, 250)
+      }, 150)
     }
 
     window.addEventListener('resize', handleResize)
 
     return () => {
       ctx.revert()
+      cleanupWillChange()
+      clearTimeout(resizeTimeout)
       window.removeEventListener('resize', handleResize)
     }
-  }, [])
+  }, [isDesktop])
 
   return (
     <section 
       ref={containerRef}
-      className="sticky-element relative w-full h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black"
+      className="sticky-element relative w-full lg:h-screen overflow-x-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black"
     >
       {/* Title Section */}
-      <div className="absolute top-8 left-1/2 -translate-x-1/2 z-10 text-center px-4">
+      <div className="lg:absolute lg:top-8 lg:left-1/2 lg:-translate-x-1/2 z-10 text-center px-4 py-8 lg:py-0">
         <h2 
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2"
           style={{ fontFamily: '"Oxanium", sans-serif' }}
@@ -132,29 +149,31 @@ const WhySponsorUs = () => {
         </p>
       </div>
 
-      {/* Horizontal Scrolling Track */}
-      <div className="track-container h-full flex items-center">
+      {/* Horizontal Scrolling Track for Desktop / Grid for Mobile */}
+      <div className="track-container h-full flex items-center lg:pt-0 pt-4">
         <div 
           ref={trackRef}
-          className="track-flex flex gap-4 sm:gap-6 md:gap-8 lg:gap-10 px-4 sm:px-8 md:px-12"
+          className="track-flex lg:flex lg:gap-10 grid grid-cols-1 md:grid-cols-2 gap-6 px-4 sm:px-8 md:px-12 lg:px-12 py-8 lg:py-0 w-full lg:w-auto"
         >
           {sponsorData.map((item, index) => (
             <div
               key={index}
-              className="sponsor-panel flex-shrink-0 relative overflow-hidden"
+              className="sponsor-panel lg:flex-shrink-0 relative overflow-hidden w-full lg:w-auto"
               style={{
-                width: 'clamp(280px, 80vw, 500px)',
-                height: 'clamp(400px, 70vh, 600px)'
+                width: isDesktop ? 'clamp(280px, 80vw, 500px)' : 'auto',
+                height: isDesktop ? 'clamp(400px, 70vh, 600px)' : '400px'
               }}
             >
               <div className="panel-content h-full w-full relative">
-                {/* Card with image background */}
-                <div className="h-full w-full rounded-2xl sm:rounded-3xl shadow-2xl relative overflow-hidden">
-                  {/* Background Image */}
+                {/* Card with image background - optimized for performance */}
+                <div className="h-full w-full rounded-2xl sm:rounded-3xl shadow-2xl relative overflow-hidden transform-gpu">
+                  {/* Background Image with lazy loading */}
                   <img 
                     src={item.img} 
                     alt={`Sponsor benefit ${index + 1}`}
                     className="absolute inset-0 w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                   
                   {/* Dark overlay for text readability */}
