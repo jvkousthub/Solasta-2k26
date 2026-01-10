@@ -52,81 +52,101 @@ const WhySponsorUs = () => {
     // Only apply horizontal scroll on desktop
     if (!isDesktop) return
 
-    // Use will-change for GPU acceleration
-    gsap.set(track, { willChange: 'transform' })
+    // Force hardware acceleration with will-change and transform3d
+    gsap.set(track, { 
+      force3D: true,
+      willChange: 'transform'
+    })
+    
     panels.forEach(panel => {
-      gsap.set(panel.querySelector('.panel-content'), { willChange: 'transform, opacity' })
+      const content = panel.querySelector('.panel-content')
+      gsap.set(content, { 
+        force3D: true,
+        willChange: 'transform'
+      })
     })
 
     let ctx = gsap.context(() => {
-      const trackWidth = track.scrollWidth
-      const windowWidth = window.innerWidth
-
-      // Main horizontal scroll animation with optimized scrub
+      // Main horizontal scroll animation with optimized settings
       const scrollTween = gsap.to(track, {
-        x: () => -(trackWidth - windowWidth / 2 - panels[panels.length - 1].offsetWidth / 2),
-        ease: "none", // Linear for smoothest scrolling
+        x: () => {
+          const trackWidth = track.scrollWidth
+          const windowWidth = window.innerWidth
+          const lastPanel = panels[panels.length - 1]
+          const lastPanelWidth = lastPanel.offsetWidth
+          return -(trackWidth - windowWidth / 2 - lastPanelWidth / 2)
+        },
+        ease: "none",
+        force3D: true,
         scrollTrigger: {
           trigger: container,
           pin: true,
-          scrub: 1, // Reduced for snappier feel
-          start: "center center",
-          end: () => `+=${trackWidth}`,
+          scrub: true, // Boolean for maximum smoothness
+          start: "top top",
+          end: () => {
+            const trackWidth = track.scrollWidth
+            const windowWidth = window.innerWidth
+            return `+=${trackWidth - windowWidth + windowWidth / 2}`
+          },
           invalidateOnRefresh: true,
           anticipatePin: 1,
+          fastScrollEnd: true,
         }
       })
 
-      // Simplified parallax effect for each panel
+      // Smooth parallax effect for each panel
       panels.forEach((panel) => {
         const content = panel.querySelector('.panel-content')
-        
-        gsap.fromTo(content, 
-          { 
-            opacity: 0.8
-          }, 
+
+        gsap.fromTo(content,
           {
-            opacity: 1,
+            x: "-10%",
+            force3D: true,
+          },
+          {
+            x: "10%",
             ease: "none",
+            force3D: true,
             scrollTrigger: {
               trigger: panel,
               containerAnimation: scrollTween,
               start: "left right",
-              end: "center center",
-              scrub: 1,
+              end: "right left",
+              scrub: true, // Boolean for smoothest parallax
             }
           }
         )
       })
     }, container)
 
-    // Cleanup will-change after animations complete
-    const cleanupWillChange = () => {
-      gsap.set(track, { willChange: 'auto' })
+    // Cleanup function
+    const cleanup = () => {
+      gsap.set(track, { clearProps: 'willChange' })
       panels.forEach(panel => {
-        gsap.set(panel.querySelector('.panel-content'), { willChange: 'auto' })
+        const content = panel.querySelector('.panel-content')
+        gsap.set(content, { clearProps: 'willChange' })
       })
     }
 
     // Debounced resize handler
-    let resizeTimeout
+    let resizeTimer
     const handleResize = () => {
-      clearTimeout(resizeTimeout)
-      resizeTimeout = setTimeout(() => {
+      clearTimeout(resizeTimer)
+      resizeTimer = setTimeout(() => {
         const nowDesktop = window.innerWidth >= 1024
         if (nowDesktop !== isDesktop) {
           setIsDesktop(nowDesktop)
         }
         ScrollTrigger.refresh()
-      }, 150)
+      }, 250)
     }
 
     window.addEventListener('resize', handleResize)
 
     return () => {
       ctx.revert()
-      cleanupWillChange()
-      clearTimeout(resizeTimeout)
+      cleanup()
+      clearTimeout(resizeTimer)
       window.removeEventListener('resize', handleResize)
     }
   }, [isDesktop])
@@ -134,12 +154,12 @@ const WhySponsorUs = () => {
   return (
     <section 
       ref={containerRef}
-      className="sticky-element relative w-full lg:h-screen overflow-x-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black"
+      className="sticky-element relative w-full h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black"
     >
       {/* Title Section */}
-      <div className="lg:absolute lg:top-8 lg:left-1/2 lg:-translate-x-1/2 z-10 text-center px-4 py-8 lg:py-0">
+      <div className="absolute top-8 left-1/2 -translate-x-1/2 z-10 text-center">
         <h2 
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2"
+          className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-2"
           style={{ fontFamily: '"Oxanium", sans-serif' }}
         >
           Why Sponsor Us?
@@ -154,26 +174,28 @@ const WhySponsorUs = () => {
         <div 
           ref={trackRef}
           className="track-flex lg:flex lg:gap-10 grid grid-cols-1 md:grid-cols-2 gap-6 px-4 sm:px-8 md:px-12 lg:px-12 py-8 lg:py-0 w-full lg:w-auto"
+          style={{ willChange: 'transform' }}
         >
           {sponsorData.map((item, index) => (
             <div
               key={index}
-              className="sponsor-panel lg:flex-shrink-0 relative overflow-hidden w-full lg:w-auto"
+              className="sponsor-panel lg:flex-shrink-0 relative w-full lg:w-auto"
               style={{
                 width: isDesktop ? 'clamp(280px, 80vw, 500px)' : 'auto',
                 height: isDesktop ? 'clamp(400px, 70vh, 600px)' : '400px'
               }}
             >
-              <div className="panel-content h-full w-full relative">
+              <div className="panel-content h-full w-full relative" style={{ willChange: 'transform' }}>
                 {/* Card with image background - optimized for performance */}
-                <div className="h-full w-full rounded-2xl sm:rounded-3xl shadow-2xl relative overflow-hidden transform-gpu">
+                <div className="h-full w-full rounded-2xl sm:rounded-3xl shadow-2xl relative overflow-hidden transform-gpu backface-hidden" style={{ outline: 'none', border: 'none' }}>
                   {/* Background Image with lazy loading */}
                   <img 
                     src={item.img} 
                     alt={`Sponsor benefit ${index + 1}`}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover transform-gpu"
                     loading="lazy"
                     decoding="async"
+                    style={{ margin: '-1px', width: 'calc(100% + 2px)', height: 'calc(100% + 2px)' }}
                   />
                   
                   {/* Dark overlay for text readability */}
@@ -181,12 +203,18 @@ const WhySponsorUs = () => {
 
                   {/* Content */}
                   <div className="relative z-10 h-full flex flex-col justify-between p-6 sm:p-8 md:p-10">
-                    <div className="text-white/90 text-6xl sm:text-7xl md:text-8xl font-bold">
+                    <div 
+                      className="text-white text-6xl sm:text-7xl md:text-8xl font-black tracking-tight drop-shadow-2xl"
+                      style={{ fontFamily: '"Oxanium", sans-serif', textShadow: '3px 3px 10px rgba(0,0,0,0.9)' }}
+                    >
                       {String(index + 1).padStart(2, '0')}
                     </div>
 
                     <div>
-                      <p className="text-white text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed font-medium">
+                      <p 
+                        className="text-white text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed font-bold tracking-wide drop-shadow-lg"
+                        style={{ fontFamily: '"Oxanium", sans-serif', textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}
+                      >
                         {item.description}
                       </p>
                     </div>

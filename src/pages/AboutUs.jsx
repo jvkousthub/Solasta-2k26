@@ -190,8 +190,8 @@ const AboutUs = () => {
         }
 
         .about-paragraph {
-          font-family: 'Inter', system-ui, sans-serif;
-          font-size: clamp(1rem, 1.5vw, 1.1rem);
+          font-family: 'Nunito', sans-serif;
+          font-size: clamp(1.05rem, 1.8vw, 1.25rem);
           line-height: 1.8;
           color: rgba(255, 255, 255, 0.9);
           text-align: justify;

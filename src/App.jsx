@@ -21,8 +21,8 @@ const App = () => {
       <div>
         <Hero />
         <CountdownTimer />
-        <AboutUs />
         <PreviousYearGallery />
+        <AboutUs />
         <WhySponsorUs />
       </div>
       
