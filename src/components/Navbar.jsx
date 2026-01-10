@@ -12,9 +12,9 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-black/80 to-transparent backdrop-blur-md border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-black/90 to-black/70 backdrop-blur-md border-b border-white/10">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Left Navigation */}
           <div className="hidden md:flex items-center gap-6 lg:gap-8">
             <button 
@@ -34,9 +34,9 @@ const Navbar = () => {
           </div>
 
           {/* Center Logo */}
-          <div className="flex-shrink-0 absolute left-1/2 -translate-x-1/2">
+          <div className="flex-shrink-0 absolute left-1/2 -translate-x-1/2 pointer-events-none">
             <h1 
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#FF6B35] via-[#FFB347] to-[#FF6B35] bg-clip-text text-transparent tracking-wider"
+              className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#FF6B35] via-[#FFB347] to-[#FF6B35] bg-clip-text text-transparent tracking-wider"
               style={{ fontFamily: '"Oxanium", sans-serif' }}
             >
               SOLASTA
@@ -73,10 +73,11 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+            className="md:hidden text-white p-2.5 rounded-lg hover:bg-white/10 transition-colors z-50 relative"
+            aria-label="Toggle menu"
           >
             <svg 
-              className="w-6 h-6" 
+              className="w-6 h-6 sm:w-7 sm:h-7" 
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24"
@@ -93,8 +94,8 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-black/95 backdrop-blur-lg border-t border-white/10">
-          <div className="px-4 py-6 space-y-4">
+        <div className="md:hidden bg-black/95 backdrop-blur-lg border-t border-white/10 animate-slideDown">
+          <div className="px-4 py-5 space-y-3 max-h-[calc(100vh-4rem)] overflow-y-auto">
             <button 
               onClick={() => scrollToSection('home')}
               className="block w-full text-left text-white/90 hover:text-[#FF6B35] font-semibold text-lg transition-colors py-2"

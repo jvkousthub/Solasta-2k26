@@ -49,9 +49,6 @@ const WhySponsorUs = () => {
 
     if (!container || !track || panels.length === 0) return
 
-    // Only apply horizontal scroll on desktop
-    if (!isDesktop) return
-
     // Force hardware acceleration with will-change and transform3d
     gsap.set(track, { 
       force3D: true,
@@ -66,58 +63,89 @@ const WhySponsorUs = () => {
       })
     })
 
-    let ctx = gsap.context(() => {
-      // Main horizontal scroll animation with optimized settings
-      const scrollTween = gsap.to(track, {
-        x: () => {
-          const trackWidth = track.scrollWidth
-          const windowWidth = window.innerWidth
-          const lastPanel = panels[panels.length - 1]
-          const lastPanelWidth = lastPanel.offsetWidth
-          return -(trackWidth - windowWidth / 2 - lastPanelWidth / 2)
-        },
-        ease: "none",
-        force3D: true,
-        scrollTrigger: {
-          trigger: container,
-          pin: true,
-          scrub: true, // Boolean for maximum smoothness
-          start: "top top",
-          end: () => {
+    // Wait for all images to load before initializing ScrollTrigger
+    const images = track.querySelectorAll('img')
+    let loadedImages = 0
+    const totalImages = images.length
+
+    const initScrollTrigger = () => {
+      let ctx = gsap.context(() => {
+        // Horizontal scroll animation for all devices
+        const scrollTween = gsap.to(track, {
+          x: () => {
             const trackWidth = track.scrollWidth
             const windowWidth = window.innerWidth
-            return `+=${trackWidth - windowWidth + windowWidth / 2}`
+            const lastPanel = panels[panels.length - 1]
+            const lastPanelWidth = lastPanel.offsetWidth
+            return -(trackWidth - windowWidth / 2 - lastPanelWidth / 2)
           },
-          invalidateOnRefresh: true,
-          anticipatePin: 1,
-          fastScrollEnd: true,
-        }
-      })
-
-      // Smooth parallax effect for each panel
-      panels.forEach((panel) => {
-        const content = panel.querySelector('.panel-content')
-
-        gsap.fromTo(content,
-          {
-            x: "-10%",
-            force3D: true,
-          },
-          {
-            x: "10%",
-            ease: "none",
-            force3D: true,
-            scrollTrigger: {
-              trigger: panel,
-              containerAnimation: scrollTween,
-              start: "left right",
-              end: "right left",
-              scrub: true, // Boolean for smoothest parallax
-            }
+          ease: "none",
+          force3D: true,
+          scrollTrigger: {
+            trigger: container,
+            pin: true,
+            scrub: 0.5,
+            start: "top top",
+            end: () => {
+              const trackWidth = track.scrollWidth
+              const windowWidth = window.innerWidth
+              return `+=${trackWidth - windowWidth + windowWidth / 2}`
+            },
+            invalidateOnRefresh: true,
+            anticipatePin: 1,
+            fastScrollEnd: true,
+            smoothChildTiming: true,
           }
-        )
-      })
-    }, container)
+        })
+
+        // Parallax effect for each panel on all devices
+        panels.forEach((panel) => {
+          const content = panel.querySelector('.panel-content')
+
+          gsap.fromTo(content,
+            {
+              x: "-8%",
+              force3D: true,
+            },
+            {
+              x: "8%",
+              ease: "none",
+              force3D: true,
+              scrollTrigger: {
+                trigger: panel,
+                containerAnimation: scrollTween,
+                start: "left right",
+                end: "right left",
+                scrub: 0.5,
+              }
+            }
+          )
+        })
+      }, container)
+
+      return ctx
+    }
+
+    const handleImageLoad = () => {
+      loadedImages++
+      if (loadedImages === totalImages) {
+        // All images loaded, refresh ScrollTrigger
+        ScrollTrigger.refresh()
+      }
+    }
+
+    // Listen for image load events
+    images.forEach(img => {
+      if (img.complete) {
+        handleImageLoad()
+      } else {
+        img.addEventListener('load', handleImageLoad)
+        img.addEventListener('error', handleImageLoad) // Handle errors too
+      }
+    })
+
+    // Initialize ScrollTrigger immediately (will recalculate when images load)
+    const ctx = initScrollTrigger()
 
     // Cleanup function
     const cleanup = () => {
@@ -148,41 +176,46 @@ const WhySponsorUs = () => {
       cleanup()
       clearTimeout(resizeTimer)
       window.removeEventListener('resize', handleResize)
+      images.forEach(img => {
+        img.removeEventListener('load', handleImageLoad)
+        img.removeEventListener('error', handleImageLoad)
+      })
     }
   }, [isDesktop])
 
   return (
     <section 
+      id="sponsors"
       ref={containerRef}
       className="sticky-element relative w-full h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black"
     >
       {/* Title Section */}
-      <div className="absolute top-8 left-1/2 -translate-x-1/2 z-10 text-center">
+      <div className="absolute top-4 sm:top-6 md:top-8 left-1/2 -translate-x-1/2 z-10 text-center px-4">
         <h2 
-          className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-2"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-1 sm:mb-2"
           style={{ fontFamily: '"Oxanium", sans-serif' }}
         >
           Why Sponsor Us?
         </h2>
-        <p className="text-gray-300 text-sm sm:text-base md:text-lg">
+        <p className="text-gray-300 text-xs sm:text-sm md:text-base lg:text-lg">
           Reasons to Sponsor SOLASTA'26
         </p>
       </div>
 
-      {/* Horizontal Scrolling Track for Desktop / Grid for Mobile */}
-      <div className="track-container h-full flex items-center lg:pt-0 pt-4">
+      {/* Horizontal Scrolling Track for All Devices */}
+      <div className="track-container h-full flex items-center pt-24 sm:pt-28 md:pt-20 lg:pt-0 pb-4 lg:pb-0">
         <div 
           ref={trackRef}
-          className="track-flex lg:flex lg:gap-10 grid grid-cols-1 md:grid-cols-2 gap-6 px-4 sm:px-8 md:px-12 lg:px-12 py-8 lg:py-0 w-full lg:w-auto"
+          className="track-flex flex gap-4 sm:gap-5 md:gap-6 lg:gap-8 px-3 sm:px-6 md:px-8 lg:px-12 py-4 lg:py-0"
           style={{ willChange: 'transform' }}
         >
           {sponsorData.map((item, index) => (
             <div
               key={index}
-              className="sponsor-panel lg:flex-shrink-0 relative w-full lg:w-auto"
+              className="sponsor-panel flex-shrink-0 relative"
               style={{
-                width: isDesktop ? 'clamp(280px, 80vw, 500px)' : 'auto',
-                height: isDesktop ? 'clamp(400px, 70vh, 600px)' : '400px'
+                width: 'clamp(240px, 75vw, 450px)',
+                height: 'clamp(320px, 60vh, 500px)'
               }}
             >
               <div className="panel-content h-full w-full relative" style={{ willChange: 'transform' }}>
@@ -202,9 +235,9 @@ const WhySponsorUs = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/40"></div>
 
                   {/* Content */}
-                  <div className="relative z-10 h-full flex flex-col justify-between p-6 sm:p-8 md:p-10">
+                  <div className="relative z-10 h-full flex flex-col justify-between p-3 sm:p-5 md:p-6 lg:p-8">
                     <div 
-                      className="text-white text-6xl sm:text-7xl md:text-8xl font-black tracking-tight drop-shadow-2xl"
+                      className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight drop-shadow-2xl"
                       style={{ fontFamily: '"Oxanium", sans-serif', textShadow: '3px 3px 10px rgba(0,0,0,0.9)' }}
                     >
                       {String(index + 1).padStart(2, '0')}
@@ -212,7 +245,7 @@ const WhySponsorUs = () => {
 
                     <div>
                       <p 
-                        className="text-white text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed font-bold tracking-wide drop-shadow-lg"
+                        className="text-white text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-relaxed font-bold tracking-wide drop-shadow-lg"
                         style={{ fontFamily: '"Oxanium", sans-serif', textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}
                       >
                         {item.description}

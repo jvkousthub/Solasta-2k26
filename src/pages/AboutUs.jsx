@@ -46,13 +46,57 @@ const AboutUs = () => {
           scrub: 1
         }
       })
+
+      // Mobile parallax for paragraphs
+      const paragraphs = section.querySelectorAll('.about-paragraph')
+      paragraphs.forEach((para, index) => {
+        gsap.fromTo(para,
+          {
+            y: 20,
+            opacity: 0.8
+          },
+          {
+            y: -20,
+            opacity: 1,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: para,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 1
+            }
+          }
+        )
+      })
+
+      // Logo parallax
+      const logo = section.querySelector('.logo-placeholder')
+      if (logo) {
+        gsap.fromTo(logo,
+          {
+            y: 30,
+            scale: 0.95
+          },
+          {
+            y: -30,
+            scale: 1.05,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: logo,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 1
+            }
+          }
+        )
+      }
     }, section)
 
     return () => ctx.revert()
   }, [])
 
   return (
-    <section ref={sectionRef} className="about-section">
+    <section id="about" ref={sectionRef} className="about-section">
       <div className="about-bg-circle"></div>
       <div className="about-bg-circle about-bg-circle-2"></div>
       
@@ -89,9 +133,21 @@ const AboutUs = () => {
           align-items: center;
           justify-content: center;
           background: linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%);
-          padding: 6rem 2rem;
+          padding: 4rem 1rem;
           position: relative;
           overflow: hidden;
+        }
+
+        @media (min-width: 640px) {
+          .about-section {
+            padding: 5rem 2rem;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .about-section {
+            padding: 6rem 2rem;
+          }
         }
 
         .about-bg-circle {
@@ -122,18 +178,25 @@ const AboutUs = () => {
 
         .about-title {
           font-family: 'Oxanium', sans-serif;
-          font-size: clamp(2.5rem, 5vw, 4rem);
+          font-size: clamp(2rem, 5vw, 4rem);
           font-weight: 800;
           text-align: center;
           color: #fff;
-          margin-bottom: 3rem;
+          margin-bottom: 2rem;
           text-transform: uppercase;
-          letter-spacing: 4px;
+          letter-spacing: 2px;
           background: linear-gradient(135deg, #fff 0%, #FF6B35 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
           position: relative;
+        }
+
+        @media (min-width: 640px) {
+          .about-title {
+            margin-bottom: 3rem;
+            letter-spacing: 4px;
+          }
         }
 
         .about-title::after {
@@ -191,16 +254,23 @@ const AboutUs = () => {
 
         .about-paragraph {
           font-family: 'Nunito', sans-serif;
-          font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+          font-size: clamp(0.95rem, 1.8vw, 1.25rem);
           line-height: 1.8;
           color: rgba(255, 255, 255, 0.9);
           text-align: justify;
           background: rgba(255, 255, 255, 0.03);
-          padding: 1.5rem;
-          border-radius: 15px;
+          padding: 1rem;
+          border-radius: 12px;
           border-left: 3px solid #FF6B35;
           backdrop-filter: blur(10px);
           transition: all 0.3s ease;
+        }
+
+        @media (min-width: 640px) {
+          .about-paragraph {
+            padding: 1.5rem;
+            border-radius: 15px;
+          }
         }
 
         .about-paragraph:hover {
@@ -232,18 +302,27 @@ const AboutUs = () => {
 
         @media (max-width: 767px) {
           .about-section {
-            padding: 4rem 1.5rem;
+            padding: 3rem 1rem;
+          }
+
+          .about-content {
+            gap: 2rem;
           }
 
           .about-paragraph {
             text-align: left;
-            padding: 1.2rem;
+            padding: 1rem;
+            font-size: 0.95rem;
           }
 
           .logo-placeholder {
-            width: 180px;
-            height: 180px;
-            font-size: 1.3rem;
+            width: 140px;
+            height: 140px;
+            font-size: 1.1rem;
+          }
+
+          .about-title {
+            font-size: 1.75rem;
           }
         }
 

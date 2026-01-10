@@ -18,12 +18,32 @@ const App = () => {
   return (
     <Router>
       <Navbar />
-      <div>
+      <div className="overflow-x-hidden">
         <Hero />
         <CountdownTimer />
         <PreviousYearGallery />
         <AboutUs />
         <WhySponsorUs />
+        <div id="contact" className="min-h-screen bg-gradient-to-b from-gray-900 to-black flex items-center justify-center p-4 sm:p-8">
+          <div className="text-center max-w-2xl mx-auto">
+            <h2 
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 bg-gradient-to-r from-[#FF6B35] via-[#FFB347] to-[#FF6B35] bg-clip-text text-transparent"
+              style={{ fontFamily: '"Oxanium", sans-serif' }}
+            >
+              Get In Touch
+            </h2>
+            <p className="text-white/80 text-base sm:text-lg md:text-xl mb-6 sm:mb-8 px-4" style={{ fontFamily: '"Oxanium", sans-serif' }}>
+              For sponsorship opportunities, partnerships, or any queries about SOLASTA'26, feel free to reach out to us.
+            </p>
+            <a 
+              href="mailto:solasta@iiitk.ac.in" 
+              className="inline-block bg-[#FF6B35] hover:bg-[#FF8C5A] text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg md:text-xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+              style={{ fontFamily: '"Oxanium", sans-serif' }}
+            >
+              Contact Us
+            </a>
+          </div>
+        </div>
       </div>
       
       <Routes>

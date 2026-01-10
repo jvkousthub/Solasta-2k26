@@ -180,15 +180,28 @@ const CountdownTimer = () => {
 
       <style jsx>{`
         .countdown-section {
-          min-height: 120vh;
+          min-height: 100vh;
           display: flex;
           align-items: center;
           justify-content: center;
           background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 30%, #16213e 60%, #0f3460 100%);
-          padding: 4rem 2rem;
+          padding: 2rem 1rem;
           position: relative;
           overflow: hidden;
           perspective: 1000px;
+        }
+
+        @media (min-width: 640px) {
+          .countdown-section {
+            padding: 3rem 1.5rem;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .countdown-section {
+            padding: 4rem 2rem;
+            min-height: 120vh;
+          }
         }
 
         .countdown-section::before {
@@ -259,15 +272,27 @@ const CountdownTimer = () => {
         }
 
         .countdown-header {
-          margin-bottom: 4rem;
+          margin-bottom: 2rem;
+        }
+
+        @media (min-width: 640px) {
+          .countdown-header {
+            margin-bottom: 3rem;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .countdown-header {
+            margin-bottom: 4rem;
+          }
         }
 
         .countdown-title {
           font-family: 'Oxanium', sans-serif;
-          font-size: clamp(2.5rem, 8vw, 5rem);
+          font-size: clamp(2rem, 8vw, 5rem);
           font-weight: 800;
           color: white;
-          margin: 0 0 1rem 0;
+          margin: 0 0 0.5rem 0;
           text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
           letter-spacing: -0.02em;
           background: linear-gradient(135deg, #fff 0%, #ff6b35 100%);
@@ -276,12 +301,30 @@ const CountdownTimer = () => {
           background-clip: text;
         }
 
+        @media (min-width: 640px) {
+          .countdown-title {
+            margin: 0 0 1rem 0;
+          }
+        }
+
         .countdown-subtitle {
           font-family: 'Montserrat', sans-serif;
-          font-size: clamp(1.5rem, 4vw, 2.5rem);
+          font-size: clamp(1rem, 4vw, 2.5rem);
           color: rgba(255, 255, 255, 0.95);
           font-weight: 700;
-          margin-top: 5rem;
+          margin-top: 3rem;
+        }
+
+        @media (min-width: 640px) {
+          .countdown-subtitle {
+            margin-top: 4rem;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .countdown-subtitle {
+            margin-top: 5rem;
+          }
         }
 
         .countdown-timer {
@@ -294,15 +337,34 @@ const CountdownTimer = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: clamp(1rem, 3vw, 2rem);
+          gap: clamp(0.5rem, 2vw, 2rem);
+          flex-wrap: wrap;
+        }
+
+        @media (min-width: 640px) {
+          .time-section {
+            flex-wrap: nowrap;
+          }
         }
 
         .time-unit {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 1.5rem;
+          gap: 0.75rem;
           transition: transform 0.3s ease;
+        }
+
+        @media (min-width: 640px) {
+          .time-unit {
+            gap: 1rem;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .time-unit {
+            gap: 1.5rem;
+          }
         }
 
         .digit-wrapper {
@@ -330,10 +392,10 @@ const CountdownTimer = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          min-width: clamp(100px, 15vw, 160px);
-          padding: clamp(1.5rem, 3vw, 3rem) clamp(1rem, 2vw, 2rem);
+          min-width: clamp(70px, 15vw, 160px);
+          padding: clamp(1rem, 2.5vw, 3rem) clamp(0.5rem, 1.5vw, 2rem);
           background: linear-gradient(135deg, rgba(255, 107, 53, 0.15) 0%, rgba(255, 107, 53, 0.05) 100%);
-          border-radius: 20px;
+          border-radius: 15px;
           border: 2px solid rgba(255, 107, 53, 0.3);
           backdrop-filter: blur(10px);
           box-shadow: 
@@ -341,6 +403,18 @@ const CountdownTimer = () => {
             0 0 10px rgba(255, 107, 53, 0.15);
           transform-style: preserve-3d;
           overflow: hidden;
+        }
+
+        @media (min-width: 640px) {
+          .digit-display {
+            border-radius: 18px;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .digit-display {
+            border-radius: 20px;
+          }
         }
 
         .digit-display::before {
@@ -367,7 +441,7 @@ const CountdownTimer = () => {
 
         .digit-value {
           font-family: 'Orbitron', 'Oxanium', 'Courier New', monospace;
-          font-size: clamp(4rem, 12vw, 8rem);
+          font-size: clamp(2.5rem, 10vw, 8rem);
           font-weight: 700;
           background: linear-gradient(180deg, #FF6B35 0%, #FF8C5A 50%, #FF6B35 100%);
           -webkit-background-clip: text;
@@ -383,14 +457,20 @@ const CountdownTimer = () => {
 
         .time-separator {
           font-family: 'Oxanium', sans-serif;
-          font-size: clamp(2.5rem, 6vw, 5rem);
+          font-size: clamp(1.5rem, 5vw, 5rem);
           font-weight: 700;
           background: linear-gradient(180deg, #fff 0%, #FF6B35 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
-          margin: 0 0.5rem;
+          margin: 0 0.25rem;
           animation: blink 2s ease-in-out infinite;
+        }
+
+        @media (min-width: 640px) {
+          .time-separator {
+            margin: 0 0.5rem;
+          }
         }
 
         @keyframes blink {
@@ -400,42 +480,60 @@ const CountdownTimer = () => {
 
         .time-label {
           font-family: 'Oxanium', sans-serif;
-          font-size: clamp(1rem, 2.5vw, 1.5rem);
+          font-size: clamp(0.75rem, 2vw, 1.5rem);
           font-weight: 700;
           background: linear-gradient(135deg, #FF6B35 0%, #FF8C5A 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
           text-transform: uppercase;
-          letter-spacing: 0.2em;
+          letter-spacing: 0.1em;
         }
 
-        @media (max-width: 768px) {
+        @media (min-width: 640px) {
+          .time-label {
+            letter-spacing: 0.15em;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .time-label {
+            letter-spacing: 0.2em;
+          }
+        }
+
+        @media (max-width: 639px) {
           .countdown-section {
-            padding: 2rem 1rem;
+            padding: 1.5rem 0.75rem;
             min-height: 100vh;
           }
 
           .countdown-header {
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
           }
 
           .countdown-timer {
-            gap: 2rem;
+            gap: 1rem;
           }
 
           .time-section {
-            gap: 0.5rem;
+            gap: 0.25rem;
           }
 
           .time-separator {
-            margin: 0 0.25rem;
-            font-size: clamp(2rem, 6vw, 3rem);
+            margin: 0 0.1rem;
+            font-size: clamp(1.5rem, 5vw, 2rem);
           }
 
           .digit-display {
-            padding: clamp(1rem, 2vw, 1.5rem) clamp(0.5rem, 1vw, 1rem);
-            min-width: clamp(80px, 15vw, 120px);
+            padding: clamp(0.75rem, 2vw, 1.25rem) clamp(0.4rem, 1vw, 0.75rem);
+            min-width: clamp(60px, 15vw, 100px);
+            border-radius: 12px;
+          }
+
+          .countdown-subtitle {
+            margin-top: 2rem;
+            font-size: 0.9rem;
           }
         }
       `}</style>
