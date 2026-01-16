@@ -132,7 +132,7 @@ const AboutUs = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          background: linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%);
+          background: linear-gradient(to bottom, #000000 0%, #1f2937 50%, #000000 100%);
           padding: 4rem 1rem;
           position: relative;
           overflow: hidden;
@@ -177,18 +177,14 @@ const AboutUs = () => {
         }
 
         .about-title {
-          font-family: 'Oxanium', sans-serif;
+          font-family: 'Luckiest Guy', cursive;
           font-size: clamp(2rem, 5vw, 4rem);
-          font-weight: 800;
+          font-weight: 400;
           text-align: center;
-          color: #fff;
+          color: #FF6B35;
           margin-bottom: 2rem;
           text-transform: uppercase;
           letter-spacing: 2px;
-          background: linear-gradient(135deg, #fff 0%, #FF6B35 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
           position: relative;
         }
 
@@ -207,7 +203,7 @@ const AboutUs = () => {
           transform: translateX(-50%);
           width: 100px;
           height: 4px;
-          background: linear-gradient(90deg, transparent, #FF6B35, transparent);
+          background: linear-gradient(90deg, transparent, #FFA07A, transparent);
           border-radius: 2px;
         }
 
@@ -253,7 +249,7 @@ const AboutUs = () => {
         }
 
         .about-paragraph {
-          font-family: 'Nunito', sans-serif;
+          font-family: 'Montserrat', sans-serif;
           font-size: clamp(0.95rem, 1.8vw, 1.25rem);
           line-height: 1.8;
           color: rgba(255, 255, 255, 0.9);
@@ -261,7 +257,7 @@ const AboutUs = () => {
           background: rgba(255, 255, 255, 0.03);
           padding: 1rem;
           border-radius: 12px;
-          border-left: 3px solid #FF6B35;
+          border-left: 3px solid #FFA07A;
           backdrop-filter: blur(10px);
           transition: all 0.3s ease;
         }

@@ -3,9 +3,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './pages/Hero'
 import CountdownTimer from './pages/CountdownTimer'
+import Events from './pages/Events'
 import AboutUs from './pages/AboutUs'
 import PreviousYearGallery from './components/PreviousYearGallery'
+import PreviousYearHighlights from './components/PreviousYearHighlights'
 import WhySponsorUs from './pages/WhySponsorUs'
+import FAQ from './pages/FAQ'
+import Footer from './components/Footer'
+import Teams from './pages/Teams'
 
 const App = () => {
   const [showPopup, setShowPopup] = useState(false)
@@ -18,13 +23,19 @@ const App = () => {
   return (
     <Router>
       <Navbar />
-      <div className="overflow-x-hidden">
-        <Hero />
-        <CountdownTimer />
-        <PreviousYearGallery />
-        <AboutUs />
-        <WhySponsorUs />
-        <div id="contact" className="min-h-screen bg-gradient-to-b from-gray-900 to-black flex items-center justify-center p-4 sm:p-8">
+      <Routes>
+        <Route path="/" element={
+          <div className="overflow-x-hidden">
+            <Hero />
+            <CountdownTimer />
+            <Events />
+            <PreviousYearGallery />
+            <AboutUs />
+            <WhySponsorUs />
+            <FAQ />
+            <Footer />
+        {/* Temporarily commented out Get In Touch section */}
+        {/* <div id="contact" className="min-h-screen bg-gradient-to-b from-gray-900 to-black flex items-center justify-center p-4 sm:p-8">
           <div className="text-center max-w-2xl mx-auto">
             <h2 
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 bg-gradient-to-r from-[#FF6B35] via-[#FFB347] to-[#FF6B35] bg-clip-text text-transparent"
@@ -43,11 +54,10 @@ const App = () => {
               Contact Us
             </a>
           </div>
-        </div>
-      </div>
-      
-      <Routes>
-        <Route path="/" element={<></>} />
+        </div> */}
+          </div>
+        } />
+        <Route path="/teams" element={<Teams />} />
       </Routes>
       
       {/* Commented out Schedule Button - Register button moved to Navbar */}
@@ -64,7 +74,8 @@ const App = () => {
           <span className="hidden sm:inline">Schedule</span>
         </button> */}
         
-        {/* Register Button - Moved to Navbar */}
+        {/* Reg
+        ister Button - Moved to Navbar */}
         {/* <a 
           href="#register" 
           className="bg-white text-[#FF6B35] px-6 py-2.5 sm:px-9 sm:py-4 rounded-full font-bold text-sm sm:text-xl shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:scale-110 hover:shadow-[0_15px_50px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out backdrop-blur-sm border-2 border-[#FF6B35] hover:bg-[#FF6B35] hover:text-white active:scale-95"

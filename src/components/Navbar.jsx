@@ -1,13 +1,31 @@
 import React, { useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation()
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+    if (location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => {
+        const element = document.getElementById(sectionId)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 100)
+    } else {
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
     }
+    setIsMenuOpen(false)
+  }
+
+  const handleTeamsClick = () => {
+    navigate('/teams')
     setIsMenuOpen(false)
   }
 
@@ -19,24 +37,31 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-6 lg:gap-8">
             <button 
               onClick={() => scrollToSection('home')}
-              className="text-white/90 hover:text-[#FF6B35] font-semibold text-base transition-all duration-300 hover:scale-105"
+              className="text-white/90 hover:text-[#FFA07A] font-semibold text-base transition-all duration-300 hover:scale-105"
               style={{ fontFamily: '"Oxanium", sans-serif' }}
             >
               Home
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className="text-white/90 hover:text-[#FF6B35] font-semibold text-base transition-all duration-300 hover:scale-105"
+              className="text-white/90 hover:text-[#FFA07A] font-semibold text-base transition-all duration-300 hover:scale-105"
               style={{ fontFamily: '"Oxanium", sans-serif' }}
             >
               About
+            </button>
+            <button 
+              onClick={handleTeamsClick}
+              className="text-white/90 hover:text-[#FFA07A] font-semibold text-base transition-all duration-300 hover:scale-105"
+              style={{ fontFamily: '"Oxanium", sans-serif' }}
+            >
+              Teams
             </button>
           </div>
 
           {/* Center Logo */}
           <div className="flex-shrink-0 absolute left-1/2 -translate-x-1/2 pointer-events-none">
             <h1 
-              className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#FF6B35] via-[#FFB347] to-[#FF6B35] bg-clip-text text-transparent tracking-wider"
+              className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#FFA07A] via-[#FFD4A3] to-[#FFA07A] bg-clip-text text-transparent tracking-wider"
               style={{ fontFamily: '"Oxanium", sans-serif' }}
             >
               SOLASTA
@@ -47,14 +72,14 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-4 lg:gap-6 ml-auto">
             <button 
               onClick={() => scrollToSection('sponsors')}
-              className="text-white/90 hover:text-[#FF6B35] font-semibold text-base transition-all duration-300 hover:scale-105"
+              className="text-white/90 hover:text-[#FFA07A] font-semibold text-base transition-all duration-300 hover:scale-105"
               style={{ fontFamily: '"Oxanium", sans-serif' }}
             >
               Sponsors
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="text-white/90 hover:text-[#FF6B35] font-semibold text-base transition-all duration-300 hover:scale-105"
+              className="text-white/90 hover:text-[#FFA07A] font-semibold text-base transition-all duration-300 hover:scale-105"
               style={{ fontFamily: '"Oxanium", sans-serif' }}
             >
               Contact
@@ -64,7 +89,7 @@ const Navbar = () => {
           {/* Register Button - Extreme Right */}
           <a 
             href="#register" 
-            className="hidden md:block bg-white text-[#FF6B35] px-5 py-2.5 lg:px-7 lg:py-3 rounded-full font-bold text-sm lg:text-base shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:scale-110 hover:shadow-[0_15px_50px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out backdrop-blur-sm border-2 border-[#FF6B35] hover:bg-[#FF6B35] hover:text-white active:scale-95 ml-4 lg:ml-6"
+            className="hidden md:block bg-white text-[#FFA07A] px-5 py-2.5 lg:px-7 lg:py-3 rounded-full font-bold text-sm lg:text-base shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:scale-110 hover:shadow-[0_15px_50px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out backdrop-blur-sm border-2 border-[#FFA07A] hover:bg-[#FFA07A] hover:text-white active:scale-95 ml-4 lg:ml-6"
             style={{ fontFamily: '"Oxanium", sans-serif' }}
           >
             Register
@@ -98,28 +123,35 @@ const Navbar = () => {
           <div className="px-4 py-5 space-y-3 max-h-[calc(100vh-4rem)] overflow-y-auto">
             <button 
               onClick={() => scrollToSection('home')}
-              className="block w-full text-left text-white/90 hover:text-[#FF6B35] font-semibold text-lg transition-colors py-2"
+              className="block w-full text-left text-white/90 hover:text-[#FFA07A] font-semibold text-lg transition-colors py-2"
               style={{ fontFamily: '"Oxanium", sans-serif' }}
             >
               Home
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className="block w-full text-left text-white/90 hover:text-[#FF6B35] font-semibold text-lg transition-colors py-2"
+              className="block w-full text-left text-white/90 hover:text-[#FFA07A] font-semibold text-lg transition-colors py-2"
               style={{ fontFamily: '"Oxanium", sans-serif' }}
             >
               About
             </button>
             <button 
+              onClick={handleTeamsClick}
+              className="block w-full text-left text-white/90 hover:text-[#FFA07A] font-semibold text-lg transition-colors py-2"
+              style={{ fontFamily: '"Oxanium", sans-serif' }}
+            >
+              Teams
+            </button>
+            <button 
               onClick={() => scrollToSection('sponsors')}
-              className="block w-full text-left text-white/90 hover:text-[#FF6B35] font-semibold text-lg transition-colors py-2"
+              className="block w-full text-left text-white/90 hover:text-[#FFA07A] font-semibold text-lg transition-colors py-2"
               style={{ fontFamily: '"Oxanium", sans-serif' }}
             >
               Sponsors
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="block w-full text-left text-white/90 hover:text-[#FF6B35] font-semibold text-lg transition-colors py-2"
+              className="block w-full text-left text-white/90 hover:text-[#FFA07A] font-semibold text-lg transition-colors py-2"
               style={{ fontFamily: '"Oxanium", sans-serif' }}
             >
               Contact
@@ -127,7 +159,7 @@ const Navbar = () => {
             {/* Mobile Register Button */}
             <a 
               href="#register" 
-              className="block text-center bg-white text-[#FF6B35] px-6 py-3 rounded-full font-bold text-base shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:bg-[#FF6B35] hover:text-white transition-all duration-300 ease-out border-2 border-[#FF6B35] mt-4"
+              className="block text-center bg-white text-[#FFA07A] px-6 py-3 rounded-full font-bold text-base shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:bg-[#FFA07A] hover:text-white transition-all duration-300 ease-out border-2 border-[#FFA07A] mt-4"
               style={{ fontFamily: '"Oxanium", sans-serif' }}
               onClick={() => setIsMenuOpen(false)}
             >

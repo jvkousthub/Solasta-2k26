@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
+import { useNavigate } from 'react-router-dom'
 import bg1 from '../assets/bg1.png'
 
 const Hero = () => {
+  const navigate = useNavigate()
   const textRef = useRef(null)
   const charsRef = useRef([])
   const [isMouseDown, setIsMouseDown] = useState(false)
@@ -203,6 +205,15 @@ const Hero = () => {
         >
           Solasta'26
         </h1>
+        
+        {/* Teams Button */}
+        <button
+          onClick={() => navigate('/teams')}
+          className='mt-6 sm:mt-8 bg-white text-[#FF6B35] px-8 py-3 sm:px-10 sm:py-4 rounded-full font-bold text-base sm:text-xl shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:scale-110 hover:shadow-[0_15px_50px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out border-2 border-white hover:bg-transparent hover:text-white active:scale-95'
+          style={{ fontFamily: '"Oxanium", sans-serif' }}
+        >
+          Meet Our Teams
+        </button>
       </div>
     </div>
   )

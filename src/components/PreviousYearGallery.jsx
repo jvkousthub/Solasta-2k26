@@ -1,258 +1,112 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
-
-// Import images - You'll need to add your actual previous year images to the assets folder
-// For now using placeholder paths - replace these with your actual image imports
-// import prev1 from '../assets/solasta2023-1.jpg'
-// import prev2 from '../assets/solasta2023-2.jpg'
-// etc...
+import React from 'react'
+import Stack from './Stack'
 
 const PreviousYearGallery = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const [isTransitioning, setIsTransitioning] = useState(false)
-  const galleryRef = useRef(null)
-  const titleRef = useRef(null)
-  const mainImageRef = useRef(null)
-
-  // Placeholder images - Replace these with your actual images
+  // Using placeholder fest images - Replace these URLs with your actual fest images
   const images = [
-    {
-      url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800',
-      caption: 'SOLASTA 2023 - Cultural Night',
-      year: '2023'
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800',
-      caption: 'SOLASTA 2023 - Tech Fest',
-      year: '2023'
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800',
-      caption: 'SOLASTA 2022 - Dance Competition',
-      year: '2022'
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800',
-      caption: 'SOLASTA 2022 - Music Fest',
-      year: '2022'
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800',
-      caption: 'SOLASTA 2019 - Inauguration',
-      year: '2019'
-    }
+    "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=800&auto=format", // Concert crowd
+    "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=800&auto=format", // Night event
+    "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format", // Stage performance
+    "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=800&auto=format", // Music performance
+    "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=800&auto=format", // Cultural event
+    "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=800&auto=format"  // Tech fest
   ]
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsTransitioning(true)
-      setTimeout(() => {
-        setCurrentImageIndex((prevIndex) => 
-          prevIndex === images.length - 1 ? 0 : prevIndex + 1
-        )
-        setIsTransitioning(false)
-      }, 500)
-    }, 4000) // Change image every 4 seconds
-
-    return () => clearInterval(interval)
-  }, [images.length])
-
-  // Parallax animations
-  useEffect(() => {
-    const gallery = galleryRef.current
-    const title = titleRef.current
-    const mainImage = mainImageRef.current
-
-    if (!gallery) return
-
-    let ctx = gsap.context(() => {
-      // Title parallax
-      if (title) {
-        gsap.fromTo(title,
-          {
-            y: 30,
-            opacity: 0.8
-          },
-          {
-            y: -10,
-            opacity: 1,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: gallery,
-              start: 'top bottom',
-              end: 'bottom top',
-              scrub: 1
-            }
-          }
-        )
-      }
-
-      // Main image parallax
-      if (mainImage) {
-        gsap.fromTo(mainImage,
-          {
-            y: -20,
-            scale: 1.05
-          },
-          {
-            y: 20,
-            scale: 1.05,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: mainImage,
-              start: 'top bottom',
-              end: 'bottom top',
-              scrub: 1
-            }
-          }
-        )
-      }
-    }, gallery)
-
-    return () => ctx.revert()
-  }, [currentImageIndex])
-
-  const goToPrevious = () => {
-    setIsTransitioning(true)
-    setTimeout(() => {
-      setCurrentImageIndex((prevIndex) => 
-        prevIndex === 0 ? images.length - 1 : prevIndex - 1
-      )
-      setIsTransitioning(false)
-    }, 300)
-  }
-
-  const goToNext = () => {
-    setIsTransitioning(true)
-    setTimeout(() => {
-      setCurrentImageIndex((prevIndex) => 
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
-      )
-      setIsTransitioning(false)
-    }, 300)
-  }
-
-  const goToImage = (index) => {
-    setIsTransitioning(true)
-    setTimeout(() => {
-      setCurrentImageIndex(index)
-      setIsTransitioning(false)
-    }, 300)
-  }
-
   return (
-    <div ref={galleryRef} className="w-full py-12 sm:py-14 md:py-16 px-3 sm:px-4 md:px-6 lg:px-8 bg-gradient-to-b from-[#0f3460] to-[#16213e]">
-      <div className="max-w-6xl mx-auto">
-        {/* Section Title */}
-        <h2 
-          ref={titleRef}
-          className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-3 sm:mb-4 bg-gradient-to-r from-[#FF6B35] via-[#FFB347] to-[#FF6B35] bg-clip-text text-transparent px-2"
-          style={{ fontFamily: '"Oxanium", sans-serif' }}
-        >
-          PREVIOUS YEAR HIGHLIGHTS
-        </h2>
-        <p 
-          className="text-white/70 text-center mb-8 sm:mb-10 md:mb-12 text-xs sm:text-sm md:text-base px-2"
-          style={{ fontFamily: '"Oxanium", sans-serif' }}
-        >
-          Relive the magical moments from past editions of SOLASTA
-        </p>
+    <section className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Title */}
+        <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20">
+          <h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#FFA07A] mb-2 sm:mb-4"
+            style={{ fontFamily: '"Luckiest Guy", cursive' }}
+          >
+            Previous Year Highlights
+          </h2>
+          <p className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl"
+            style={{ fontFamily: '"Montserrat", sans-serif' }}
+          >
+            Relive the magic of SOLASTA'25
+          </p>
+        </div>
 
-        {/* Gallery Container */}
-        <div className="relative">
-          {/* Main Image */}
-          <div ref={mainImageRef} className="relative aspect-video rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.4)] sm:shadow-[0_15px_45px_rgba(0,0,0,0.45)] md:shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-white/10 sm:border-2">
-            <img
-              src={images[currentImageIndex].url}
-              alt={images[currentImageIndex].caption}
-              className={`w-full h-full object-cover transition-all duration-500 ${
-                isTransitioning ? 'opacity-0 scale-105' : 'opacity-100 scale-100'
-              }`}
-            />
-            
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-            
-            {/* Caption */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6 lg:p-8">
-              <div 
-                className="inline-block bg-[#FF6B35] text-white px-2.5 py-1 sm:px-3 sm:py-1 rounded-full text-xs font-semibold mb-1.5 sm:mb-2"
-                style={{ fontFamily: '"Oxanium", sans-serif' }}
-              >
-                {images[currentImageIndex].year}
-              </div>
-              <h3 
-                className="text-white text-base sm:text-xl md:text-2xl lg:text-3xl font-bold"
-                style={{ fontFamily: '"Oxanium", sans-serif' }}
-              >
-                {images[currentImageIndex].caption}
-              </h3>
+        {/* Stack Container */}
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
+          {/* Stack Component */}
+          <div className="w-full max-w-[380px] sm:max-w-[420px] md:max-w-[500px] lg:max-w-[550px]">
+            <div 
+              className="w-full aspect-square mx-auto"
+              style={{ maxWidth: '750px' }}
+            >
+              <Stack
+                randomRotation={true}
+                sensitivity={150}
+                sendToBackOnClick={true}
+                mobileClickOnly={false}
+                autoplay={true}
+                autoplayDelay={4000}
+                pauseOnHover={true}
+                mobileBreakpoint={768}
+                cards={images.map((src, i) => (
+                  <img 
+                    key={i} 
+                    src={src} 
+                    alt={`SOLASTA highlight ${i + 1}`} 
+                    className="w-full h-95 object-cover pointer-events-none select-none"
+                  />
+                ))}
+              />
             </div>
           </div>
 
-          {/* Navigation Arrows */}
-          <button
-            onClick={goToPrevious}
-            className="absolute left-1.5 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-md text-white p-1.5 sm:p-2 md:p-3 rounded-full transition-all duration-300 hover:scale-110 border border-white/30"
-            aria-label="Previous image"
-          >
-            <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          <button
-            onClick={goToNext}
-            className="absolute right-1.5 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-md text-white p-1.5 sm:p-2 md:p-3 rounded-full transition-all duration-300 hover:scale-110 border border-white/30"
-            aria-label="Next image"
-          >
-            <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
+          {/* Description */}
+          {/* <div className="w-full lg:max-w-md xl:max-w-lg text-center lg:text-left">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 border border-white/10">
+                <h3 
+                  className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4"
+                  style={{ fontFamily: '"Montserrat", sans-serif' }}
+                >
+                  Unforgettable Moments
+                </h3>
+                <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed"
+                  style={{ fontFamily: '"Montserrat", sans-serif' }}
+                >
+                  Experience the energy, creativity, and excitement that made our previous edition a massive success. 
+                  From electrifying performances to innovative competitions, SOLASTA brings together the best minds and talents. */}
+                {/* </p>
+              </div> */}
+{/* 
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                <div className="bg-gradient-to-br from-[#FF6B35]/20 to-[#FFB347]/20 backdrop-blur-sm rounded-xl p-3 sm:p-4 md:p-6 border border-[#FF6B35]/30">
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#FF6B35] mb-1 sm:mb-2" style={{ fontFamily: '"Oxanium", sans-serif' }}>
+                    10k+
+                  </div>
+                  <div className="text-white text-xs sm:text-sm md:text-base font-medium">
+                    Participants
+                  </div>
+                </div> */}
 
-          {/* Dot Indicators */}
-          <div className="flex justify-center gap-1.5 sm:gap-2 mt-4 sm:mt-6 md:mt-8">
-            {images.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToImage(index)}
-                className={`transition-all duration-300 rounded-full ${
-                  index === currentImageIndex
-                    ? 'bg-[#FF6B35] w-6 sm:w-8 md:w-10 h-1.5 sm:h-2'
-                    : 'bg-white/30 w-1.5 sm:w-2 h-1.5 sm:h-2 hover:bg-white/50'
-                }`}
-                aria-label={`Go to image ${index + 1}`}
-              />
-            ))}
+                {/* <div className="bg-gradient-to-br from-[#FFA07A]/20 to-[#FFD4A3]/20 backdrop-blur-sm rounded-xl p-3 sm:p-4 md:p-6 border border-[#FFA07A]/30"> */}
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#FFA07A] mb-1 sm:mb-2" style={{ fontFamily: '"Oxanium", sans-serif' }}>
+                    {/* 50+
+                  </div>
+                  <div className="text-white text-xs sm:text-sm md:text-base font-medium">
+                    Events
+                  </div>
+                </div>
+              </div> */}
+{/* 
+              <p className="text-gray-400 text-xs sm:text-sm md:text-base italic">
+                💡 Tip: Click or drag the cards to explore more highlights!
+              </p>
+            </div> */}
           </div>
         </div>
-
-        {/* Thumbnail Preview (Optional) */}
-        <div className="hidden lg:grid grid-cols-5 gap-4 mt-8">
-          {images.map((image, index) => (
-            <button
-              key={index}
-              onClick={() => goToImage(index)}
-              className={`relative aspect-video rounded-lg overflow-hidden transition-all duration-300 ${
-                index === currentImageIndex
-                  ? 'ring-4 ring-[#FF6B35] scale-105'
-                  : 'opacity-60 hover:opacity-100 hover:scale-105'
-              }`}
-            >
-              <img
-                src={image.url}
-                alt={image.caption}
-                className="w-full h-full object-cover"
-              />
-            </button>
-          ))}
-        </div>
       </div>
-    </div>
+    </section>
   )
 }
 
 export default PreviousYearGallery
+

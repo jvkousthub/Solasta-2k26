@@ -184,7 +184,7 @@ const CountdownTimer = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 30%, #16213e 60%, #0f3460 100%);
+          background: linear-gradient(to bottom, #000000 0%, #1f2937 50%, #000000 100%);
           padding: 2rem 1rem;
           position: relative;
           overflow: hidden;
@@ -211,11 +211,7 @@ const CountdownTimer = () => {
           left: 0;
           right: 0;
           bottom: 0;
-          background: 
-            radial-gradient(circle at 20% 30%, rgba(255, 107, 53, 0.2) 0%, transparent 50%),
-            radial-gradient(circle at 80% 70%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 50% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
-          animation: pulse 6s ease-in-out infinite;
+          background: transparent;
           pointer-events: none;
         }
 
@@ -226,14 +222,7 @@ const CountdownTimer = () => {
           left: -50%;
           width: 200%;
           height: 200%;
-          background: repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 2px,
-            rgba(255, 107, 53, 0.03) 2px,
-            rgba(255, 107, 53, 0.03) 4px
-          );
-          animation: gridMove 20s linear infinite;
+          background: transparent;
           pointer-events: none;
         }
 
@@ -259,10 +248,10 @@ const CountdownTimer = () => {
 
         .particle {
           position: absolute;
-          background: radial-gradient(circle, rgba(255, 107, 53, 0.8) 0%, rgba(255, 107, 53, 0) 70%);
+          background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
           border-radius: 50%;
           filter: blur(1px);
-          opacity: 0.6;
+          opacity: 0.3;
         }
 
         .countdown-container {
@@ -288,17 +277,13 @@ const CountdownTimer = () => {
         }
 
         .countdown-title {
-          font-family: 'Oxanium', sans-serif;
+          font-family: 'Luckiest Guy', cursive;
           font-size: clamp(2rem, 8vw, 5rem);
-          font-weight: 800;
-          color: white;
+          font-weight: 400;
+          color: #ffffff;
           margin: 0 0 0.5rem 0;
           text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-          letter-spacing: -0.02em;
-          background: linear-gradient(135deg, #fff 0%, #ff6b35 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+          letter-spacing: 0.02em;
         }
 
         @media (min-width: 640px) {
@@ -381,7 +366,7 @@ const CountdownTimer = () => {
           transform: translate(-50%, -50%);
           width: 100%;
           height: 100%;
-          border: 3px solid rgba(255, 107, 53, 0.5);
+          border: 3px solid rgba(255, 255, 255, 0.2);
           border-radius: 20px;
           pointer-events: none;
           z-index: 0;
@@ -394,13 +379,11 @@ const CountdownTimer = () => {
           justify-content: center;
           min-width: clamp(70px, 15vw, 160px);
           padding: clamp(1rem, 2.5vw, 3rem) clamp(0.5rem, 1.5vw, 2rem);
-          background: linear-gradient(135deg, rgba(255, 107, 53, 0.15) 0%, rgba(255, 107, 53, 0.05) 100%);
+          background: rgba(255, 255, 255, 0.05);
           border-radius: 15px;
-          border: 2px solid rgba(255, 107, 53, 0.3);
+          border: 2px solid rgba(255, 255, 255, 0.1);
           backdrop-filter: blur(10px);
-          box-shadow: 
-            0 4px 15px rgba(0, 0, 0, 0.3),
-            0 0 10px rgba(255, 107, 53, 0.15);
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
           transform-style: preserve-3d;
           overflow: hidden;
         }
@@ -443,13 +426,10 @@ const CountdownTimer = () => {
           font-family: 'Orbitron', 'Oxanium', 'Courier New', monospace;
           font-size: clamp(2.5rem, 10vw, 8rem);
           font-weight: 700;
-          background: linear-gradient(180deg, #FF6B35 0%, #FF8C5A 50%, #FF6B35 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+          color: #ffffff;
           line-height: 1;
           letter-spacing: 0.05em;
-          filter: drop-shadow(0 2px 8px rgba(255, 107, 53, 0.4));
+          filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
           transform-style: preserve-3d;
           position: relative;
           z-index: 1;
@@ -459,7 +439,7 @@ const CountdownTimer = () => {
           font-family: 'Oxanium', sans-serif;
           font-size: clamp(1.5rem, 5vw, 5rem);
           font-weight: 700;
-          background: linear-gradient(180deg, #fff 0%, #FF6B35 100%);
+          background: linear-gradient(180deg, #fff 0%, #FFA07A 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -482,7 +462,7 @@ const CountdownTimer = () => {
           font-family: 'Oxanium', sans-serif;
           font-size: clamp(0.75rem, 2vw, 1.5rem);
           font-weight: 700;
-          background: linear-gradient(135deg, #FF6B35 0%, #FF8C5A 100%);
+          background: linear-gradient(135deg, #FFA07A 0%, #FFB88C 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
