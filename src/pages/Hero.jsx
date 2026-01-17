@@ -51,6 +51,7 @@ const Hero = () => {
       // Touch events for mobile
       charSpan.addEventListener('touchstart', (e) => {
         e.preventDefault()
+        e.stopPropagation()
         mouseInitialY.current = e.touches[0].clientY
         charIndexSelected.current = index
         setIsMouseDown(true)
@@ -149,6 +150,12 @@ const Hero = () => {
     let distY = mouseInitialY.current - mouseFinalY.current
     let dragYScale = distY / maxYDragDist
     
+    // Increase sensitivity for mobile (multiply by 1.5 for better responsiveness)
+    const isMobile = window.innerWidth < 768
+    if (isMobile) {
+      dragYScale *= 1.5
+    }
+    
     if (dragYScale > (maxYScale - 1)) dragYScale = maxYScale - 1
     else if (dragYScale < -0.5) dragYScale = -0.5
 
@@ -210,9 +217,12 @@ const Hero = () => {
       <div className='relative z-10 w-full max-w-[95vw] flex flex-col items-center justify-center gap-4 sm:gap-6 md:gap-8'>
        
         <p 
-          className='text-white/90 text-[clamp(0.65rem,2.5vw,2rem)] text-center font-semibold tracking-[0.1em] sm:tracking-[0.2em] md:tracking-[0.3em] [text-shadow:0_2px_10px_rgba(0,0,0,0.5)] px-2'
+          className='text-white/90 text-[clamp(0.65rem,2.5vw,2rem)] text-center font-semibold tracking-[0.1em] sm:tracking-[0.2em] md:tracking-[0.3em] [text-shadow:0_2px_10px_rgba(0,0,0,0.5)] px-2 pointer-events-none'
           style={{
-            fontFamily: '"Oxanium", sans-serif'
+            fontFamily: '"Oxanium", sans-serif',
+            transform: 'translateZ(0)',
+            position: 'relative',
+            zIndex: 10
           }}
         >
           IIITDM KURNOOL PRESENTS
@@ -221,7 +231,7 @@ const Hero = () => {
         {/* Main Title */}
         <h1 
           ref={textRef}
-          className='text-white text-[clamp(2.5rem,12vw,8rem)] leading-[0.95] sm:leading-[0.85] md:leading-[0.6] tracking-[-0.02em] sm:tracking-[-0.05em] md:tracking-[-0.1em] select-none text-center px-2 max-w-full'
+          className='text-white text-[clamp(2.5rem,12vw,8rem)] leading-[0.95] sm:leading-[0.85] md:leading-[0.6] tracking-[-0.02em] sm:tracking-[-0.05em] md:tracking-[-0.1em] select-none text-center px-2 max-w-full isolate'
           style={{
             fontFamily: 'GT-Flexa, sans-serif',
             fontWeight: weightInit,
@@ -229,14 +239,16 @@ const Hero = () => {
             letterSpacing: '0.008em',
             textShadow: '0 0.05em 0 #FFB088, 0 0.1em 0.1em rgba(70,30,0, 0.3), 0 0.4em 0.3em rgba(70,30,0, 0.1)',
             wordBreak: 'keep-all',
-            overflowWrap: 'normal'
+            overflowWrap: 'normal',
+            willChange: 'transform',
+            transform: 'translateZ(0)'
           }}
         >
           Solasta'26
         </h1>
         
         {/* Mobile Helper Text */}
-        <p className='text-white/70 text-xs sm:text-sm md:hidden text-center px-4' style={{ fontFamily: '"Oxanium", sans-serif' }}>
+        <p className='text-white/60 text-[10px] sm:text-xs md:hidden text-center px-4 pointer-events-none' style={{ fontFamily: '"Oxanium", sans-serif', transform: 'translateZ(0)' }}>
           Tap and drag the title text!
         </p>
         
@@ -244,7 +256,7 @@ const Hero = () => {
         <button
           onClick={() => navigate('/teams')}
           className='mt-4 sm:mt-6 md:mt-8 bg-white text-[#FF6B35] px-6 py-2.5 sm:px-8 sm:py-3 md:px-10 md:py-4 rounded-full font-bold text-sm sm:text-base md:text-xl shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:scale-110 hover:shadow-[0_15px_50px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out border-2 border-white hover:bg-transparent hover:text-white active:scale-95 min-h-[44px]'
-          style={{ fontFamily: '"Oxanium", sans-serif' }}
+          style={{ fontFamily: '"Oxanium", sans-serif', transform: 'translateZ(0)', position: 'relative', zIndex: 10 }}
         >
           Meet Our Teams
         </button>

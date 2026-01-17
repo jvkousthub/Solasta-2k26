@@ -30,7 +30,11 @@ const Teams = () => {
             className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 mb-8 sm:mb-10 md:mb-12 max-w-3xl mx-auto px-4"
             style={{ fontFamily: '"Montserrat", sans-serif' }}
           >
-            The brilliant minds behind Solasta 2026
+            The people behind Solasta 2026
+          </p>
+          {/* Mobile Helper Text */}
+          <p className='text-white/60 text-[10px] text-center mt-2 md:hidden px-4' style={{ fontFamily: '"Montserrat", sans-serif' }}>
+            Tap and drag to rotate the cards!
           </p>
         </div>
       </div>

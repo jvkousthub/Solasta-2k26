@@ -57,7 +57,12 @@ const App = () => {
         </div> */}
           </div>
         } />
-        <Route path="/teams" element={<Teams />} />
+        <Route path="/teams" element={
+          <>
+            <Teams />
+            <Footer />
+          </>
+        } />
       </Routes>
       
       {/* Commented out Schedule Button - Register button moved to Navbar */}

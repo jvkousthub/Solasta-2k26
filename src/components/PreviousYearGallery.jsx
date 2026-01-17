@@ -57,6 +57,10 @@ const PreviousYearGallery = () => {
                 ))}
               />
             </div>
+            {/* Mobile Helper Text */}
+            <p className='text-white/60 text-[10px] text-center mt-3 md:hidden' style={{ fontFamily: '"Montserrat", sans-serif' }}>
+              Tap or drag the cards to explore!
+            </p>
           </div>
 
           {/* Description */}

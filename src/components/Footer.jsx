@@ -98,7 +98,7 @@ export default function Footer() {
             href="https://kousthub.pages.dev"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#FF6B35] hover:text-[#FFB347] font-semibold transition-colors duration-300 inline-block py-2"
+            className="text-[#FF6B35] hover:text-[#FFB347] font-semibold transition-colors duration-300 inline-block py-2 px-2 min-h-[44px] flex items-center justify-center"
           >
             JVK
           </a>
