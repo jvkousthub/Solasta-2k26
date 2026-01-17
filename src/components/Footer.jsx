@@ -4,7 +4,7 @@ import clgLogo from "../assets/clg_logo.png";
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-black text-white border-t border-white/10">
+    <footer id="contact" className="bg-black text-white border-t border-white/10 max-h-screen overflow-y-auto">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
