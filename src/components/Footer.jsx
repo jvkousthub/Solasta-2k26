@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
+import clgLogo from "../assets/clg_logo.png";
 
 export default function Footer() {
   return (
@@ -11,7 +12,7 @@ export default function Footer() {
           {/* Left Section - College Logo and Name */}
           <div className="flex flex-col items-center md:items-start gap-4 sm:gap-6 pt-8 md:pt-12">
             <div className="flex flex-col items-center gap-3 sm:gap-4">
-              <img src="src/assets/clg_logo.png" alt="IIITK" className="h-40 sm:h-60 md:h-55"/>
+              <img src={clgLogo} alt="IIITK" className="h-40 sm:h-60 md:h-55"/>
             <p 
               className="text-white/80 text-sm sm:text-base md:text-lg text-center max-w-md px-4 md:px-0"
               style={{ fontFamily: '"Oxanium", sans-serif' }}
@@ -86,7 +87,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar - Made with love */}
-      <div className="border-t border-white/14 py-4 sm:py-5 md:py-6 pb-6 sm:pb-6">
+      <div className="border-t border-white/14 py-4 sm:py-5 md:py-6 pb-6 sm:pb-6 relative z-10">
         <p 
           className="text-center text-white/80 text-base sm:text-lg md:text-xl lg:text-2xl px-4"
           style={{ fontFamily: '"Oxanium", sans-serif' }}
@@ -98,7 +99,8 @@ export default function Footer() {
             href="https://kousthub.pages.dev"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#FF6B35] hover:text-[#FFB347] font-semibold transition-colors duration-300 inline-block py-2 px-2 min-h-[44px] flex items-center justify-center"
+            className="text-[#FF6B35] hover:text-[#FFB347] font-semibold transition-colors duration-300 inline-flex items-center justify-center py-2 px-3 min-h-[44px] relative z-20 touch-manipulation"
+            style={{ pointerEvents: 'auto' }}
           >
             JVK
           </a>
