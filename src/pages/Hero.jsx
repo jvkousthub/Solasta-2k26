@@ -8,10 +8,12 @@ const Hero = () => {
   const textRef = useRef(null)
   const charsRef = useRef([])
   const [isMouseDown, setIsMouseDown] = useState(false)
+  const [showElements, setShowElements] = useState(true)
   const mouseInitialY = useRef(0)
   const mouseFinalY = useRef(0)
   const charIndexSelected = useRef(0)
   const charH = useRef(0)
+  const animationTimeoutRef = useRef(null)
   
   const weightInit = 600
   const weightTarget = 400
@@ -45,6 +47,10 @@ const Hero = () => {
         mouseInitialY.current = e.clientY
         charIndexSelected.current = index
         setIsMouseDown(true)
+        setShowElements(false)
+        if (animationTimeoutRef.current) {
+          clearTimeout(animationTimeoutRef.current)
+        }
         document.body.classList.add('grab')
       })
       
@@ -55,6 +61,10 @@ const Hero = () => {
         mouseInitialY.current = e.touches[0].clientY
         charIndexSelected.current = index
         setIsMouseDown(true)
+        setShowElements(false)
+        if (animationTimeoutRef.current) {
+          clearTimeout(animationTimeoutRef.current)
+        }
       }, { passive: false })
       
       element.appendChild(charSpan)
@@ -200,6 +210,12 @@ const Hero = () => {
       stagger: {
         each: 0.02,
         from: charIndexSelected.current
+      },
+      onComplete: () => {
+        // Show elements after animation completes
+        animationTimeoutRef.current = setTimeout(() => {
+          setShowElements(true)
+        }, 10) // Small delay to ensure animation is fully complete
       }
     })
   }
@@ -217,7 +233,7 @@ const Hero = () => {
       <div className='relative z-10 w-full max-w-[95vw] flex flex-col items-center justify-center gap-4 sm:gap-6 md:gap-8'>
        
         <p 
-          className='text-white/90 text-[clamp(0.65rem,2.5vw,2rem)] text-center font-semibold tracking-[0.1em] sm:tracking-[0.2em] md:tracking-[0.3em] [text-shadow:0_2px_10px_rgba(0,0,0,0.5)] px-2 pointer-events-none'
+          className={`text-white/90 text-[clamp(0.65rem,2.5vw,2rem)] text-center font-semibold tracking-[0.1em] sm:tracking-[0.2em] md:tracking-[0.3em] [text-shadow:0_2px_10px_rgba(0,0,0,0.5)] px-2 pointer-events-none transition-opacity duration-200 ${showElements ? 'opacity-100' : 'opacity-0'}`}
           style={{
             fontFamily: '"Oxanium", sans-serif',
             transform: 'translateZ(0)',
@@ -248,14 +264,14 @@ const Hero = () => {
         </h1>
         
         {/* Mobile Helper Text */}
-        <p className='text-white/60 text-[10px] sm:text-xs md:hidden text-center px-4 pointer-events-none' style={{ fontFamily: '"Oxanium", sans-serif', transform: 'translateZ(0)' }}>
+        <p className={`text-white/60 text-[10px] sm:text-xs md:hidden text-center px-4 pointer-events-none transition-opacity duration-200 ${showElements ? 'opacity-100' : 'opacity-0'}`} style={{ fontFamily: '"Oxanium", sans-serif', transform: 'translateZ(0)' }}>
           Tap and drag the title text!
         </p>
         
         {/* Teams Button */}
         <button
           onClick={() => navigate('/teams')}
-          className='mt-4 sm:mt-6 md:mt-8 bg-white text-[#FF6B35] px-6 py-2.5 sm:px-8 sm:py-3 md:px-10 md:py-4 rounded-full font-bold text-sm sm:text-base md:text-xl shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:scale-110 hover:shadow-[0_15px_50px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out border-2 border-white hover:bg-transparent hover:text-white active:scale-95 min-h-[44px]'
+          className={`mt-4 sm:mt-6 md:mt-8 bg-white text-[#FF6B35] px-6 py-2.5 sm:px-8 sm:py-3 md:px-10 md:py-4 rounded-full font-bold text-sm sm:text-base md:text-xl shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:scale-110 hover:shadow-[0_15px_50px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out border-2 border-white hover:bg-transparent hover:text-white active:scale-95 min-h-[44px] ${showElements ? 'opacity-100' : 'opacity-0'}`}
           style={{ fontFamily: '"Oxanium", sans-serif', transform: 'translateZ(0)', position: 'relative', zIndex: 10 }}
         >
           Meet Our Teams

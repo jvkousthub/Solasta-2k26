@@ -94,15 +94,14 @@ export default function Footer() {
         >
           Crafted with{" "}
           <Icon icon="mdi:heart" className="inline text-red-500 mx-1" />
-          {" "}by{" "}
-          <a
+          {" "}by<a
             href="https://kousthub.pages.dev"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#FF6B35] hover:text-[#FFB347] font-semibold transition-colors duration-300 inline-flex items-center justify-center py-2 px-3 min-h-[44px] relative z-20 touch-manipulation"
+            className="text-[#FF6B35] hover:text-[#FFB347] font-semibold transition-colors duration-300 inline-flex items-center justify-center py-2 px-2 min-h-[44px] relative z-20 touch-manipulation"
             style={{ pointerEvents: 'auto' }}
           >
-            JVK
+          JVK
           </a>
         </p>
       </div>
