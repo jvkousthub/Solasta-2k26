@@ -37,14 +37,24 @@ const Hero = () => {
       charSpan.style.display = 'inline-block'
       charSpan.style.transformOrigin = 'center bottom'
       charSpan.style.willChange = 'font-weight, font-stretch, transform'
-      charSpan.style.cursor = 'url("data:image/svg+xml,%3Csvg width=\'64px\' height=\'64px\' xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 700 700\'%3E%3Cpath d=\'M419.99,560.0013c83.627,0,151.67-68.041,151.67-151.67v-198.33A46.6565,46.6565,0,0,0,499.047,171.22a46.6714,46.6714,0,0,0-70-23.3323,46.7853,46.7853,0,0,0-44.055-31.219,46.2641,46.2641,0,0,0-23.332,6.2773V46.669a46.668,46.668,0,1,0-93.336,0v272.79l-64.145-32.082a70.2983,70.2983,0,0,0-31.289-7.375,44.6638,44.6638,0,0,0-31.5,76.23l150.88,150.87A179.4167,179.4167,0,0,0,420,560Z\' fill=\'%23fff\'/%3E%3C/svg%3E%0A") 32 32, pointer'
+      charSpan.style.cursor = 'pointer'
+      charSpan.style.touchAction = 'none'
       
+      // Mouse events
       charSpan.addEventListener('mousedown', (e) => {
         mouseInitialY.current = e.clientY
         charIndexSelected.current = index
         setIsMouseDown(true)
         document.body.classList.add('grab')
       })
+      
+      // Touch events for mobile
+      charSpan.addEventListener('touchstart', (e) => {
+        e.preventDefault()
+        mouseInitialY.current = e.touches[0].clientY
+        charIndexSelected.current = index
+        setIsMouseDown(true)
+      }, { passive: false })
       
       element.appendChild(charSpan)
       charsRef.current.push(charSpan)
@@ -85,12 +95,27 @@ const Hero = () => {
         calcAndApplyDrag()
       }
     }
+    
+    const handleTouchMove = (e) => {
+      if (isMouseDown) {
+        e.preventDefault()
+        mouseFinalY.current = e.touches[0].clientY
+        calcAndApplyDrag()
+      }
+    }
 
     const handleMouseUp = () => {
       if (isMouseDown) {
         setIsMouseDown(false)
         snapBackText()
         document.body.classList.remove('grab')
+      }
+    }
+    
+    const handleTouchEnd = () => {
+      if (isMouseDown) {
+        setIsMouseDown(false)
+        snapBackText()
       }
     }
 
@@ -106,12 +131,16 @@ const Hero = () => {
       document.addEventListener('mousemove', handleMouseMove)
       document.addEventListener('mouseup', handleMouseUp)
       document.addEventListener('mouseleave', handleMouseLeave)
+      document.addEventListener('touchmove', handleTouchMove, { passive: false })
+      document.addEventListener('touchend', handleTouchEnd)
     }
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove)
       document.removeEventListener('mouseup', handleMouseUp)
       document.removeEventListener('mouseleave', handleMouseLeave)
+      document.removeEventListener('touchmove', handleTouchMove)
+      document.removeEventListener('touchend', handleTouchEnd)
     }
   }, [isMouseDown])
 
@@ -178,10 +207,10 @@ const Hero = () => {
         }}
       />
       
-      <div className='relative z-10 w-full max-w-[95vw] flex flex-col items-center justify-center gap-6 sm:gap-8'>
+      <div className='relative z-10 w-full max-w-[95vw] flex flex-col items-center justify-center gap-4 sm:gap-6 md:gap-8'>
        
         <p 
-          className='text-white/90 text-[clamp(0.75rem,3vw,2rem)] text-center font-semibold tracking-[0.15em] sm:tracking-[0.3em] [text-shadow:0_2px_10px_rgba(0,0,0,0.5)] px-2'
+          className='text-white/90 text-[clamp(0.65rem,2.5vw,2rem)] text-center font-semibold tracking-[0.1em] sm:tracking-[0.2em] md:tracking-[0.3em] [text-shadow:0_2px_10px_rgba(0,0,0,0.5)] px-2'
           style={{
             fontFamily: '"Oxanium", sans-serif'
           }}
@@ -192,7 +221,7 @@ const Hero = () => {
         {/* Main Title */}
         <h1 
           ref={textRef}
-          className='text-white text-[clamp(2rem,10vw,8rem)] leading-[0.9] sm:leading-[0.8] md:leading-[0.6] tracking-[-0.02em] sm:tracking-[-0.05em] md:tracking-[-0.1em] select-none text-center px-2 max-w-full'
+          className='text-white text-[clamp(2.5rem,12vw,8rem)] leading-[0.95] sm:leading-[0.85] md:leading-[0.6] tracking-[-0.02em] sm:tracking-[-0.05em] md:tracking-[-0.1em] select-none text-center px-2 max-w-full'
           style={{
             fontFamily: 'GT-Flexa, sans-serif',
             fontWeight: weightInit,
@@ -206,10 +235,15 @@ const Hero = () => {
           Solasta'26
         </h1>
         
+        {/* Mobile Helper Text */}
+        <p className='text-white/70 text-xs sm:text-sm md:hidden text-center px-4' style={{ fontFamily: '"Oxanium", sans-serif' }}>
+          Tap and drag the title text!
+        </p>
+        
         {/* Teams Button */}
         <button
           onClick={() => navigate('/teams')}
-          className='mt-6 sm:mt-8 bg-white text-[#FF6B35] px-8 py-3 sm:px-10 sm:py-4 rounded-full font-bold text-base sm:text-xl shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:scale-110 hover:shadow-[0_15px_50px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out border-2 border-white hover:bg-transparent hover:text-white active:scale-95'
+          className='mt-4 sm:mt-6 md:mt-8 bg-white text-[#FF6B35] px-6 py-2.5 sm:px-8 sm:py-3 md:px-10 md:py-4 rounded-full font-bold text-sm sm:text-base md:text-xl shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:scale-110 hover:shadow-[0_15px_50px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out border-2 border-white hover:bg-transparent hover:text-white active:scale-95 min-h-[44px]'
           style={{ fontFamily: '"Oxanium", sans-serif' }}
         >
           Meet Our Teams

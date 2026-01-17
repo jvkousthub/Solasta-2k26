@@ -16,7 +16,7 @@ const PreviousYearGallery = () => {
     <section className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Title */}
-        <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20">
+        <div className="text-center mb-16 sm:mb-12 md:mb-16 lg:mb-20">
           <h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#FFA07A] mb-2 sm:mb-4"
             style={{ fontFamily: '"Luckiest Guy", cursive' }}
@@ -33,7 +33,7 @@ const PreviousYearGallery = () => {
         {/* Stack Container */}
         <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
           {/* Stack Component */}
-          <div className="w-full max-w-[380px] sm:max-w-[420px] md:max-w-[500px] lg:max-w-[550px]">
+          <div className="w-full max-w-[380px] sm:max-w-[420px] md:max-w-[500px] lg:max-w-[550px] mx-auto">
             <div 
               className="w-full aspect-square mx-auto"
               style={{ maxWidth: '750px' }}

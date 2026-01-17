@@ -113,9 +113,9 @@ const WhySponsorUs = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="container mx-auto px-4 text-center mt-20 sm:mt-24 md:mt-32 relative z-10">
+      <div className="container mx-auto px-4 text-center mt-16 sm:mt-20 md:mt-24 lg:mt-32 relative z-10">
         <button 
-          className="bg-white text-[#FFA07A] px-8 sm:px-10 py-4 rounded-full font-bold text-base sm:text-lg shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:scale-110 hover:shadow-[0_15px_50px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out border-2 border-[#FFA07A] hover:bg-[#FFA07A] hover:text-white active:scale-95"
+          className="bg-white text-[#FFA07A] px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full font-bold text-sm sm:text-base md:text-lg shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:scale-110 hover:shadow-[0_15px_50px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out border-2 border-[#FFA07A] hover:bg-[#FFA07A] hover:text-white active:scale-95 min-h-[44px]"
           style={{ fontFamily: '"Montserrat", sans-serif' }}
         >
           Become a Sponsor

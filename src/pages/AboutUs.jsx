@@ -1,125 +1,34 @@
-import React, { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import React, { useRef } from 'react'
 
 const AboutUs = () => {
   const sectionRef = useRef(null)
   const contentRef = useRef(null)
-
-  useEffect(() => {
-    const section = sectionRef.current
-    const content = contentRef.current
-
-    if (!section || !content) return
-
-    let ctx = gsap.context(() => {
-      // Fade in animation
-      gsap.fromTo(
-        content,
-        {
-          opacity: 0,
-          y: 50
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 70%',
-            end: 'top 30%',
-            toggleActions: 'play none none reverse'
-          }
-        }
-      )
-
-      // Parallax effect for background elements
-      gsap.to('.about-bg-circle', {
-        y: -100,
-        scrollTrigger: {
-          trigger: section,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1
-        }
-      })
-
-      // Mobile parallax for paragraphs
-      const paragraphs = section.querySelectorAll('.about-paragraph')
-      paragraphs.forEach((para, index) => {
-        gsap.fromTo(para,
-          {
-            y: 20,
-            opacity: 0.8
-          },
-          {
-            y: -20,
-            opacity: 1,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: para,
-              start: 'top bottom',
-              end: 'bottom top',
-              scrub: 1
-            }
-          }
-        )
-      })
-
-      // Logo parallax
-      const logo = section.querySelector('.logo-placeholder')
-      if (logo) {
-        gsap.fromTo(logo,
-          {
-            y: 30,
-            scale: 0.95
-          },
-          {
-            y: -30,
-            scale: 1.05,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: logo,
-              start: 'top bottom',
-              end: 'bottom top',
-              scrub: 1
-            }
-          }
-        )
-      }
-    }, section)
-
-    return () => ctx.revert()
-  }, [])
 
   return (
     <section id="about" ref={sectionRef} className="about-section">
       <div className="about-bg-circle"></div>
       <div className="about-bg-circle about-bg-circle-2"></div>
       
-      <div ref={contentRef} className="about-container">
+      <div ref={contentRef} className="about-container animate-fade-in">
         <h2 className="about-title">ABOUT US</h2>
         
         <div className="about-content">
           <div className="about-logo-section">
-            <div className="logo-placeholder">
+            <div className="logo-placeholder animate-scale-in">
               <span>LOGO</span>
             </div>
           </div>
 
           <div className="about-text">
-            <p className="about-paragraph">
+            <p className="about-paragraph animate-slide-in-1">
               The Indian Institute of Information Technology, Design & Manufacturing, Kurnool (IIITDM Kurnool) was established in 2014 following the President of India's approval of the Institutes of Information Technology Act, 2014. Fully funded by the Ministry of Education, this prestigious institution was elevated to the status of an Institute of National Importance on August 3, 2017, through a significant amendment to the IIIT Act. IIITDM Kurnool is a beacon of academic excellence, innovation, and transformative education.
             </p>
             
-            <p className="about-paragraph">
+            <p className="about-paragraph animate-slide-in-2">
               <span className="highlight-text">SOLASTA</span>, the flagship Techno-Cultural extravaganza of IIITDM Kurnool, has been a cornerstone of the institute's legacy since its inception in 2019. Recognized as the grandest festival of its kind not only in Kurnool city but across the greater Rayalaseema region, SOLASTA has become a vibrant platform that celebrates talent, creativity, and innovation. With an astounding annual footfall exceeding <span className="highlight-number">10,000 attendees</span> from over <span className="highlight-number">50 prestigious colleges</span> in the region, the event showcases thrilling competitions, artistic brilliance, and technological marvels, offering a staggering prize pool worth over <span className="highlight-number">₹2,50,000</span>.
             </p>
             
-            <p className="about-paragraph">
+            <p className="about-paragraph animate-slide-in-3">
               SOLASTA provides aspiring talents with a unique opportunity to connect, collaborate, and showcase their potential. Through this cultural spectacle, IIITDM Kurnool passionately advocates for the growth of artistic and technological pursuits among the youth, ensuring a brighter and more glorious future for art and innovation.
             </p>
           </div>
@@ -331,6 +240,51 @@ const AboutUs = () => {
             opacity: 1;
             transform: translateY(0);
           }
+        }
+
+        @keyframes slideIn {
+          from {
+            opacity: 0;
+            transform: translateX(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes scaleIn {
+          from {
+            opacity: 0;
+            transform: scale(0.9);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        .animate-fade-in {
+          animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .animate-scale-in {
+          animation: scaleIn 1s ease-out forwards;
+        }
+
+        .animate-slide-in-1 {
+          animation: slideIn 0.6s ease-out 0.2s forwards;
+          opacity: 0;
+        }
+
+        .animate-slide-in-2 {
+          animation: slideIn 0.6s ease-out 0.4s forwards;
+          opacity: 0;
+        }
+
+        .animate-slide-in-3 {
+          animation: slideIn 0.6s ease-out 0.6s forwards;
+          opacity: 0;
         }
       `}</style>
     </section>

@@ -18,13 +18,13 @@ const EventCard = ({ _id, title, date, time, venue, img }) => {
       viewport={{ once: true, amount: 0.25 }}
       className="group cursor-pointer flex flex-col relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-lg border border-white/10 hover:border-[#FFA07A]/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
     >
-      <div className="relative h-64 overflow-hidden">
+      <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
         <img src={img} alt={title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
-      <div className="p-6">
-        <h2 className="text-xl md:text-2xl font-bold text-white mb-4" style={{ fontFamily: '"Oxanium", sans-serif' }}>
+      <div className="p-4 sm:p-5 md:p-6">
+        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4" style={{ fontFamily: '"Oxanium", sans-serif' }}>
           {title}
         </h2>
 
@@ -40,7 +40,7 @@ const EventCard = ({ _id, title, date, time, venue, img }) => {
           </p>
         </div>
 
-        <button className="mt-6 w-full bg-[#FFA07A] hover:bg-[#FFB88C] text-white font-bold py-3 rounded-lg transition-all duration-300" style={{ fontFamily: '"Oxanium", sans-serif' }}>
+        <button className="mt-6 w-full bg-[#FFA07A] hover:bg-[#FFB88C] text-white font-bold py-3 rounded-lg transition-all duration-300 min-h-[44px]" style={{ fontFamily: '"Oxanium", sans-serif' }}>
           Show Details
         </button>
       </div>
@@ -147,12 +147,12 @@ const Events = () => {
           </h1>
         </div>
 
-        <div className="flex flex-wrap gap-3 sm:gap-4 justify-center items-center mb-12">
+        <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 justify-center items-center mb-10 sm:mb-12 px-2">
           {categories.map((category, index) => (
             <button
               key={index}
               onClick={() => changeCategory(category)}
-              className={`border-2 px-4 sm:px-6 py-2 sm:py-3 rounded-lg cursor-pointer transition-all duration-300 font-semibold text-sm sm:text-base ${
+              className={`border-2 px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 rounded-lg cursor-pointer transition-all duration-300 font-semibold text-xs sm:text-sm md:text-base min-h-[44px] ${
                 category === currentCategory
                   ? "text-white bg-[#FFA07A] border-[#FFA07A] scale-105 shadow-lg"
                   : "text-white border-white/30 hover:border-[#FFA07A]/50 hover:text-[#FFA07A]"
