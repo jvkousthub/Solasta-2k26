@@ -28,6 +28,10 @@ const PreviousYearGallery = () => {
           >
             Relive the magic of SOLASTA'25
           </p>
+          {/* Helper Text */}
+          <p className="text-white/60 text-[10px] sm:text-xs mt-1" style={{ fontFamily: '"Montserrat", sans-serif' }}>
+            Click or drag cards to explore
+          </p>
         </div>
 
         {/* Stack Container */}

@@ -32,8 +32,8 @@ const Teams = () => {
           >
             The people behind Solasta 2026
           </p>
-          {/* Mobile Helper Text */}
-          <p className='text-white/60 text-[10px] text-center mt-2 md:hidden px-4' style={{ fontFamily: '"Montserrat", sans-serif' }}>
+          {/* Helper Text */}
+          <p className='text-white/60 text-[10px] text-center mt-2 px-4' style={{ fontFamily: '"Montserrat", sans-serif' }}>
             Tap and drag to rotate the cards!
           </p>
         </div>

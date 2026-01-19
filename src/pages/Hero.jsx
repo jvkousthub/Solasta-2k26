@@ -263,8 +263,8 @@ const Hero = () => {
           Solasta'26
         </h1>
         
-        {/* Mobile Helper Text */}
-        <p className={`text-white/60 text-[10px] sm:text-xs md:hidden text-center px-4 pointer-events-none transition-opacity duration-200 ${showElements ? 'opacity-100' : 'opacity-0'}`} style={{ fontFamily: '"Oxanium", sans-serif', transform: 'translateZ(0)' }}>
+        {/* Helper Text */}
+        <p className={`text-white/60 text-[10px] sm:text-xs text-center px-4 pointer-events-none transition-opacity duration-200 ${showElements ? 'opacity-100' : 'opacity-0'}`} style={{ fontFamily: '"Oxanium", sans-serif', transform: 'translateZ(0)' }}>
           Tap and drag the title text!
         </p>
         

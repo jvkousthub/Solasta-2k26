@@ -28,6 +28,10 @@ const PreviousYearHighlights = () => {
           >
             Previous Year Highlights
           </h2>
+          {/* Helper Text */}
+          <p className="text-white/60 text-sm md:text-base mt-2" style={{ fontFamily: '"Montserrat", sans-serif' }}>
+            Click or drag cards to explore
+          </p>
         </div>
 
         {/* Stack Container - MASSIVELY INCREASED SIZE */}
