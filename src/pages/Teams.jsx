@@ -48,7 +48,7 @@ const Teams = () => {
               className="group relative w-full h-[500px] sm:h-[550px] md:h-[600px] lg:h-[650px] mx-auto max-w-sm md:max-w-none"
             >
               {/* Container for 3D Lanyard with controlled touch area */}
-              <div className="absolute inset-0 rounded-lg overflow-visible touch-none">
+              <div className="absolute inset-0 rounded-lg overflow-visible">
                 <Lanyard position={[0, 0, 25]} gravity={[0, -40, 0]} fov={25} />
               </div>
               

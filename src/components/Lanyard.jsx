@@ -30,7 +30,7 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
         dpr={[1, isMobile ? 1.5 : 2]}
         gl={{ alpha: transparent }}
         onCreated={({ gl }) => gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1)}
-        style={{ touchAction: 'none', WebkitTouchCallout: 'none', userSelect: 'none' }}
+        style={{ touchAction: 'pan-y', WebkitTouchCallout: 'none', userSelect: 'none' }}
       >
         <ambientLight intensity={Math.PI} />
         <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
