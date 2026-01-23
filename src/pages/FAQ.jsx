@@ -16,8 +16,8 @@ const FAQ = () => {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <h1 
-          className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 bg-gradient-to-r from-[#FF6B35] via-[#FFB347] to-[#FF6B35] bg-clip-text text-transparent"
-          style={{ fontFamily: '"Oxanium", sans-serif' }}
+          className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 text-[#FF6B35]"
+          style={{ fontFamily: '"Luckiest Guy", cursive' }}
         >
           Frequently Asked Questions
         </h1>
