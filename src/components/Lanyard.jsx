@@ -30,7 +30,7 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
         dpr={[1, isMobile ? 1.5 : 2]}
         gl={{ alpha: transparent }}
         onCreated={({ gl }) => gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1)}
-        style={{ touchAction: 'pan-y pinch-zoom' }}
+        style={{ touchAction: 'none', WebkitTouchCallout: 'none', userSelect: 'none' }}
       >
         <ambientLight intensity={Math.PI} />
         <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
@@ -113,7 +113,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }) {
       vec.add(dir.multiplyScalar(state.camera.position.length()));
       [card, j1, j2, j3, fixed].forEach(ref => ref.current?.wakeUp());
       // Increased sensitivity for mobile by multiplying the drag distance
-      const multiplier = isMobile ? 1.5 : 1;
+      const multiplier = isMobile ? 2 : 1;
       card.current?.setNextKinematicTranslation({ 
         x: (vec.x - dragged.x) * multiplier, 
         y: (vec.y - dragged.y) * multiplier, 
@@ -159,7 +159,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }) {
         <RigidBody position={[2, 0, 0]} ref={card} {...segmentProps} type={dragged ? 'kinematicPosition' : 'dynamic'}>
           <CuboidCollider args={[0.8, 1.125, 0.01]} />
           <group
-            scale={isMobile ? 2.5 : 2.25}
+            scale={isMobile ? 2.8 : 2.25}
             position={[0, -1.2, -0.05]}
             onPointerOver={() => hover(true)}
             onPointerOut={() => hover(false)}
@@ -170,6 +170,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }) {
               }
             }}
             onPointerDown={e => {
+              e.stopPropagation();
               e.target.setPointerCapture(e.pointerId);
               drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())));
             }}

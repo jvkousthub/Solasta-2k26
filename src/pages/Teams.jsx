@@ -40,28 +40,28 @@ const Teams = () => {
       </div>
 
       {/* Team Members Grid - 3D Lanyard Cards */}
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-12 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-12">
+      <div className="container mx-auto px-2 sm:px-6 md:px-8 py-8 sm:py-12 md:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12">
           {teamMembers.map((member) => (
             <div
               key={member.id}
-              className="group relative w-full h-[450px] sm:h-[500px] md:h-[550px] lg:h-[650px] mx-auto max-w-md md:max-w-none"
+              className="group relative w-full h-[500px] sm:h-[550px] md:h-[600px] lg:h-[650px] mx-auto max-w-sm md:max-w-none"
             >
               {/* Container for 3D Lanyard with controlled touch area */}
-              <div className="absolute inset-0 mx-4 sm:mx-6 md:mx-0 rounded-lg overflow-hidden">
+              <div className="absolute inset-0 rounded-lg overflow-visible touch-none">
                 <Lanyard position={[0, 0, 25]} gravity={[0, -40, 0]} fov={25} />
               </div>
               
               {/* Member Info Overlay */}
-              <div className="absolute bottom-0 left-4 right-4 sm:left-6 sm:right-6 md:left-0 md:right-0 p-4 md:p-6 bg-gradient-to-t from-black via-black/90 to-transparent text-center z-10 pointer-events-none rounded-b-lg">
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6 bg-gradient-to-t from-black via-black/95 to-transparent text-center z-10 pointer-events-none rounded-b-lg">
                 <h3 
-                  className="text-xl md:text-2xl font-bold mb-1 md:mb-2 text-[#FFA07A]"
+                  className="text-lg sm:text-xl md:text-2xl font-bold mb-1 md:mb-2 text-[#FFA07A]"
                   style={{ fontFamily: '"Montserrat", sans-serif' }}
                 >
                   {member.name}
                 </h3>
                 <p 
-                  className="text-white/80 text-base md:text-lg"
+                  className="text-white/80 text-sm sm:text-base md:text-lg"
                   style={{ fontFamily: '"Montserrat", sans-serif' }}
                 >
                   {member.role}

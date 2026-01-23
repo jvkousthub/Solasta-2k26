@@ -257,7 +257,10 @@ const Hero = () => {
             wordBreak: 'keep-all',
             overflowWrap: 'normal',
             willChange: 'transform',
-            transform: 'translateZ(0)'
+            transform: 'translateZ(0)',
+            whiteSpace: 'nowrap',
+            display: 'inline-block',
+            width: 'auto'
           }}
         >
           Solasta'26
