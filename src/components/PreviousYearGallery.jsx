@@ -41,7 +41,7 @@ const PreviousYearGallery = () => {
         {/* Stack Container */}
         <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
           {/* Stack Component */}
-          <div className="w-full max-w-[380px] sm:max-w-[420px] md:max-w-[500px] lg:max-w-[550px] mx-auto">
+          <div className="w-full max-w-[90vw] sm:max-w-[420px] md:max-w-[500px] lg:max-w-[550px] mx-auto px-4 sm:px-0">
             <div 
               className="w-full aspect-square mx-auto"
               style={{ maxWidth: '750px' }}
@@ -60,9 +60,7 @@ const PreviousYearGallery = () => {
                     key={i} 
                     src={src} 
                     alt={`SOLASTA highlight ${i + 1}`} 
-                    className="w-full h-95 object-cover pointer-events-none select-none"
-                    loading="lazy"
-                    decoding="async"
+                    className="w-full h-full object-cover pointer-events-none select-none rounded-2xl"
                   />
                 ))}
               />
