@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Stack from './Stack'
 import img1 from '../assets/SolastaHighlights/IMG_2296.jpg'
 import img2 from '../assets/SolastaHighlights/IMG_2950.jpg'
@@ -19,6 +19,13 @@ const PreviousYearGallery = () => {
     img1, img2, img3, img4, img5, img6, 
     img7, img8, img9, img10, img11, img12, img13
   ]
+
+  useEffect(() => {
+    images.forEach(src => {
+      const img = new Image()
+      img.src = src
+    })
+  }, [])
 
   return (
     <section className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8">
@@ -61,6 +68,7 @@ const PreviousYearGallery = () => {
                     src={src} 
                     alt={`SOLASTA highlight ${i + 1}`} 
                     className="w-full h-full object-cover pointer-events-none select-none rounded-2xl"
+                    loading="eager"
                   />
                 ))}
               />
