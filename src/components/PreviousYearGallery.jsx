@@ -1,15 +1,23 @@
 import React from 'react'
 import Stack from './Stack'
+import img1 from '../assets/solastahighlights/IMG_2296.jpg'
+import img2 from '../assets/solastahighlights/IMG_2950.jpg'
+import img3 from '../assets/solastahighlights/IMG_3447.jpg'
+import img4 from '../assets/solastahighlights/IMG_7187.jpg'
+import img5 from '../assets/solastahighlights/IMG_7489.jpg'
+import img6 from '../assets/solastahighlights/IMG_7821.jpg'
+import img7 from '../assets/solastahighlights/IMG_8217.jpg'
+import img8 from '../assets/solastahighlights/IMG_8318.jpg'
+import img9 from '../assets/solastahighlights/IMG_8326.jpg'
+import img10 from '../assets/solastahighlights/IMG_8580.jpg'
+import img11 from '../assets/solastahighlights/IMG_8635.jpg'
+import img12 from '../assets/solastahighlights/IMG_9116.jpg'
+import img13 from '../assets/solastahighlights/IMG_8356.jpg'
 
 const PreviousYearGallery = () => {
-  // Using placeholder fest images - Replace these URLs with your actual fest images
   const images = [
-    "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=800&auto=format", // Concert crowd
-    "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=800&auto=format", // Night event
-    "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format", // Stage performance
-    "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=800&auto=format", // Music performance
-    "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=800&auto=format", // Cultural event
-    "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=800&auto=format"  // Tech fest
+    img1, img2, img3, img4, img5, img6, 
+    img7, img8, img9, img10, img11, img12
   ]
 
   return (
@@ -18,7 +26,7 @@ const PreviousYearGallery = () => {
         {/* Title */}
         <div className="text-center mb-16 sm:mb-12 md:mb-16 lg:mb-20">
           <h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#FFA07A] mb-2 sm:mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#FF6B35] mb-2 sm:mb-4"
             style={{ fontFamily: '"Luckiest Guy", cursive' }}
           >
             Previous Year Highlights
@@ -27,10 +35,6 @@ const PreviousYearGallery = () => {
             style={{ fontFamily: '"Montserrat", sans-serif' }}
           >
             Relive the magic of SOLASTA'25
-          </p>
-          {/* Helper Text */}
-          <p className="text-white/60 text-[10px] sm:text-xs mt-1" style={{ fontFamily: '"Montserrat", sans-serif' }}>
-            Click or drag cards to explore
           </p>
         </div>
 
@@ -57,6 +61,8 @@ const PreviousYearGallery = () => {
                     src={src} 
                     alt={`SOLASTA highlight ${i + 1}`} 
                     className="w-full h-95 object-cover pointer-events-none select-none"
+                    loading="lazy"
+                    decoding="async"
                   />
                 ))}
               />

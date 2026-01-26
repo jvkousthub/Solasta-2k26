@@ -280,7 +280,7 @@ const CountdownTimer = () => {
           font-family: 'Luckiest Guy', cursive;
           font-size: clamp(2rem, 8vw, 5rem);
           font-weight: 400;
-          color: #ffffff;
+          color: #FF6B35;
           margin: 0 0 0.5rem 0;
           text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
           letter-spacing: 0.02em;

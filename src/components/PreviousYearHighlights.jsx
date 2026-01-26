@@ -23,15 +23,11 @@ const PreviousYearHighlights = () => {
         {/* Title */}
         <div className="text-center mb-12">
           <h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#FFA07A] mb-2 sm:mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#FF6B35] mb-2 sm:mb-4"
             style={{ fontFamily: '"Luckiest Guy", cursive' }}
           >
             Previous Year Highlights
           </h2>
-          {/* Helper Text */}
-          <p className="text-white/60 text-sm md:text-base mt-2" style={{ fontFamily: '"Montserrat", sans-serif' }}>
-            Click or drag cards to explore
-          </p>
         </div>
 
         {/* Stack Container - MASSIVELY INCREASED SIZE */}

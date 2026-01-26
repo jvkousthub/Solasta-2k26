@@ -221,10 +221,10 @@ const Hero = () => {
   }
 
   return (
-    <div id="home" className='min-h-screen flex items-center justify-center overflow-hidden relative bg-[#FF6B35] px-3 py-20 sm:px-4 sm:py-4'>
+    <div id="home" className='min-h-screen flex items-center justify-center overflow-hidden relative  px-3 py-20 sm:px-4 sm:py-4'>
       
       <div 
-        className='absolute inset-0 bg-cover bg-center opacity-30'
+        className='absolute inset-0 bg-cover bg-center '
         style={{
           backgroundImage: `url(${bg1})`,
         }}

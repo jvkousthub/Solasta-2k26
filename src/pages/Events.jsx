@@ -140,7 +140,7 @@ const Events = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-[#FFA07A] via-[#FFD4A3] to-[#FFA07A] bg-clip-text text-transparent mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#FF6B35] mb-6"
             style={{ fontFamily: '"Luckiest Guy", cursive' }}
           >
             Events
