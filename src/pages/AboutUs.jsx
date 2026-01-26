@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import img from '../assets/Lanyard.png'
+import img from '../assets/lanyard.png'
 
 const AboutUs = () => {
   const sectionRef = useRef(null)
