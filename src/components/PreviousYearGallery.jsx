@@ -1,6 +1,5 @@
 import React from 'react'
 import Stack from './Stack'
-import fallback1 from '../assets/SolastaHighlights/IMG_1956.jpg'
 import fallback2 from '../assets/SolastaHighlights/IMG_2296.jpg'
 import fallback3 from '../assets/SolastaHighlights/IMG_2950.jpg'
 import fallback4 from '../assets/SolastaHighlights/IMG_3447.jpg'
@@ -17,7 +16,7 @@ import fallback14 from '../assets/SolastaHighlights/IMG_9116.jpg'
 
 const PreviousYearGallery = () => {
   const images = [
-    { src: 'https://i.ibb.co/HDBWyngg/IMG-1956.jpg', alt: 'IMG-1956', fallback: fallback1 },
+    { src: 'https://i.ibb.co/HDBWyngg/IMG-1956.jpg', alt: 'IMG-1956' },
     { src: 'https://i.ibb.co/F4Pv19Wx/IMG-2296.jpg', alt: 'IMG-2296', fallback: fallback2 },
     { src: 'https://i.ibb.co/V0X3Qhht/IMG-2950.jpg', alt: 'IMG-2950', fallback: fallback3 },
     { src: 'https://i.ibb.co/JR6S0cc2/IMG-3447.jpg', alt: 'IMG-3447', fallback: fallback4 },
@@ -75,7 +74,7 @@ const PreviousYearGallery = () => {
                     alt={img.alt} 
                     className="w-full h-full object-cover pointer-events-none select-none rounded-2xl"
                     loading="eager"
-                    onError={(e) => { e.target.src = img.fallback }}
+                    onError={(e) => { if(img.fallback) e.target.src = img.fallback }}
                   />
                 ))}
               />
