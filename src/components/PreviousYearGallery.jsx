@@ -1,23 +1,24 @@
 import React from 'react'
 import Stack from './Stack'
-import img1 from '../assets/solastahighlights/IMG_2296.jpg'
-import img2 from '../assets/solastahighlights/IMG_2950.jpg'
-import img3 from '../assets/solastahighlights/IMG_3447.jpg'
-import img4 from '../assets/solastahighlights/IMG_7187.jpg'
-import img5 from '../assets/solastahighlights/IMG_7489.jpg'
-import img6 from '../assets/solastahighlights/IMG_7821.jpg'
-import img7 from '../assets/solastahighlights/IMG_8217.jpg'
-import img8 from '../assets/solastahighlights/IMG_8318.jpg'
-import img9 from '../assets/solastahighlights/IMG_8326.jpg'
-import img10 from '../assets/solastahighlights/IMG_8580.jpg'
-import img11 from '../assets/solastahighlights/IMG_8635.jpg'
-import img12 from '../assets/solastahighlights/IMG_9116.jpg'
-import img13 from '../assets/solastahighlights/IMG_8356.jpg'
+import img1 from '../assets/SolastaHighlights/IMG_2296.jpg'
+import img2 from '../assets/SolastaHighlights/IMG_2950.jpg'
+import img3 from '../assets/SolastaHighlights/IMG_3447.jpg'
+import img4 from '../assets/SolastaHighlights/IMG_7187.jpg'
+import img5 from '../assets/SolastaHighlights/IMG_7489.jpg'
+import img6 from '../assets/SolastaHighlights/IMG_7821.jpg'
+import img7 from '../assets/SolastaHighlights/IMG_8217.jpg'
+import img8 from '../assets/SolastaHighlights/IMG_8318.jpg'
+import img9 from '../assets/SolastaHighlights/IMG_8326.jpg'
+import img10 from '../assets/SolastaHighlights/IMG_8356.JPG'
+import img11 from '../assets/SolastaHighlights/IMG_8580.jpg'
+import img12 from '../assets/SolastaHighlights/IMG_8635.jpg'
+import img13 from '../assets/SolastaHighlights/IMG_9116.jpg'
 
 const PreviousYearGallery = () => {
   const images = [
     img1, img2, img3, img4, img5, img6, 
-    img7, img8, img9, img10, img11, img12
+    img7, img8, img9, img10, img11, img12, img13
+  ]
   ]
 
   return (
