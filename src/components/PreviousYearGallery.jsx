@@ -19,7 +19,6 @@ const PreviousYearGallery = () => {
     img1, img2, img3, img4, img5, img6, 
     img7, img8, img9, img10, img11, img12, img13
   ]
-  ]
 
   return (
     <section className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8">
