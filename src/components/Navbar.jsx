@@ -61,11 +61,11 @@ const Navbar = () => {
 
           {/* Center Logo */}
           <div className="flex-shrink-0 absolute left-1/2 -translate-x-1/2 pointer-events-none flex items-center gap-2 md:gap-3">
-            <img 
+            {/* <img 
               src={lanyardImg} 
               alt="Lanyard" 
               className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 object-contain"
-            />
+            /> */}
             <h1 
               className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#FFA07A] via-[#FFD4A3] to-[#FFA07A] bg-clip-text text-transparent tracking-wider"
               style={{ fontFamily: '"Oxanium", sans-serif' }}

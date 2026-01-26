@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { useNavigate } from 'react-router-dom'
 import bg1 from '../assets/bg1.png'
+import lanyard from '../assets/logonobg.png'
 
 const Hero = () => {
   const navigate = useNavigate()
@@ -232,6 +233,21 @@ const Hero = () => {
       
       <div className='relative z-10 w-full max-w-[95vw] flex flex-col items-center justify-center gap-4 sm:gap-6 md:gap-8'>
        
+        {/* Lanyard Logo */}
+        {/* <div 
+          className={`w-[320px] h-[320px] sm:w-[180px] sm:h-[180px] md:w-[320px] md:h-[320px] rounded-4xl overflow-hidden pointer-events-none transition-opacity duration-200 ${showElements ? 'opacity-100' : 'opacity-0'}`}
+          style={{
+            transform: 'translateZ(0)',
+            filter: 'drop-shadow(0 4px 20px rgba(255, 107, 53, 0.3))'
+          }}
+        >
+          <img 
+            src={lanyard} 
+            alt="Solasta Logo" 
+            className="w-full h-full object-cover"
+          />
+        </div> */}
+
         <p 
           className={`text-white/90 text-[clamp(0.65rem,2.5vw,2rem)] text-center font-semibold tracking-[0.1em] sm:tracking-[0.2em] md:tracking-[0.3em] [text-shadow:0_2px_10px_rgba(0,0,0,0.5)] px-2 pointer-events-none transition-opacity duration-200 ${showElements ? 'opacity-100' : 'opacity-0'}`}
           style={{

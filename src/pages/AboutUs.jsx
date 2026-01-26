@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import img from '../assets/Lanyard.png'
 
 const AboutUs = () => {
   const sectionRef = useRef(null)
@@ -14,9 +15,10 @@ const AboutUs = () => {
         
         <div className="about-content">
           <div className="about-logo-section">
-            <div className="logo-placeholder animate-scale-in">
-              <span>LOGO</span>
-            </div>
+            {/* <div className="logo-placeholder animate-scale-in"> */}
+              {/* <span>LOGO</span> */}
+              <span><img src={img} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block', borderRadius: '20%' }} /></span>
+            {/* </div> */}
           </div>
 
           <div className="about-text">
@@ -129,8 +131,8 @@ const AboutUs = () => {
         }
 
         .logo-placeholder {
-          width: 200px;
-          height: 200px;
+          width: 250px;
+          height: 150px;
           background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 107, 53, 0.2));
           border: 3px solid rgba(255, 107, 53, 0.4);
           border-radius: 20px;
@@ -144,6 +146,7 @@ const AboutUs = () => {
           backdrop-filter: blur(10px);
           box-shadow: 0 10px 40px rgba(255, 107, 53, 0.2);
           transition: all 0.3s ease;
+          overflow: hidden;
         }
 
         .logo-placeholder:hover {

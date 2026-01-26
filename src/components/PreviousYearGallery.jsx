@@ -41,10 +41,10 @@ const PreviousYearGallery = () => {
         {/* Stack Container */}
         <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
           {/* Stack Component */}
-          <div className="w-full max-w-[90vw] sm:max-w-[420px] md:max-w-[500px] lg:max-w-[550px] mx-auto px-4 sm:px-0">
+          <div className="w-full max-w-[95vw] sm:max-w-[600px] md:max-w-[700px] lg:max-w-[800px] mx-auto">
             <div 
-              className="w-full aspect-square mx-auto"
-              style={{ maxWidth: '750px' }}
+              className="w-full mx-auto"
+              style={{ aspectRatio: '4/3', maxWidth: '900px' }}
             >
               <Stack
                 randomRotation={true}
@@ -65,9 +65,10 @@ const PreviousYearGallery = () => {
                 ))}
               />
             </div>
-            {/* Mobile Helper Text */}
-            <p className='text-white/60 text-[10px] text-center mt-3 md:hidden' style={{ fontFamily: '"Montserrat", sans-serif' }}>
-              Tap or drag the cards to explore!
+            {/* Helper Text */}
+            <p className='text-white/60 text-xs sm:text-sm text-center mt-4 sm:mt-5' style={{ fontFamily: '"Montserrat", sans-serif' }}>
+              <span >Tap or drag the cards to explore!</span>
+              {/* <span className='hidden md:inline'>Click and drag the cards to explore more highlights!</span> */}
             </p>
           </div>
 
