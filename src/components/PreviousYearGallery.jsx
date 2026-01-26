@@ -1,31 +1,37 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Stack from './Stack'
-import img1 from '../assets/SolastaHighlights/IMG_2296.jpg'
-import img2 from '../assets/SolastaHighlights/IMG_2950.jpg'
-import img3 from '../assets/SolastaHighlights/IMG_3447.jpg'
-import img4 from '../assets/SolastaHighlights/IMG_7187.jpg'
-import img5 from '../assets/SolastaHighlights/IMG_7489.jpg'
-import img6 from '../assets/SolastaHighlights/IMG_7821.jpg'
-import img7 from '../assets/SolastaHighlights/IMG_8217.jpg'
-import img8 from '../assets/SolastaHighlights/IMG_8318.jpg'
-import img9 from '../assets/SolastaHighlights/IMG_8326.jpg'
-import img10 from '../assets/SolastaHighlights/IMG_8356.JPG'
-import img11 from '../assets/SolastaHighlights/IMG_8580.jpg'
-import img12 from '../assets/SolastaHighlights/IMG_8635.jpg'
-import img13 from '../assets/SolastaHighlights/IMG_9116.jpg'
+import fallback1 from '../assets/SolastaHighlights/IMG_1956.jpg'
+import fallback2 from '../assets/SolastaHighlights/IMG_2296.jpg'
+import fallback3 from '../assets/SolastaHighlights/IMG_2950.jpg'
+import fallback4 from '../assets/SolastaHighlights/IMG_3447.jpg'
+import fallback5 from '../assets/SolastaHighlights/IMG_7187.jpg'
+import fallback6 from '../assets/SolastaHighlights/IMG_7489.jpg'
+import fallback7 from '../assets/SolastaHighlights/IMG_7821.jpg'
+import fallback8 from '../assets/SolastaHighlights/IMG_8217.jpg'
+import fallback9 from '../assets/SolastaHighlights/IMG_8318.jpg'
+import fallback10 from '../assets/SolastaHighlights/IMG_8326.jpg'
+import fallback11 from '../assets/SolastaHighlights/IMG_8356.JPG'
+import fallback12 from '../assets/SolastaHighlights/IMG_8580.jpg'
+import fallback13 from '../assets/SolastaHighlights/IMG_8635.jpg'
+import fallback14 from '../assets/SolastaHighlights/IMG_9116.jpg'
 
 const PreviousYearGallery = () => {
   const images = [
-    img1, img2, img3, img4, img5, img6, 
-    img7, img8, img9, img10, img11, img12, img13
+    { src: 'https://i.ibb.co/HDBWyngg/IMG-1956.jpg', alt: 'IMG-1956', fallback: fallback1 },
+    { src: 'https://i.ibb.co/F4Pv19Wx/IMG-2296.jpg', alt: 'IMG-2296', fallback: fallback2 },
+    { src: 'https://i.ibb.co/V0X3Qhht/IMG-2950.jpg', alt: 'IMG-2950', fallback: fallback3 },
+    { src: 'https://i.ibb.co/JR6S0cc2/IMG-3447.jpg', alt: 'IMG-3447', fallback: fallback4 },
+    { src: 'https://i.ibb.co/xKpPd765/IMG-7187.jpg', alt: 'IMG-7187', fallback: fallback5 },
+    { src: 'https://i.ibb.co/YBxPm1jx/IMG-7489.jpg', alt: 'IMG-7489', fallback: fallback6 },
+    { src: 'https://i.ibb.co/Y7YKDN4d/IMG-7821.jpg', alt: 'IMG-7821', fallback: fallback7 },
+    { src: 'https://i.ibb.co/gLXdkDBP/IMG-8217.jpg', alt: 'IMG-8217', fallback: fallback8 },
+    { src: 'https://i.ibb.co/bgLBRpmT/IMG-8318.jpg', alt: 'IMG-8318', fallback: fallback9 },
+    { src: 'https://i.ibb.co/FLq9kp8P/IMG-8326.jpg', alt: 'IMG-8326', fallback: fallback10 },
+    { src: 'https://i.ibb.co/d4QhhhG4/IMG-8356.jpg', alt: 'IMG-8356', fallback: fallback11 },
+    { src: 'https://i.ibb.co/fYhZMXt7/IMG-8580.jpg', alt: 'IMG-8580', fallback: fallback12 },
+    { src: 'https://i.ibb.co/W4w2MWyK/IMG-8635.jpg', alt: 'IMG-8635', fallback: fallback13 },
+    { src: 'https://i.ibb.co/cS5FChbJ/IMG-9116.jpg', alt: 'IMG-9116', fallback: fallback14 }
   ]
-
-  useEffect(() => {
-    images.forEach(src => {
-      const img = new Image()
-      img.src = src
-    })
-  }, [])
 
   return (
     <section className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8">
@@ -62,13 +68,14 @@ const PreviousYearGallery = () => {
                 autoplayDelay={4000}
                 pauseOnHover={true}
                 mobileBreakpoint={768}
-                cards={images.map((src, i) => (
+                cards={images.map((img, i) => (
                   <img 
                     key={i} 
-                    src={src} 
-                    alt={`SOLASTA highlight ${i + 1}`} 
+                    src={img.src} 
+                    alt={img.alt} 
                     className="w-full h-full object-cover pointer-events-none select-none rounded-2xl"
                     loading="eager"
+                    onError={(e) => { e.target.src = img.fallback }}
                   />
                 ))}
               />
