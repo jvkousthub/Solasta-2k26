@@ -28,12 +28,12 @@ useGLTF.preload(cardModel10);
 
 const Teams = () => {
   const teamMembers = [
-    { id: 2, name: 'Sandeep', role: 'Event Lead', image: 'https://via.placeholder.com/300', cardModel: cardModel1 },
-    { id: 1, name: 'Sujith', role: 'Event Lead', image: 'https://via.placeholder.com/300', cardModel: cardModel },
+    { id: 1, name: 'Sandeep', role: 'Event Lead', image: 'https://via.placeholder.com/300', cardModel: cardModel1 },
+    { id: 2, name: 'Sujith', role: 'Event Lead', image: 'https://via.placeholder.com/300', cardModel: cardModel },
     { id: 3, name: 'Murari', role: 'Finance', image: 'https://via.placeholder.com/300', cardModel: cardModel2 },
     { id: 4, name: 'Motheendra', role: 'Finance', image: 'https://via.placeholder.com/300', cardModel: cardModel3 },
-    { id: 6, name: 'Praveen', role: 'Organising team', image: 'https://via.placeholder.com/300', cardModel: cardModel5 },
-    { id: 5, name: 'Giridhar', role: 'Logistics', image: 'https://via.placeholder.com/300', cardModel: cardModel4 },
+    { id: 5, name: 'Praveen', role: 'Organising team', image: 'https://via.placeholder.com/300', cardModel: cardModel5 },
+    { id: 6, name: 'Giridhar', role: 'Logistics', image: 'https://via.placeholder.com/300', cardModel: cardModel4 },
     { id: 7, name: 'Charan', role: 'Sponsorship', image: 'https://via.placeholder.com/300', cardModel: cardModel6 },
     { id: 8, name: 'Kousthub', role: 'Web Developer', image: 'https://via.placeholder.com/300', cardModel: cardModel7 },
     { id: 9, name: 'Ashish', role: 'Sponsorship', image: 'https://via.placeholder.com/300', cardModel: cardModel8 },
@@ -80,8 +80,8 @@ const Teams = () => {
               {/* Container for 3D Lanyard with controlled touch area */}
               <div className="absolute inset-0 rounded-lg overflow-visible">
                 <Suspense fallback={
-                  <div className="w-full h-full flex items-center justify-center bg-black/20 rounded-lg">
-                    <div className="text-white/50 text-sm">Loading...</div>
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg">
+                    <div className="text-white/70 text-sm font-semibold animate-pulse">Loading {member.name}...</div>
                   </div>
                 }>
                   <Lanyard position={[0, 0, 25]} gravity={[0, -40, 0]} fov={25} cardModel={member.cardModel} />
@@ -102,12 +102,12 @@ const Teams = () => {
                 >
                   {member.role}
                 </p>
-                <div 
+                {/* <div 
                   className="mt-1 md:mt-2 text-xs md:text-sm text-white/50"
                   style={{ fontFamily: '"Montserrat", sans-serif' }}
                 >
                   ID: {String(member.id).padStart(4, '0')}
-                </div>
+                </div> */}
               </div>
             </div>
           ))}

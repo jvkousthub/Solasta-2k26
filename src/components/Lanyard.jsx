@@ -215,5 +215,6 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, cardModel }) {
   );
 }
 
-// Preload all card models
+// Preload all card models and textures
 useGLTF.preload(defaultCardGLB);
+useTexture.preload(lanyard);
