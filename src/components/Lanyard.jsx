@@ -33,9 +33,11 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
         style={{ touchAction: 'pan-y', WebkitTouchCallout: 'none', userSelect: 'none' }}
       >
         <ambientLight intensity={Math.PI} />
-        <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
-          <Band isMobile={isMobile} cardModel={cardModel || defaultCardGLB} />
-        </Physics>
+        <Suspense fallback={null}>
+          <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
+            <Band isMobile={isMobile} cardModel={cardModel || defaultCardGLB} />
+          </Physics>
+        </Suspense>
         <Environment blur={0.75}>
           <Lightformer
             intensity={2}

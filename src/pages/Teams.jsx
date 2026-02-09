@@ -79,7 +79,13 @@ const Teams = () => {
             >
               {/* Container for 3D Lanyard with controlled touch area */}
               <div className="absolute inset-0 rounded-lg overflow-visible">
-                <Lanyard position={[0, 0, 25]} gravity={[0, -40, 0]} fov={25} cardModel={member.cardModel} />
+                <Suspense fallback={
+                  <div className="w-full h-full flex items-center justify-center bg-black/20 rounded-lg">
+                    <div className="text-white/50 text-sm">Loading...</div>
+                  </div>
+                }>
+                  <Lanyard position={[0, 0, 25]} gravity={[0, -40, 0]} fov={25} cardModel={member.cardModel} />
+                </Suspense>
               </div>
               
               {/* Member Info Overlay */}
