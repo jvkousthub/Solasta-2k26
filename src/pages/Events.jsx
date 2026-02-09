@@ -8,6 +8,7 @@ import Sponsor3 from '../assets/Sponsor3.jpg'
 import Sponsor4 from '../assets/Sponsor4.jpg'
 import Sponsor5 from '../assets/Sponsor5.jpg'
 import Sponsor6 from '../assets/Sponsor6.jpg'
+import esports from '../assets/esports.jpeg'
 
 const EventCard = ({ _id, title, date, time, venue, img }) => {
   return (
@@ -18,10 +19,10 @@ const EventCard = ({ _id, title, date, time, venue, img }) => {
       viewport={{ once: true, amount: 0.25 }}
       className="group cursor-pointer flex flex-col relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-lg border border-white/10 hover:border-[#FFA07A]/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
     >
-      {/* <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
+      <div className="relative h-64 overflow-hidden">
         <img src={img} alt={title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      </div> */}
+      </div>
 
       <div className="p-4 sm:p-5 md:p-6">
         <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4" style={{ fontFamily: '"Oxanium", sans-serif' }}>
@@ -72,7 +73,7 @@ const Events = () => {
       date: "Feb 28, 2026",
       time: "10:00 AM",
       venue: "Main Auditorium",
-      img: Sponsor1,
+      img: esports,
       category: "Performing arts",
     },
     {

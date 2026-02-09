@@ -1,148 +1,131 @@
-import React, { Suspense } from 'react';
-import Lanyard from '../components/Lanyard';
+import React, { useEffect } from 'react';
 import { useGLTF } from '@react-three/drei';
-import cardModel from '../assets/card.glb';
-import cardModel1 from '../assets/card1.glb';
-import cardModel2 from '../assets/card2.glb';
-import cardModel3 from '../assets/card3.glb';
-import cardModel4 from '../assets/card4.glb';
-import cardModel5 from '../assets/card5.glb';
-import cardModel6 from '../assets/card6.glb';
-import cardModel7 from '../assets/card7.glb';
-import cardModel8 from '../assets/card8.glb';
-import cardModel9 from '../assets/card9.glb';
-import cardModel10 from '../assets/card10.glb';
+import Lanyard from '../components/Lanyard';
+
+// Import all GLB card models
+import card from '../assets/card.glb';
+import card1 from '../assets/card1.glb';
+import card2 from '../assets/card2.glb';
+import card3 from '../assets/card3.glb';
+import card4 from '../assets/card4.glb';
+import card5 from '../assets/card5.glb';
+import card6 from '../assets/card6.glb';
+import card7 from '../assets/card7.glb';
+import card8 from '../assets/card8.glb';
+import card9 from '../assets/card9.glb';
+import card10 from '../assets/card10.glb';
+
+// Team members data with their corresponding card models
+const teamMembers = [
+  { id: 1, cardModel: card1, name: "Sandeep", role: "Event Lead", instagram: "@sandeep_likhithapudi" },
+  { id: 2, cardModel: card, name: "Sujith", role: "Event Lead", instagram: "" },
+  { id: 3, cardModel: card2, name: "Murari", role: "Finance Lead", instagram: "@_.koushik07._" },
+  { id: 4, cardModel: card3, name: "Motheendra ", role: "Finance Lead", instagram: "" },
+  { id: 5, cardModel: card5, name: "Praveen ", role: "Event Management Lead", instagram: "@pravxxnbalaji" },
+  { id: 6, cardModel: card4, name: "Giridhar ", role: "Logistics Lead", instagram: "@_giri_2_8_5_" },
+  { id: 7, cardModel: card6, name: "Charan", role: "Sponsorship Lead", instagram: "@charan.mulugula" },
+  { id: 8, cardModel: card7, name: "Kousthub", role: "Web Developer", instagram: "@kousthubjv" },
+  { id: 9, cardModel: card8, name: "Ashish", role: "Sponsorship", instagram: "@_ashish.130" },
+  { id: 10, cardModel: card9, name: "Sundeep", role: "PR Lead", instagram: "@sundeeptejjj" },
+  { id: 11, cardModel: card10, name: "Harsha", role: "PR Lead", instagram: "@lazzy_winner__" },
+];
 
 // Preload all card models
-useGLTF.preload(cardModel);
-useGLTF.preload(cardModel1);
-useGLTF.preload(cardModel2);
-useGLTF.preload(cardModel3);
-useGLTF.preload(cardModel4);
-useGLTF.preload(cardModel5);
-useGLTF.preload(cardModel6);
-useGLTF.preload(cardModel7);
-useGLTF.preload(cardModel8);
-useGLTF.preload(cardModel9);
-useGLTF.preload(cardModel10);
+teamMembers.forEach(member => {
+  useGLTF.preload(member.cardModel);
+});
 
-const Teams = () => {
-  const teamMembers = [
-    { id: 1, name: 'Sandeep', role: 'Event Lead', image: 'https://via.placeholder.com/300', cardModel: cardModel1 },
-    { id: 2, name: 'Sujith', role: 'Event Lead', image: 'https://via.placeholder.com/300', cardModel: cardModel },
-    { id: 3, name: 'Murari', role: 'Finance', image: 'https://via.placeholder.com/300', cardModel: cardModel2 },
-    { id: 4, name: 'Motheendra', role: 'Finance', image: 'https://via.placeholder.com/300', cardModel: cardModel3 },
-    { id: 5, name: 'Praveen', role: 'Organising team', image: 'https://via.placeholder.com/300', cardModel: cardModel5 },
-    { id: 6, name: 'Giridhar', role: 'Logistics', image: 'https://via.placeholder.com/300', cardModel: cardModel4 },
-    { id: 7, name: 'Charan', role: 'Sponsorship', image: 'https://via.placeholder.com/300', cardModel: cardModel6 },
-    { id: 8, name: 'Kousthub', role: 'Web Developer', image: 'https://via.placeholder.com/300', cardModel: cardModel7 },
-    { id: 9, name: 'Ashish', role: 'Sponsorship', image: 'https://via.placeholder.com/300', cardModel: cardModel8 },
-    { id: 10, name: 'Sundeep', role: 'PR', image: 'https://via.placeholder.com/300', cardModel: cardModel9 },
-    { id: 11, name: 'Harsha', role: 'PR', image: 'https://via.placeholder.com/300', cardModel: cardModel10 },
-  ];
+export default function Teams() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white">
-      {/* Hero Section */}
-      <div className="relative w-full pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 overflow-hidden">
-        {/* Background gradient circles similar to AboutUs */}
-        <div className="absolute top-20 right-20 w-96 h-96 bg-[#FFA07A]/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#FFD4A3]/10 rounded-full blur-3xl"></div>
-        
-        <div className="container mx-auto px-4 text-center relative z-10">
+    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
+      {/* Header Section */}
+      <div className="pt-20 pb-8 px-3 sm:px-4">
+        <div className="max-w-7xl mx-auto text-center">
           <h1 
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 text-[#FFA07A] px-4"
-            style={{ fontFamily: '"Luckiest Guy", cursive' }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 bg-gradient-to-r from-[#FF6B35] via-[#FFB347] to-[#FF6B35] bg-clip-text text-transparent animate-gradient"
+            style={{ fontFamily: '"Oxanium", sans-serif' }}
           >
-            Meet Our Team
+            Our Team
           </h1>
           <p 
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 mb-8 sm:mb-10 md:mb-12 max-w-3xl mx-auto px-4"
-            style={{ fontFamily: '"Montserrat", sans-serif' }}
+            className="text-base sm:text-lg md:text-xl text-white/80 max-w-3xl mx-auto"
+            style={{ fontFamily: '"Oxanium", sans-serif' }}
           >
-            The people behind Solasta 2026
-          </p>
-          {/* Helper Text */}
-          <p className='text-white/70 text-xs sm:text-sm text-center mt-2 px-4 font-medium' style={{ fontFamily: '"Montserrat", sans-serif' }}>
-            Tap and drag to rotate the cards!
+            Meet the amazing people behind SOLASTA 2026
           </p>
         </div>
       </div>
 
-      {/* Team Members Grid - 3D Lanyard Cards */}
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-12 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-10 lg:gap-12">
+      {/* Team Grid */}
+      <div className="max-w-7xl mx-auto px-2 sm:px-3 md:px-4 pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-xs md:max-w-none mx-auto">
           {teamMembers.map((member) => (
-            <div
+            <div 
               key={member.id}
-              className="group relative w-full h-[600px] md:h-[600px] lg:h-[650px] mx-auto max-w-sm md:max-w-none bg-black/30 rounded-lg"
-              style={{ minHeight: '600px' }}
+              className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-white/10 hover:border-[#FF6B35]/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,107,53,0.3)]"
             >
-              {/* Container for 3D Lanyard with controlled touch area */}
-              <div className="absolute inset-0 w-full h-full rounded-lg" style={{ overflow: 'hidden' }}>
-                <Suspense fallback={
-                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg">
-                    <div className="text-white/70 text-sm font-semibold animate-pulse">Loading {member.name}...</div>
-                  </div>
-                }>
-                  <Lanyard position={[0, 0, 25]} gravity={[0, -40, 0]} fov={25} cardModel={member.cardModel} />
-                </Suspense>
+              {/* Lanyard Container - Interactive Area */}
+              <div style={{ minHeight: '500px', height: '500px' }} className="-mt-20 sm:mt-0 touch-pan-y sm:min-h-[500px] sm:h-[500px]">
+                <Lanyard 
+                  cardModel={member.cardModel}
+                  position={[0, 0, 25]}
+                  fov={20}
+                  gravity={[0, -40, 0]}
+                />
               </div>
               
-              {/* Member Info Overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6 bg-gradient-to-t from-black via-black/95 to-transparent text-center z-10 pointer-events-none rounded-b-lg">
+              {/* Member Info - Below Interactive Area */}
+              <div className="px-4 py-2 sm:px-4 sm:py-3 bg-black/40 backdrop-blur-sm pointer-events-none select-none">
                 <h3 
-                  className="text-lg sm:text-xl md:text-2xl font-bold mb-1 md:mb-2 text-[#FFA07A]"
-                  style={{ fontFamily: '"Montserrat", sans-serif' }}
+                  className="text-lg sm:text-2xl font-bold text-white mb-0.5 sm:mb-1"
+                  style={{ fontFamily: '"Oxanium", sans-serif' }}
                 >
                   {member.name}
                 </h3>
                 <p 
-                  className="text-white/80 text-sm sm:text-base md:text-lg"
-                  style={{ fontFamily: '"Montserrat", sans-serif' }}
+                  className="text-xs sm:text-base text-[#FFB347] mb-1 sm:mb-2"
+                  style={{ fontFamily: '"Oxanium", sans-serif' }}
                 >
                   {member.role}
                 </p>
-                {/* <div 
-                  className="mt-1 md:mt-2 text-xs md:text-sm text-white/50"
-                  style={{ fontFamily: '"Montserrat", sans-serif' }}
+                <a
+                  href={`https://instagram.com/${member.instagram.replace('@', '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-sm text-white/70 hover:text-[#FF6B35] transition-colors pointer-events-auto"
+                  style={{ fontFamily: '"Oxanium", sans-serif' }}
                 >
-                  ID: {String(member.id).padStart(4, '0')}
-                </div> */}
+                  <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                  {member.instagram}
+                </a>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Bottom Section */}
-      <div className="container mx-auto px-4 py-12 sm:py-16 md:py-20 text-center relative">
-        {/* Background gradient circle */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#FF6B35]/10 rounded-full blur-3xl"></div>
+      {/* Additional styling for gradient animation */}
+      <style>{`
+        @keyframes gradient {
+          0%, 100% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+        }
         
-        <div className="relative z-10">
-          <h2 
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-[#FF6B35] px-4"
-            style={{ fontFamily: '"Luckiest Guy", cursive' }}
-          >
-            Want to Join Us?
-          </h2>
-          <p 
-            className="text-base sm:text-lg md:text-xl text-white/80 mb-6 sm:mb-8 max-w-2xl mx-auto px-4"
-            style={{ fontFamily: '"Montserrat", sans-serif' }}
-          >
-            We&apos;re always looking for passionate individuals to join our team and make Solasta even better!
-          </p>
-          <button 
-            className="bg-white text-[#FFA07A] px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-sm sm:text-base md:text-lg shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:scale-110 hover:shadow-[0_15px_50px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out border-2 border-[#FFA07A] hover:bg-[#FFA07A] hover:text-white active:scale-95 min-h-[44px]"
-            style={{ fontFamily: '"Montserrat", sans-serif' }}
-          >
-            Get In Touch
-          </button>
-        </div>
-      </div>
+        .animate-gradient {
+          background-size: 200% auto;
+          animation: gradient 3s ease infinite;
+        }
+      `}</style>
     </div>
   );
-};
-
-export default Teams;
+}

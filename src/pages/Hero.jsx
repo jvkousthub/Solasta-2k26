@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { useNavigate } from 'react-router-dom'
 import bg1 from '../assets/bg1.png'
+import logonobg from '../assets/nobg.png'
 
 const Hero = () => {
   const navigate = useNavigate()
@@ -232,6 +233,12 @@ const Hero = () => {
       
       <div className='relative z-10 w-full max-w-[95vw] flex flex-col items-center justify-center gap-4 sm:gap-6 md:gap-8'>
        
+        <img 
+          src={logonobg} 
+          alt="Solasta Logo" 
+          className={`w-[clamp(8rem,25vw,15rem)] h-auto transition-opacity duration-200 pointer-events-none ${showElements ? 'opacity-100' : 'opacity-0'}`}
+          style={{ transform: 'translateZ(0)', filter: 'drop-shadow(0 4px 15px rgba(0,0,0,0.3))' }}
+        />
         <p 
           className={`text-white/90 text-[clamp(0.65rem,2.5vw,2rem)] text-center font-semibold tracking-[0.1em] sm:tracking-[0.2em] md:tracking-[0.3em] [text-shadow:0_2px_10px_rgba(0,0,0,0.5)] px-2 pointer-events-none transition-opacity duration-200 ${showElements ? 'opacity-100' : 'opacity-0'}`}
           style={{
@@ -243,6 +250,8 @@ const Hero = () => {
         >
           IIITDM KURNOOL PRESENTS
         </p>
+        
+        {/* Logo */}
         
         {/* Main Title */}
         <h1 
