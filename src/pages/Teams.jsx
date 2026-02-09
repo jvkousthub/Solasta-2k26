@@ -75,17 +75,11 @@ const Teams = () => {
           {teamMembers.map((member) => (
             <div
               key={member.id}
-              className="group relative w-full h-[450px] sm:h-[500px] md:h-[600px] lg:h-[650px] mx-auto max-w-sm md:max-w-none touch-none"
+              className="group relative w-full h-[450px] sm:h-[500px] md:h-[600px] lg:h-[650px] mx-auto max-w-sm md:max-w-none"
             >
               {/* Container for 3D Lanyard with controlled touch area */}
-              <div className="absolute inset-0 rounded-lg overflow-visible" style={{ touchAction: 'none' }}>
-                <Suspense fallback={
-                  <div className="w-full h-full flex items-center justify-center">
-                    <div className="text-white/50 text-xs sm:text-sm animate-pulse">Loading card...</div>
-                  </div>
-                }>
-                  <Lanyard position={[0, 0, 25]} gravity={[0, -40, 0]} fov={25} cardModel={member.cardModel} />
-                </Suspense>
+              <div className="absolute inset-0 rounded-lg overflow-visible">
+                <Lanyard position={[0, 0, 25]} gravity={[0, -40, 0]} fov={25} cardModel={member.cardModel} />
               </div>
               
               {/* Member Info Overlay */}
