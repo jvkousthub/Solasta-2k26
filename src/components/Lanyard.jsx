@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import { Canvas, extend, useFrame } from '@react-three/fiber';
 import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei';
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier';
@@ -27,15 +27,17 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
     <div className="relative z-0 w-full h-full flex justify-center items-center transform scale-100 origin-center">
       <Canvas
         camera={{ position: position, fov: fov }}
-        dpr={[1, isMobile ? 1.5 : 2]}
-        gl={{ alpha: transparent }}
+        dpr={[1, isMobile ? 1 : 1.5]}
+        gl={{ alpha: transparent, antialias: !isMobile, powerPreference: isMobile ? 'low-power' : 'high-performance' }}
         onCreated={({ gl }) => gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1)}
-        style={{ touchAction: 'pan-y', WebkitTouchCallout: 'none', userSelect: 'none' }}
+        style={{ touchAction: 'none', WebkitTouchCallout: 'none', userSelect: 'none', WebkitUserSelect: 'none' }}
       >
         <ambientLight intensity={Math.PI} />
-        <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
-          <Band isMobile={isMobile} cardModel={cardModel || defaultCardGLB} />
-        </Physics>
+        <Suspense fallback={null}>
+          <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
+            <Band isMobile={isMobile} cardModel={cardModel || defaultCardGLB} />
+          </Physics>
+        </Suspense>
         <Environment blur={0.75}>
           <Lightformer
             intensity={2}
@@ -82,7 +84,20 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, cardModel }) {
     rot = new THREE.Vector3(),
     dir = new THREE.Vector3();
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
-  const { nodes, materials } = useGLTF(cardModel);
+  
+  // Use try-catch with fallback
+  let nodes, materials;
+  try {
+    const gltf = useGLTF(cardModel);
+    nodes = gltf.nodes;
+    materials = gltf.materials;
+  } catch (error) {
+    console.error('Error loading GLB model:', error);
+    const fallback = useGLTF(defaultCardGLB);
+    nodes = fallback.nodes;
+    materials = fallback.materials;
+  }
+  
   const texture = useTexture(lanyard);
   const [curve] = useState(
     () =>
@@ -96,7 +111,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, cardModel }) {
   useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1]);
   useSphericalJoint(j3, card, [
     [0, 0, 0],
-    [0, 3.4, 0]
+    [0, isMobile ? 2.8 : 3.4, 0]
   ]);
 
   useEffect(() => {
@@ -113,7 +128,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, cardModel }) {
       vec.add(dir.multiplyScalar(state.camera.position.length()));
       [card, j1, j2, j3, fixed].forEach(ref => ref.current?.wakeUp());
       // Increased sensitivity for mobile by multiplying the drag distance
-      const multiplier = isMobile ? 2 : 1;
+      const multiplier = isMobile ? 2.5 : 1;
       card.current?.setNextKinematicTranslation({ 
         x: (vec.x - dragged.x) * multiplier, 
         y: (vec.y - dragged.y) * multiplier, 
@@ -159,7 +174,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, cardModel }) {
         <RigidBody position={[2, 0, 0]} ref={card} {...segmentProps} type={dragged ? 'kinematicPosition' : 'dynamic'}>
           <CuboidCollider args={[0.8, 1.125, 0.01]} />
           <group
-            scale={isMobile ? 4.2 : 3.8}
+            scale={isMobile ? 3.5 : 3.8}
             position={[0, -1.2, -0.05]}
             onPointerOver={() => hover(true)}
             onPointerOut={() => hover(false)}
@@ -210,3 +225,6 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, cardModel }) {
     </>
   );
 }
+
+// Preload all card models
+useGLTF.preload(defaultCardGLB);

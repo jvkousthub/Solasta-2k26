@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Lanyard from '../components/Lanyard';
+import { useGLTF } from '@react-three/drei';
 import cardModel from '../assets/card.glb';
 import cardModel1 from '../assets/card1.glb';
 import cardModel2 from '../assets/card2.glb';
@@ -11,6 +12,20 @@ import cardModel7 from '../assets/card7.glb';
 import cardModel8 from '../assets/card8.glb';
 import cardModel9 from '../assets/card9.glb';
 import cardModel10 from '../assets/card10.glb';
+
+// Preload all card models
+useGLTF.preload(cardModel);
+useGLTF.preload(cardModel1);
+useGLTF.preload(cardModel2);
+useGLTF.preload(cardModel3);
+useGLTF.preload(cardModel4);
+useGLTF.preload(cardModel5);
+useGLTF.preload(cardModel6);
+useGLTF.preload(cardModel7);
+useGLTF.preload(cardModel8);
+useGLTF.preload(cardModel9);
+useGLTF.preload(cardModel10);
+
 const Teams = () => {
   const teamMembers = [
     { id: 2, name: 'Sandeep', role: 'Event Lead', image: 'https://via.placeholder.com/300', cardModel: cardModel1 },
@@ -48,23 +63,29 @@ const Teams = () => {
             The people behind Solasta 2026
           </p>
           {/* Helper Text */}
-          <p className='text-white/60 text-[10px] text-center mt-2 px-4' style={{ fontFamily: '"Montserrat", sans-serif' }}>
+          <p className='text-white/70 text-xs sm:text-sm text-center mt-2 px-4 font-medium' style={{ fontFamily: '"Montserrat", sans-serif' }}>
             Tap and drag to rotate the cards!
           </p>
         </div>
       </div>
 
       {/* Team Members Grid - 3D Lanyard Cards */}
-      <div className="container mx-auto px-2 sm:px-6 md:px-8 py-8 sm:py-12 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-12 md:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
           {teamMembers.map((member) => (
             <div
               key={member.id}
-              className="group relative w-full h-[500px] sm:h-[550px] md:h-[600px] lg:h-[650px] mx-auto max-w-sm md:max-w-none"
+              className="group relative w-full h-[450px] sm:h-[500px] md:h-[600px] lg:h-[650px] mx-auto max-w-sm md:max-w-none touch-none"
             >
               {/* Container for 3D Lanyard with controlled touch area */}
-              <div className="absolute inset-0 rounded-lg overflow-visible">
-                <Lanyard position={[0, 0, 25]} gravity={[0, -40, 0]} fov={25} cardModel={member.cardModel} />
+              <div className="absolute inset-0 rounded-lg overflow-visible" style={{ touchAction: 'none' }}>
+                <Suspense fallback={
+                  <div className="w-full h-full flex items-center justify-center">
+                    <div className="text-white/50 text-xs sm:text-sm animate-pulse">Loading card...</div>
+                  </div>
+                }>
+                  <Lanyard position={[0, 0, 25]} gravity={[0, -40, 0]} fov={25} cardModel={member.cardModel} />
+                </Suspense>
               </div>
               
               {/* Member Info Overlay */}
