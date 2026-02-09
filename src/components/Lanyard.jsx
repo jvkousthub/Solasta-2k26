@@ -16,6 +16,8 @@ extend({ MeshLineGeometry, MeshLineMaterial });
 
 export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], fov = 20, transparent = true, cardModel }) {
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768);
+  const [isVisible, setIsVisible] = useState(true);
+  const containerRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -23,9 +25,22 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    if (!containerRef.current) return;
+    
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { rootMargin: '100px' }
+    );
+    
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="relative z-0 w-full h-full flex justify-center items-center transform scale-100 origin-center" style={{ minHeight: '600px' }}>
+    <div ref={containerRef} className="relative z-0 w-full h-full flex justify-center items-center transform scale-100 origin-center" style={{ minHeight: '600px' }}>
       <Canvas
+        frameloop={isVisible ? 'always' : 'demand'}
         camera={{ position: position, fov: isMobile ? 30 : fov }}
         dpr={[1, isMobile ? 1.5 : 2]}
         gl={{ alpha: transparent, antialias: true, preserveDrawingBuffer: true }}
