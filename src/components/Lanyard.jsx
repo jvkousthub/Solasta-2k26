@@ -16,8 +16,6 @@ extend({ MeshLineGeometry, MeshLineMaterial });
 
 export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], fov = 20, transparent = true, cardModel }) {
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768);
-  const [isVisible, setIsVisible] = useState(true);
-  const containerRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -25,30 +23,14 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  useEffect(() => {
-    if (!containerRef.current) return;
-    
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
-      { rootMargin: '100px' }
-    );
-    
-    observer.observe(containerRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <div ref={containerRef} className="relative z-0 w-full h-full flex justify-center items-center transform scale-100 origin-center" style={{ minHeight: '600px' }}>
+    <div className="relative z-0 w-full h-full flex justify-center items-center transform scale-100 origin-center">
       <Canvas
-        frameloop={isVisible ? 'always' : 'demand'}
-        camera={{ position: position, fov: isMobile ? 30 : fov }}
-        dpr={[1, isMobile ? 1.5 : 2]}
-        gl={{ alpha: transparent, antialias: true, preserveDrawingBuffer: true }}
-        onCreated={({ gl }) => {
-          gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1);
-          if (isMobile) gl.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        }}
-        style={{ touchAction: 'pan-y', WebkitTouchCallout: 'none', userSelect: 'none', width: '100%', height: '100%', minHeight: '600px' }}
+        camera={{ position: position, fov: fov }}
+        dpr={[1, isMobile ? 1 : 1.5]}
+        gl={{ alpha: transparent, antialias: !isMobile, powerPreference: isMobile ? 'low-power' : 'high-performance' }}
+        onCreated={({ gl }) => gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1)}
+        style={{ touchAction: 'none', WebkitTouchCallout: 'none', userSelect: 'none', WebkitUserSelect: 'none' }}
       >
         <ambientLight intensity={Math.PI} />
         <Suspense fallback={null}>
