@@ -1,14 +1,29 @@
 import React from 'react';
 import Lanyard from '../components/Lanyard';
-
+import cardModel from '../assets/card.glb';
+import cardModel1 from '../assets/card1.glb';
+import cardModel2 from '../assets/card2.glb';
+import cardModel3 from '../assets/card3.glb';
+import cardModel4 from '../assets/card4.glb';
+import cardModel5 from '../assets/card5.glb';
+import cardModel6 from '../assets/card6.glb';
+import cardModel7 from '../assets/card7.glb';
+import cardModel8 from '../assets/card8.glb';
+import cardModel9 from '../assets/card9.glb';
+import cardModel10 from '../assets/card10.glb';
 const Teams = () => {
   const teamMembers = [
-    { id: 1, name: 'Team Member 1', role: 'Role 1', image: 'https://via.placeholder.com/300' },
-    { id: 2, name: 'Team Member 2', role: 'Role 2', image: 'https://via.placeholder.com/300' },
-    { id: 3, name: 'Team Member 3', role: 'Role 3', image: 'https://via.placeholder.com/300' },
-    { id: 4, name: 'Team Member 4', role: 'Role 4', image: 'https://via.placeholder.com/300' },
-    { id: 5, name: 'Team Member 5', role: 'Role 5', image: 'https://via.placeholder.com/300' },
-    { id: 6, name: 'Team Member 6', role: 'Role 6', image: 'https://via.placeholder.com/300' },
+    { id: 2, name: 'Sandeep', role: 'Event Lead', image: 'https://via.placeholder.com/300', cardModel: cardModel1 },
+    { id: 1, name: 'Sujith', role: 'Event Lead', image: 'https://via.placeholder.com/300', cardModel: cardModel },
+    { id: 3, name: 'Murari', role: 'Finance', image: 'https://via.placeholder.com/300', cardModel: cardModel2 },
+    { id: 4, name: 'Motheendra', role: 'Finance', image: 'https://via.placeholder.com/300', cardModel: cardModel3 },
+    { id: 6, name: 'Praveen', role: 'Organising team', image: 'https://via.placeholder.com/300', cardModel: cardModel5 },
+    { id: 5, name: 'Giridhar', role: 'Logistics', image: 'https://via.placeholder.com/300', cardModel: cardModel4 },
+    { id: 7, name: 'Charan', role: 'Sponsorship', image: 'https://via.placeholder.com/300', cardModel: cardModel6 },
+    { id: 8, name: 'Kousthub', role: 'Web Developer', image: 'https://via.placeholder.com/300', cardModel: cardModel7 },
+    { id: 9, name: 'Ashish', role: 'Sponsorship', image: 'https://via.placeholder.com/300', cardModel: cardModel8 },
+    { id: 10, name: 'Sundeep', role: 'PR', image: 'https://via.placeholder.com/300', cardModel: cardModel9 },
+    { id: 11, name: 'Harsha', role: 'PR', image: 'https://via.placeholder.com/300', cardModel: cardModel10 },
   ];
 
   return (
@@ -49,7 +64,7 @@ const Teams = () => {
             >
               {/* Container for 3D Lanyard with controlled touch area */}
               <div className="absolute inset-0 rounded-lg overflow-visible">
-                <Lanyard position={[0, 0, 25]} gravity={[0, -40, 0]} fov={25} />
+                <Lanyard position={[0, 0, 25]} gravity={[0, -40, 0]} fov={25} cardModel={member.cardModel} />
               </div>
               
               {/* Member Info Overlay */}
