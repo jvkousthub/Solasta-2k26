@@ -66,7 +66,7 @@ export default function Teams() {
           {teamMembers.map((member) => (
             <div 
               key={member.id}
-              className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-white/10 hover:border-[#FF6B35]/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,107,53,0.3)]"
+              className="relative rounded-2xl overflow-visible sm:overflow-hidden bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-white/10 hover:border-[#FF6B35]/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,107,53,0.3)]"
             >
               {/* Lanyard Container - Interactive Area */}
               <div style={{ minHeight: '500px', height: '500px' }} className="-mt-20 sm:mt-0 touch-pan-y sm:min-h-[500px] sm:h-[500px]">
