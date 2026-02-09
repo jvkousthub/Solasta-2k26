@@ -71,14 +71,15 @@ const Teams = () => {
 
       {/* Team Members Grid - 3D Lanyard Cards */}
       <div className="container mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-12 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-10 lg:gap-12">
           {teamMembers.map((member) => (
             <div
               key={member.id}
-              className="group relative w-full h-[450px] sm:h-[500px] md:h-[600px] lg:h-[650px] mx-auto max-w-sm md:max-w-none"
+              className="group relative w-full h-[600px] md:h-[600px] lg:h-[650px] mx-auto max-w-sm md:max-w-none bg-black/30 rounded-lg"
+              style={{ minHeight: '600px' }}
             >
               {/* Container for 3D Lanyard with controlled touch area */}
-              <div className="absolute inset-0 rounded-lg overflow-visible">
+              <div className="absolute inset-0 w-full h-full rounded-lg" style={{ overflow: 'hidden' }}>
                 <Suspense fallback={
                   <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg">
                     <div className="text-white/70 text-sm font-semibold animate-pulse">Loading {member.name}...</div>

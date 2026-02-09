@@ -24,13 +24,16 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
   }, []);
 
   return (
-    <div className="relative z-0 w-full h-full flex justify-center items-center transform scale-100 origin-center">
+    <div className="relative z-0 w-full h-full flex justify-center items-center transform scale-100 origin-center" style={{ minHeight: '600px' }}>
       <Canvas
-        camera={{ position: position, fov: fov }}
+        camera={{ position: position, fov: isMobile ? 30 : fov }}
         dpr={[1, isMobile ? 1.5 : 2]}
-        gl={{ alpha: transparent, antialias: true }}
-        onCreated={({ gl }) => gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1)}
-        style={{ touchAction: 'pan-y', WebkitTouchCallout: 'none', userSelect: 'none' }}
+        gl={{ alpha: transparent, antialias: true, preserveDrawingBuffer: true }}
+        onCreated={({ gl }) => {
+          gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1);
+          if (isMobile) gl.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        }}
+        style={{ touchAction: 'pan-y', WebkitTouchCallout: 'none', userSelect: 'none', width: '100%', height: '100%', minHeight: '600px' }}
       >
         <ambientLight intensity={Math.PI} />
         <Suspense fallback={null}>
@@ -100,7 +103,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, cardModel }) {
   useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1]);
   useSphericalJoint(j3, card, [
     [0, 0, 0],
-    [0, isMobile ? 2.8 : 3.4, 0]
+    [0, isMobile ? 3.2 : 3.4, 0]
   ]);
 
   useEffect(() => {
@@ -149,7 +152,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, cardModel }) {
 
   return (
     <>
-      <group position={[0, 4, 0]}>
+      <group position={[0, isMobile ? 3.2 : 4, 0]}>
         <RigidBody ref={fixed} {...segmentProps} type="fixed" />
         <RigidBody position={[0.5, 0, 0]} ref={j1} {...segmentProps}>
           <BallCollider args={[0.1]} />
@@ -163,8 +166,8 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, cardModel }) {
         <RigidBody position={[2, 0, 0]} ref={card} {...segmentProps} type={dragged ? 'kinematicPosition' : 'dynamic'}>
           <CuboidCollider args={[0.8, 1.125, 0.01]} />
           <group
-            scale={isMobile ? 3.5 : 3.8}
-            position={[0, -1.2, -0.05]}
+            scale={isMobile ? 3.8 : 3.8}
+            position={[0, isMobile ? -0.9 : -1.2, -0.05]}
             onPointerOver={() => hover(true)}
             onPointerOut={() => hover(false)}
             onPointerUp={e => {
