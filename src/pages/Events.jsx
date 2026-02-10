@@ -10,7 +10,7 @@ import Sponsor5 from '../assets/Sponsor5.jpg'
 import Sponsor6 from '../assets/Sponsor6.jpg'
 import esports from '../assets/esports.jpeg'
 
-const EventCard = ({ _id, title, date, time, venue, img }) => {
+const EventCard = ({ _id, title, date, time, venue, img, link }) => {
   return (
     <motion.div
       variants={fadeIn("up", "spring", _id * 0.1, 0.75)}
@@ -41,9 +41,15 @@ const EventCard = ({ _id, title, date, time, venue, img }) => {
           </p>
         </div>
 
-        <button className="mt-6 w-full bg-[#FFA07A] hover:bg-[#FFB88C] text-white font-bold py-3 rounded-lg transition-all duration-300 min-h-[44px]" style={{ fontFamily: '"Oxanium", sans-serif' }}>
-          Show Details
-        </button>
+        <a 
+          href={link} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="mt-6 w-full bg-[#FFA07A] hover:bg-[#FFB88C] text-white font-bold py-3 rounded-lg transition-all duration-300 min-h-[44px] flex items-center justify-center" 
+          style={{ fontFamily: '"Oxanium", sans-serif' }}
+        >
+          Register Now
+        </a>
       </div>
     </motion.div>
   );
@@ -58,7 +64,7 @@ const Events = () => {
     "Fun Games",
     "Esports",
     "Literary",
-    "Digital Arts",
+    "Photography",
     "Pronites",
   ];
 
@@ -69,57 +75,83 @@ const Events = () => {
   const sampleEvents = [
     {
       _id: 0,
-      title: "Dance Competition",
-      date: "Feb 28, 2026",
-      time: "10:00 AM",
-      venue: "Main Auditorium",
-      img: esports,
-      category: "Performing arts",
+      title: "RoboWar",
+      date: "TBA",
+      time: "TBA",
+      venue: "TBA",
+      img: Sponsor1,
+      category: "Technical Events",
+      link: "https://unstop.com/o/4XRwIQ2?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
     },
     {
       _id: 1,
-      title: "Art Exhibition",
-      date: "Feb 28, 2026",
-      time: "2:00 PM",
-      venue: "Gallery Hall",
+      title: "Datathon 2.0",
+      date: "TBA",
+      time: "TBA",
+      venue: "TBA",
       img: Sponsor2,
-      category: "Creative Arts",
+      category: "Technical Events",
+      link: "https://unstop.com/o/XBskqDL?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
     },
     {
       _id: 2,
-      title: "Hackathon",
-      date: "Mar 1, 2026",
-      time: "9:00 AM",
-      venue: "Tech Lab",
+      title: "Aero RC Challenge",
+      date: "TBA",
+      time: "TBA",
+      venue: "TBA",
       img: Sponsor3,
       category: "Technical Events",
+      link: "https://unstop.com/o/nO64TIi?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Competitions",
     },
     {
       _id: 3,
-      title: "Gaming Tournament",
-      date: "Mar 1, 2026",
-      time: "3:00 PM",
-      venue: "Gaming Arena",
+      title: "The Scribe's Pen",
+      date: "TBA",
+      time: "TBA",
+      venue: "TBA",
       img: Sponsor4,
-      category: "Esports",
+      category: "Literary",
+      link: "https://unstop.com/o/haeIQmc?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
     },
     {
       _id: 4,
-      title: "Poetry Slam",
-      date: "Mar 2, 2026",
-      time: "11:00 AM",
-      venue: "Open Air Theater",
+      title: "The Great Debate",
+      date: "TBA",
+      time: "TBA",
+      venue: "TBA",
       img: Sponsor5,
       category: "Literary",
+      link: "https://unstop.com/o/P6WBsLV?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
     },
     {
       _id: 5,
-      title: "DJ Night",
-      date: "Mar 2, 2026",
-      time: "7:00 PM",
-      venue: "Main Ground",
+      title: "Pic of the Day",
+      date: "TBA",
+      time: "TBA",
+      venue: "TBA",
       img: Sponsor6,
-      category: "Pronites",
+      category: "Photography",
+      link: "https://unstop.com/o/i3e0NPn?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
+    },
+    {
+      _id: 6,
+      title: "People Poster",
+      date: "TBA",
+      time: "TBA",
+      venue: "TBA",
+      img: esports,
+      category: "Photography",
+      link: "https://unstop.com/o/6nH2V9T?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
+    },
+    {
+      _id: 7,
+      title: "Photo Scavenger Hunt",
+      date: "TBA",
+      time: "TBA",
+      venue: "TBA",
+      img: Sponsor1,
+      category: "Photography",
+      link: "https://unstop.com/o/aCXqsK7?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
     },
   ];
 
