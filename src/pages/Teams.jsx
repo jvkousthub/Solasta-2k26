@@ -25,9 +25,9 @@ const teamMembers = [
   { id: 6, cardModel: card4, name: "Giridhar ", role: "Logistics Lead", instagram: "@_giri_2_8_5_" },
   { id: 7, cardModel: card6, name: "Charan", role: "Sponsorship Lead", instagram: "@charan.mulugula" },
   { id: 8, cardModel: card7, name: "Kousthub", role: "Web Developer", instagram: "@kousthubjv" },
-  { id: 9, cardModel: card8, name: "Ashish", role: "Sponsorship", instagram: "@_ashish.130" },
-  { id: 10, cardModel: card9, name: "Sundeep", role: "PR Lead", instagram: "@sundeeptejjj" },
-  { id: 11, cardModel: card10, name: "Harsha", role: "PR Lead", instagram: "@lazzy_winner__" },
+  // { id: 9, cardModel: card8, name: "Ashish", role: "Sponsorship", instagram: "@_ashish.130" },
+  // { id: 10, cardModel: card9, name: "Sundeep", role: "PR Lead", instagram: "@sundeeptejjj" },
+  // { id: 11, cardModel: card10, name: "Harsha", role: "PR Lead", instagram: "@lazzy_winner__" },
 ];
 
 // Preload all card models
