@@ -5,6 +5,7 @@ import { Canvas, extend, useFrame } from '@react-three/fiber';
 import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei';
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier';
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
+import { webglContextManager } from '../utils/webglContextManager';
 
 // replace with your own imports, see the usage snippet for details
 import defaultCardGLB from '../assets/card.glb';
@@ -14,8 +15,12 @@ import * as THREE from 'three';
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
-export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], fov = 20, transparent = true, cardModel }) {
+export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], fov = 20, transparent = true, cardModel, id }) {
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768);
+  const [isVisible, setIsVisible] = useState(false);
+  const [canRender, setCanRender] = useState(false);
+  const containerRef = useRef(null);
+  const contextId = useRef(`lanyard-${id || Math.random()}`).current;
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -23,12 +28,69 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Manage visibility and WebGL context creation
+  useEffect(() => {
+    if (!containerRef.current) return;
+    
+    // Desktop: always render
+    if (!isMobile) {
+      setCanRender(true);
+      setIsVisible(true);
+      return;
+    }
+    
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+        
+        if (entry.isIntersecting && webglContextManager.canCreateContext()) {
+          webglContextManager.registerContext(contextId);
+          setCanRender(true);
+        } else if (!entry.isIntersecting && webglContextManager.isContextActive(contextId)) {
+          // Delay context disposal
+          setTimeout(() => {
+            if (!isVisible) {
+              webglContextManager.unregisterContext(contextId);
+              setCanRender(false);
+            }
+          }, 2000);
+        }
+      },
+      { 
+        rootMargin: '150px',
+        threshold: 0.01
+      }
+    );
+    
+    observer.observe(containerRef.current);
+    return () => {
+      observer.disconnect();
+      if (webglContextManager.isContextActive(contextId)) {
+        webglContextManager.unregisterContext(contextId);
+      }
+    };
+  }, [isMobile, contextId, isVisible]);
+
+  // Placeholder when not rendering
+  if (isMobile && !canRender) {
+    return (
+      <div ref={containerRef} className="relative z-0 w-full h-full flex justify-center items-center transform scale-100 origin-center">
+        <div className="animate-pulse text-white/30 text-sm">Scroll to view</div>
+      </div>
+    );
+  }
+
   return (
-    <div className="relative z-0 w-full h-full flex justify-center items-center transform scale-100 origin-center">
+    <div ref={containerRef} className="relative z-0 w-full h-full flex justify-center items-center transform scale-100 origin-center">
       <Canvas
         camera={{ position: position, fov: fov }}
         dpr={[1, isMobile ? 1 : 1.5]}
-        gl={{ alpha: transparent, antialias: !isMobile, powerPreference: isMobile ? 'low-power' : 'high-performance' }}
+        gl={{ 
+          alpha: transparent, 
+          antialias: !isMobile, 
+          powerPreference: isMobile ? 'low-power' : 'high-performance',
+          preserveDrawingBuffer: false
+        }}
         onCreated={({ gl }) => gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1)}
         style={{ touchAction: 'none', WebkitTouchCallout: 'none', userSelect: 'none', WebkitUserSelect: 'none' }}
       >

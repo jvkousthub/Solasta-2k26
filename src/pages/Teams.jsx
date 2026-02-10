@@ -25,9 +25,9 @@ const teamMembers = [
   { id: 6, cardModel: card4, name: "Giridhar ", role: "Logistics Lead", instagram: "@_giri_2_8_5_" },
   { id: 7, cardModel: card6, name: "Charan", role: "Sponsorship Lead", instagram: "@charan.mulugula" },
   { id: 8, cardModel: card7, name: "Kousthub", role: "Web Developer", instagram: "@kousthubjv" },
-  // { id: 9, cardModel: card8, name: "Ashish", role: "Sponsorship", instagram: "@_ashish.130" },
-  // { id: 10, cardModel: card9, name: "Sundeep", role: "PR Lead", instagram: "@sundeeptejjj" },
-  // { id: 11, cardModel: card10, name: "Harsha", role: "PR Lead", instagram: "@lazzy_winner__" },
+  { id: 9, cardModel: card8, name: "Ashish", role: "Sponsorship", instagram: "@_ashish.130" },
+  { id: 10, cardModel: card9, name: "Sundeep", role: "PR Lead", instagram: "@sundeeptejjj" },
+  { id: 11, cardModel: card10, name: "Harsha", role: "PR Lead", instagram: "@lazzy_winner__" },
 ];
 
 // Preload all card models
@@ -69,13 +69,14 @@ export default function Teams() {
               className="group relative w-full h-[500px] sm:h-[550px] md:h-[600px] mx-auto max-w-sm md:max-w-none touch-none"
             >
               {/* Lanyard Container - Interactive Area */}
-              <div className="absolute inset-0 rounded-lg overflow-visible" style={{ touchAction: 'none' }}>
+              <div className="absolute inset-0 rounded-lg overflow-visible">
                 <Suspense fallback={
                   <div className="w-full h-full flex items-center justify-center">
                     <div className="text-white/50 text-xs sm:text-sm animate-pulse">Loading...</div>
                   </div>
                 }>
                   <Lanyard 
+                    id={member.id}
                     cardModel={member.cardModel}
                     position={[0, 0, 25]}
                     fov={25}
