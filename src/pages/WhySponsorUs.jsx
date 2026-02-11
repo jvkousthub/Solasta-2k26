@@ -6,16 +6,18 @@ import Sponsor3 from '../assets/Sponsor3.jpg'
 import Sponsor4 from '../assets/Sponsor4.jpg'
 import Sponsor5 from '../assets/Sponsor5.jpg'
 import Sponsor6 from '../assets/Sponsor6.jpg'
+import logo from '../assets/lanyard.png'
 
 const WhySponsorUs = () => {
   const sponsorData = [
     {
       img: Sponsor1,
       title: "Premier Technical Institute",
+
       description: "Techno-cultural fest of best technical institute in the region fully funded by MHRD."
     },
     {
-      img: Sponsor2,
+      img: logo,
       title: "Brand Visibility",
       description: "Appearance of sponsor name and logo on website and merchandises of SOLASTA'26."
     },
@@ -118,6 +120,7 @@ const WhySponsorUs = () => {
           className="bg-white text-[#FFA07A] px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full font-bold text-sm sm:text-base md:text-lg shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:scale-110 hover:shadow-[0_15px_50px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out border-2 border-[#FFA07A] hover:bg-[#FFA07A] hover:text-white active:scale-95 min-h-[44px]"
           style={{ fontFamily: '"Montserrat", sans-serif' }}
         >
+          <a href="mailto:solasta@iiitk.ac.in"></a>
           Become a Sponsor
         </button>
       </div>

@@ -216,7 +216,7 @@ const Hero = () => {
         // Show elements after animation completes
         animationTimeoutRef.current = setTimeout(() => {
           setShowElements(true)
-        }, 10) // Small delay to ensure animation is fully complete
+        }, 10) 
       }
     })
   }
@@ -280,14 +280,30 @@ const Hero = () => {
           Tap and drag the title text!
         </p>
         
-        {/* Teams Button */}
-        <button
-          onClick={() => navigate('/teams')}
-          className={`mt-4 sm:mt-6 md:mt-8 bg-white text-[#FF6B35] px-6 py-2.5 sm:px-8 sm:py-3 md:px-10 md:py-4 rounded-full font-bold text-sm sm:text-base md:text-xl shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:scale-110 hover:shadow-[0_15px_50px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out border-2 border-white hover:bg-transparent hover:text-white active:scale-95 min-h-[44px] ${showElements ? 'opacity-100' : 'opacity-0'}`}
-          style={{ fontFamily: '"Oxanium", sans-serif', transform: 'translateZ(0)', position: 'relative', zIndex: 10 }}
-        >
-          Meet Our Teams
-        </button>
+        {/* Action Buttons */}
+        <div className={`mt-4 sm:mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 items-center justify-center transition-opacity duration-200 ${showElements ? 'opacity-100' : 'opacity-0'}`}>
+          {/* Register Button */}
+          <a
+            href="https://unstop.com/college-fests/solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-432462"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`bg-white text-[#FF6B35] px-8 py-3 sm:px-10 sm:py-4 md:px-12 md:py-5 rounded-full font-bold text-lg sm:text-xl md:text-3xl shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:scale-110 hover:shadow-[0_15px_50px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out border-2 border-white hover:bg-transparent hover:text-white active:scale-95 min-h-[44px]`}
+            style={{ fontFamily: '"Oxanium", sans-serif', transform: 'translateZ(0)', position: 'relative', zIndex: 10 }}
+          >
+            Register Now
+          </a>
+          
+
+          
+          {/* Teams Button */}
+          {/* <button
+            onClick={() => navigate('/teams')}
+            className={`bg-white text-[#FF6B35] px-6 py-2.5 sm:px-8 sm:py-3 md:px-10 md:py-4 rounded-full font-bold text-sm sm:text-base md:text-xl shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:scale-110 hover:shadow-[0_15px_50px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out border-2 border-white hover:bg-transparent hover:text-white active:scale-95 min-h-[44px]`}
+            style={{ fontFamily: '"Oxanium", sans-serif', transform: 'translateZ(0)', position: 'relative', zIndex: 10 }}
+          >
+            Meet Our Teams
+          </button> */}
+        </div>
       </div>
     </div>
   )

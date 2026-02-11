@@ -77,6 +77,13 @@ const Navbar = () => {
           {/* Right Navigation */}
           <div className="hidden md:flex items-center gap-4 lg:gap-6 ml-auto">
             <button 
+              onClick={() => scrollToSection('events')}
+              className="text-white/90 hover:text-[#FFA07A] font-semibold text-lg transition-all duration-300 hover:scale-105"
+              style={{ fontFamily: '"Oxanium", sans-serif' }}
+            >
+              Events
+            </button>
+            <button 
               onClick={() => scrollToSection('sponsors')}
               className="text-white/90 hover:text-[#FFA07A] font-semibold text-lg transition-all duration-300 hover:scale-105"
               style={{ fontFamily: '"Oxanium", sans-serif' }}
@@ -91,15 +98,6 @@ const Navbar = () => {
               Contact
             </button>
           </div>
-          
-          {/* Register Button - Extreme Right */}
-          <a 
-            href="#register" 
-            className="hidden md:block bg-white text-[#FFA07A] px-5 py-2.5 lg:px-7 lg:py-3 rounded-full font-bold text-base lg:text-lg shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:scale-110 hover:shadow-[0_15px_50px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out backdrop-blur-sm border-2 border-[#FFA07A] hover:bg-[#FFA07A] hover:text-white active:scale-95 ml-4 lg:ml-6"
-            style={{ fontFamily: '"Oxanium", sans-serif' }}
-          >
-            Register
-          </a>
 
           {/* Mobile Menu Button */}
           <button
@@ -142,6 +140,13 @@ const Navbar = () => {
               About
             </button>
             <button 
+              onClick={() => scrollToSection('events')}
+              className="block w-full text-left text-white/90 hover:text-[#FFA07A] font-semibold text-xl transition-colors py-2"
+              style={{ fontFamily: '"Oxanium", sans-serif' }}
+            >
+              Events
+            </button>
+            <button 
               onClick={handleTeamsClick}
               className="block w-full text-left text-white/90 hover:text-[#FFA07A] font-semibold text-xl transition-colors py-2"
               style={{ fontFamily: '"Oxanium", sans-serif' }}
@@ -162,15 +167,6 @@ const Navbar = () => {
             >
               Contact
             </button>
-            {/* Mobile Register Button */}
-            <a 
-              href="#register" 
-              className="block text-center bg-white text-[#FFA07A] px-6 py-3 rounded-full font-bold text-lg shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:bg-[#FFA07A] hover:text-white transition-all duration-300 ease-out border-2 border-[#FFA07A] mt-4"
-              style={{ fontFamily: '"Oxanium", sans-serif' }}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Register
-            </a>
           </div>
         </div>
       )}

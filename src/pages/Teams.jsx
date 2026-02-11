@@ -17,17 +17,17 @@ import card10 from '../assets/card10.glb';
 
 // Team members data with their corresponding card models
 const teamMembers = [
-  { id: 1, cardModel: card1, name: "Sandeep", role: "Event Lead", instagram: "@sandeep_likhithapudi" },
-  { id: 2, cardModel: card, name: "Sujith", role: "Event Lead", instagram: "" },
-  { id: 3, cardModel: card2, name: "Murari", role: "Finance Lead", instagram: "@_.koushik07._" },
-  { id: 4, cardModel: card3, name: "Motheendra ", role: "Finance Lead", instagram: "" },
-  { id: 5, cardModel: card5, name: "Praveen ", role: "Event Management Lead", instagram: "@pravxxnbalaji" },
-  { id: 6, cardModel: card4, name: "Giridhar ", role: "Logistics Lead", instagram: "@_giri_2_8_5_" },
-  { id: 7, cardModel: card6, name: "Charan", role: "Sponsorship Lead", instagram: "@charan.mulugula" },
-  { id: 8, cardModel: card7, name: "Kousthub", role: "Web Developer", instagram: "@kousthubjv" },
-  { id: 9, cardModel: card8, name: "Ashish", role: "Sponsorship", instagram: "@_ashish.130" },
-  { id: 10, cardModel: card9, name: "Sundeep", role: "PR Lead", instagram: "@sundeeptejjj" },
-  { id: 11, cardModel: card10, name: "Harsha", role: "PR Lead", instagram: "@lazzy_winner__" },
+  { id: 1, cardModel: card1, name: "Sandeep", role: "Event Lead", email: "123ec0024@iiitk.ac.in", instagram: "@sandeep_likhithapudi" },
+  { id: 2, cardModel: card, name: "Sujith", role: "Event Lead", email: "123ec0031@iiitk.ac.in", instagram: "" },
+  // { id: 5, cardModel: card5, name: "Praveen ", role: "Event Management Lead", email: "123ec0012@iiitk.ac.in", instagram: "@pravxxnbalaji" },
+  { id: 3, cardModel: card8, name: "Ashish", role: "Sponsorship Lead", email: "123ec0011@iiitk.ac.in", instagram: "@_ashish.130" },
+  { id: 4, cardModel: card6, name: "Charan", role: "Sponsorship Lead", email: "123ad0002@iiitk.ac.in", instagram: "@charan.mulugula" },
+  { id: 5, cardModel: card2, name: "Murari", role: "Finance Lead", email: "123ec0017@iiitk.ac.in", instagram: "@_.koushik07._" },
+  { id: 6, cardModel: card3, name: "Motheendra ", role: "Finance Lead", email: "123ec0040@iiitk.ac.in", instagram: "" },
+  { id: 7, cardModel: card7, name: "Kousthub", role: "Web Developer", email: "123cs0074@iiitk.ac.in", instagram: "@kousthubjv" },
+  { id: 8, cardModel: card9, name: "Sundeep", role: "PR Lead", email: "523ec0002@iiitk.ac.in", instagram: "@sundeeptejjj" },
+  { id: 9, cardModel: card10, name: "Harsha", role: "PR Lead", email: "123ec0003@iiitk.ac.in", instagram: "@lazzy_winner__" },
+  { id: 10, cardModel: card4, name: "Giridhar ", role: "Logistics Lead", email: "123ec0028@iiitk.ac.in", instagram: "@_giri_2_8_5_" },
 ];
 
 // Preload all card models
@@ -55,7 +55,7 @@ export default function Teams() {
             className="text-base sm:text-lg md:text-xl text-white/80 max-w-3xl mx-auto"
             style={{ fontFamily: '"Oxanium", sans-serif' }}
           >
-            Meet the amazing people behind SOLASTA 2026
+            Meet the people behind SOLASTA 2026
           </p>
         </div>
       </div>
@@ -99,6 +99,13 @@ export default function Teams() {
                 >
                   {member.role}
                 </p>
+                <a
+                  href={`mailto:${member.email}`}
+                  className="block text-[10px] sm:text-sm text-white/70 hover:text-[#FF6B35] transition-colors mb-1 sm:mb-2 pointer-events-auto"
+                  style={{ fontFamily: '"Oxanium", sans-serif' }}
+                >
+                  {member.email}
+                </a>
                 <a
                   href={`https://instagram.com/${member.instagram.replace('@', '')}`}
                   target="_blank"

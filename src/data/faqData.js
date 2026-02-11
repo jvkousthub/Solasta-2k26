@@ -26,7 +26,7 @@ const general =[
     },
     {
       question: "What do visitors and other college students need for entry?",
-      answer: "Valid photo ID proof is required.",
+      answer: "Valid College ID card is required.",
     
     },
     {
@@ -34,14 +34,14 @@ const general =[
       answer: "Stall vendors receive colored wristbands; loss or tampering will not be replaced.",
     
     },
-    // {
-    //   question: "Can organizers deny entry?",
-    //   answer: "Yes, the organizing team reserves the right to deny entry.",
+    {
+      question: "Can organizers deny entry?",
+      answer: "Yes, the organizing team reserves the right to deny entry.",
     
-    // },
+    },
     {
       question: "Can I get a refund for my ticket?",
-      answer: "Yes, tickets are refundable after proper verification by Security",
+      answer: "No, tickets are not refundable under any circumstances.",
     
     },
     {
@@ -92,11 +92,11 @@ const accomodation = [
     answer: "Yes, students may have to share rooms with other college students.",
     isOpen: false,
   },
-  {
-    question: "What are the restrictions for students attending the fest?",
-    answer: "Students coming to the fest should not roam here and there and must not enter OPD, IPD, or any place not authorized.",
-    isOpen: false,
-  },
+  // {
+  //   question: "What are the restrictions for students attending the fest?",
+  //   answer: "Students coming to the fest should not roam here and there and must not enter OPD, IPD, or any place not authorized.",
+  //   isOpen: false,
+  // },
   {
     question: "What are the consequences of indisciplinary acts?",
     answer: "In case of any indisciplinary act, accommodation may be cancelled and security money will not be refunded.",
@@ -119,7 +119,7 @@ const accomodation = [
   },
   {
     question: "Are prices subject to change?",
-    answer: "Prices are subject to increase according to availability.",
+    answer: "Prices may vary according to availability.",
     isOpen: false,
   },
   {

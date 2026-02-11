@@ -67,7 +67,7 @@ export default function Footer() {
                   <Icon icon="mdi:youtube" className="text-3xl sm:text-4xl md:text-5xl" />
                 </a>
                 <a
-                  href="https://wa.me/chat"
+                  href="https://wa.me/+917207055910"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-white/10 hover:bg-[#FF6B35] p-3 sm:p-4 rounded-full transition-all duration-300 hover:scale-110 min-h-[48px] min-w-[48px] flex items-center justify-center"
@@ -75,7 +75,7 @@ export default function Footer() {
                   <Icon icon="mdi:whatsapp" className="text-3xl sm:text-4xl md:text-5xl" />
                 </a>
                 <a
-                  href="tel:1111111111"
+                  href="tel:7207055910"
                   className="bg-white/10 hover:bg-[#FF6B35] p-3 sm:p-4 rounded-full transition-all duration-300 hover:scale-110 min-h-[48px] min-w-[48px] flex items-center justify-center"
                 >
                   <Icon icon="mdi:phone" className="text-3xl sm:text-4xl md:text-5xl" />
