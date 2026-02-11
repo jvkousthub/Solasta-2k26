@@ -22,7 +22,7 @@ const teamMembers = [
   // { id: 5, cardModel: card5, name: "Praveen ", role: "Event Management Lead", email: "123ec0012@iiitk.ac.in", instagram: "@pravxxnbalaji" },
   { id: 3, cardModel: card8, name: "Ashish", role: "Sponsorship Lead", email: "123ec0011@iiitk.ac.in", instagram: "@_ashish.130" },
   { id: 4, cardModel: card6, name: "Charan", role: "Sponsorship Lead", email: "123ad0002@iiitk.ac.in", instagram: "@charan.mulugula" },
-  { id: 5, cardModel: card2, name: "Murari", role: "Finance Lead", email: "123ec0017@iiitk.ac.in", instagram: "@_.koushik07._" },
+  { id: 5, cardModel: card2, name: "Murari", role: "Finance Lead", email: "123ec0017@iiitk.ac.in", instagram: "@__.koushik07.__" },
   { id: 6, cardModel: card3, name: "Motheendra ", role: "Finance Lead", email: "123ec0040@iiitk.ac.in", instagram: "" },
   { id: 7, cardModel: card7, name: "Kousthub", role: "Web Developer", email: "123cs0074@iiitk.ac.in", instagram: "@kousthubjv" },
   { id: 8, cardModel: card9, name: "Sundeep", role: "PR Lead", email: "523ec0002@iiitk.ac.in", instagram: "@sundeeptejjj" },
