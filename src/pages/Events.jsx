@@ -26,11 +26,12 @@ import img21 from '../assets/s/21.png'
 import img22 from '../assets/s/22.png'
 import img23 from '../assets/s/23.png'
 import img24 from '../assets/s/24.png'
+import img25 from '../assets/s/25.jpeg'
 
 const EventCard = ({ _id, title, date, time, venue, img, link }) => {
   return (
     <motion.div
-      variants={fadeIn("up", "spring", _id * 0.1, 0.75)}
+      variants={fadeIn("up", "spring", Math.min(_id * 0.03, 0.3), 0.45)}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.25 }}
@@ -147,7 +148,7 @@ const Events = () => {
       time: "TBA",
       venue: "IIITDM Kurnool",
       img: img6,
-      category: "Technical Events",
+      category: "Fun Games",
       link: "https://unstop.com/p/planet-hunt-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1640735",
     },
     {
@@ -336,7 +337,7 @@ const Events = () => {
       date: "TBA",
       time: "TBA",
       venue: "IIITDM Kurnool",
-      img: img1,
+      img: img25,
       category: "Technical Events",
       link: "https://unstop.com/p/gdg-hackathon-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1641019",
     },
