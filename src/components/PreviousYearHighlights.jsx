@@ -1,5 +1,6 @@
 import React from 'react'
 import Stack from './Stack'
+import ImageWithLoader from './ImageWithLoader'
 import Sponsor1 from '../assets/Sponsor1.jpg'
 import Sponsor2 from '../assets/Sponsor2.jpg'
 import Sponsor3 from '../assets/Sponsor3.jpg'
@@ -45,11 +46,12 @@ const PreviousYearHighlights = () => {
               autoplayDelay={4000}
               pauseOnHover={true}
               cards={images.map((src, i) => (
-                <img 
+                <ImageWithLoader
                   key={i} 
                   src={src} 
                   alt={`SOLASTA highlight ${i + 1}`} 
                   className="w-full h-full object-cover pointer-events-none select-none rounded-2xl shadow-2xl"
+                  loading="eager"
                 />
               ))}
             />

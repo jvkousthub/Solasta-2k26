@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { fadeIn } from "../utils/motion";
+import ImageWithLoader from "../components/ImageWithLoader";
 import img1 from '../assets/s/1.png'
 import img2 from '../assets/s/2.png'
 import img3 from '../assets/s/3.png'
@@ -38,7 +39,12 @@ const EventCard = ({ _id, title, date, time, venue, img, link }) => {
       className="group cursor-pointer flex flex-col relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-lg border border-white/10 hover:border-[#FFA07A]/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
     >
       <div className="relative overflow-hidden w-full max-w-[396px] mx-auto" style={{ aspectRatio: '396/256' }}>
-        <img src={img} alt={title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+        <ImageWithLoader 
+          src={img} 
+          alt={title} 
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+          loading="eager"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 

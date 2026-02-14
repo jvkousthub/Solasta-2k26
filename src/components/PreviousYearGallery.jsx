@@ -1,5 +1,6 @@
 import React from 'react'
 import Stack from './Stack'
+import ImageWithLoader from './ImageWithLoader'
 import fallback2 from '../assets/SolastaHighlights/IMG_2296.jpg'
 import fallback3 from '../assets/SolastaHighlights/IMG_2950.jpg'
 import fallback4 from '../assets/SolastaHighlights/IMG_3447.jpg'
@@ -68,7 +69,7 @@ const PreviousYearGallery = () => {
                 pauseOnHover={true}
                 mobileBreakpoint={768}
                 cards={images.map((img, i) => (
-                  <img 
+                  <ImageWithLoader
                     key={i} 
                     src={img.src} 
                     alt={img.alt} 

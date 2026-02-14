@@ -101,6 +101,20 @@ body {
   animation: slideDown 0.3s ease-out;
 }
 
+/* Animation for image skeleton loader */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
 /* Custom scrollbar for all devices */
 ::-webkit-scrollbar {
   width: 12px;
