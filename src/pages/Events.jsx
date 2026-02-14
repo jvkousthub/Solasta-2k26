@@ -2,13 +2,30 @@ import React, { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { fadeIn } from "../utils/motion";
-import Sponsor1 from '../assets/Sponsor1.jpg'
-import Sponsor2 from '../assets/Sponsor2.jpg'
-import Sponsor3 from '../assets/Sponsor3.jpg'
-import Sponsor4 from '../assets/Sponsor4.jpg'
-import Sponsor5 from '../assets/Sponsor5.jpg'
-import Sponsor6 from '../assets/Sponsor6.jpg'
-import esports from '../assets/esports.jpeg'
+import img1 from '../assets/s/1.png'
+import img2 from '../assets/s/2.png'
+import img3 from '../assets/s/3.png'
+import img4 from '../assets/s/4.png'
+import img5 from '../assets/s/5.png'
+import img6 from '../assets/s/6.png'
+import img7 from '../assets/s/7.png'
+import img8 from '../assets/s/8.png'
+import img9 from '../assets/s/9.png'
+import img10 from '../assets/s/10.png'
+import img11 from '../assets/s/11.png'
+import img12 from '../assets/s/12.png'
+import img13 from '../assets/s/13.png'
+import img14 from '../assets/s/14.png'
+import img15 from '../assets/s/15.png'
+import img16 from '../assets/s/16.png'
+import img17 from '../assets/s/17.png'
+import img18 from '../assets/s/18.png'
+import img19 from '../assets/s/19.png'
+import img20 from '../assets/s/20.png'
+import img21 from '../assets/s/21.png'
+import img22 from '../assets/s/22.png'
+import img23 from '../assets/s/23.png'
+import img24 from '../assets/s/24.png'
 
 const EventCard = ({ _id, title, date, time, venue, img, link }) => {
   return (
@@ -19,7 +36,7 @@ const EventCard = ({ _id, title, date, time, venue, img, link }) => {
       viewport={{ once: true, amount: 0.25 }}
       className="group cursor-pointer flex flex-col relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-lg border border-white/10 hover:border-[#FFA07A]/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
     >
-      <div className="relative h-64 overflow-hidden">
+      <div className="relative overflow-hidden w-full max-w-[396px] mx-auto" style={{ aspectRatio: '396/256' }}>
         <img src={img} alt={title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
@@ -42,7 +59,7 @@ const EventCard = ({ _id, title, date, time, venue, img, link }) => {
         </div>
 
         <a 
-          href={link} 
+          href="https://unstop.com/p/solasta-event-pass-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1641299" 
           target="_blank" 
           rel="noopener noreferrer"
           className="mt-6 w-full bg-[#FFA07A] hover:bg-[#FFB88C] text-white font-bold py-3 rounded-lg transition-all duration-300 min-h-[44px] flex items-center justify-center" 
@@ -75,143 +92,253 @@ const Events = () => {
   const sampleEvents = [
     {
       _id: 0,
-      title: "RoboWar",
-      date: "28 Feb - 1 Mar 2026",
-      time: "9:32 AM - 9:33 AM IST",
+      title: "FreeFire",
+      date: "TBA",
+      time: "TBA",
       venue: "IIITDM Kurnool",
-      img: Sponsor1,
-      category: "Technical Events",
-      link: "https://unstop.com/o/4XRwIQ2?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
+      img: img1,
+      category: "Esports",
+      link: "https://unstop.com/o/Eq7sGrD?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
     },
     {
       _id: 1,
+      title: "BGMI",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img2,
+      category: "Esports",
+      link: "https://unstop.com/o/7jMnKdl?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
+    },
+    {
+      _id: 2,
+      title: "Valorant",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img3,
+      category: "Esports",
+      link: "https://unstop.com/o/8UuZzaq?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
+    },
+    {
+      _id: 3,
       title: "Datathon 2.0",
       date: "28 Feb - 1 Mar 2026",
-      time: "9:34 AM - 9:35 AM IST",
+      time: "TBA",
       venue: "IIITDM Kurnool",
-      img: Sponsor2,
+      img: img4,
       category: "Technical Events",
       link: "https://unstop.com/o/XBskqDL?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
     },
     {
-      _id: 2,
-      title: "Aero RC Challenge",
+      _id: 4,
+      title: "AeroSkill and RC Challenge",
       date: "28 Feb - 1 Mar 2026",
-      time: "11:22 PM - 11:23 PM IST",
+      time: "TBA",
       venue: "IIITDM Kurnool",
-      img: Sponsor3,
+      img: img5,
       category: "Technical Events",
       link: "https://unstop.com/o/nO64TIi?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Competitions",
     },
     {
-      _id: 3,
-      title: "The Scribe's Pen",
-      date: "TBA",
-      time: "TBA",
-      venue: "IIITDM Kurnool",
-      img: Sponsor4,
-      category: "Literary",
-      link: "https://unstop.com/o/haeIQmc?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
-    },
-    {
-      _id: 4,
-      title: "The Great Debate",
-      date: "TBA",
-      time: "TBA",
-      venue: "IIITDM Kurnool",
-      img: Sponsor5,
-      category: "Literary",
-      link: "https://unstop.com/o/P6WBsLV?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
-    },
-    {
       _id: 5,
-      title: "Pic of the Day",
-      date: "3-Day Event",
+      title: "Planet Hunt",
+      date: "TBA",
       time: "TBA",
       venue: "IIITDM Kurnool",
-      img: Sponsor6,
-      category: "Photography",
-      link: "https://unstop.com/o/i3e0NPn?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
+      img: img6,
+      category: "Technical Events",
+      link: "https://unstop.com/p/planet-hunt-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1640735",
     },
     {
       _id: 6,
-      title: "People Poster",
+      title: "Team Coding Contest",
       date: "TBA",
       time: "TBA",
-      venue: "TBA",
-      img: esports,
-      category: "Photography",
-      link: "https://unstop.com/o/6nH2V9T?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
+      venue: "IIITDM Kurnool",
+      img: img7,
+      category: "Technical Events",
+      link: "https://unstop.com/p/team-coding-contest-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1641185",
     },
     {
       _id: 7,
+      title: "Battle Bots (Robo Wars)",
+      date: "28 Feb - 1 Mar 2026",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img8,
+      category: "Technical Events",
+      link: "https://unstop.com/o/4XRwIQ2?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
+    },
+    {
+      _id: 8,
       title: "Photo Scavenger Hunt",
       date: "TBA",
       time: "TBA",
       venue: "IIITDM Kurnool",
-      img: Sponsor1,
+      img: img9,
       category: "Photography",
       link: "https://unstop.com/o/aCXqsK7?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
     },
     {
-      _id: 8,
-      title: "Resin Art",
-      date: "1 Mar 2026",
-      time: "8:55 AM - 9:56 AM IST",
-      venue: "IIITDM Kurnool",
-      img: Sponsor2,
-      category: "Creative Arts",
-      link: "https://unstop.com/o/Ayh3PgS?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
-    },
-    {
       _id: 9,
-      title: "Glass Painting",
-      date: "28 Feb 2026",
-      time: "8:48 AM - 9:49 AM IST",
+      title: "Pic of the Day",
+      date: "3-Day Event",
+      time: "TBA",
       venue: "IIITDM Kurnool",
-      img: Sponsor3,
-      category: "Creative Arts",
-      link: "https://unstop.com/events/glass-painting-competition-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kur-1639493",
+      img: img10,
+      category: "Photography",
+      link: "https://unstop.com/o/i3e0NPn?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
     },
     {
       _id: 10,
-      title: "Art Fusion",
-      date: "28 Feb 2026",
-      time: "11:24 AM - 12:25 PM IST",
-      venue: "TBA",
-      img: Sponsor4,
-      category: "Creative Arts",
-      link: "https://unstop.com/events/art-fusion-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1638947",
+      title: "People Poster",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img11,
+      category: "Photography",
+      link: "https://unstop.com/o/6nH2V9T?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
     },
     {
       _id: 11,
+      title: "Scribe Pen",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img12,
+      category: "Literary",
+      link: "https://unstop.com/o/haeIQmc?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
+    },
+    {
+      _id: 12,
+      title: "The Great Debate",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img13,
+      category: "Literary",
+      link: "https://unstop.com/o/P6WBsLV?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
+    },
+    {
+      _id: 13,
+      title: "Stranger Things Quiz",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img14,
+      category: "Fun Games",
+      link: "https://unstop.com/o/Bb576nG?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Quizzes",
+    },
+    {
+      _id: 14,
       title: "Tales by Twilight",
       date: "28 Feb 2026",
-      time: "11:02 AM - 12:03 PM IST",
+      time: "TBA",
       venue: "IIITDM Kurnool",
-      img: Sponsor5,
+      img: img15,
       category: "Literary",
       link: "https://unstop.com/p/tales-by-twilight-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1638896",
     },
     {
-      _id: 12,
-      title: "Fun Games",
+      _id: 15,
+      title: "Art Fusion",
       date: "28 Feb 2026",
-      time: "9:05 AM - 11:06 AM IST",
+      time: "TBA",
       venue: "IIITDM Kurnool",
-      img: Sponsor6,
-      category: "Fun Games",
-      link: "https://unstop.com/p/fun-games-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1639496",
+      img: img16,
+      category: "Creative Arts",
+      link: "https://unstop.com/events/art-fusion-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1638947",
     },
     {
-      _id: 13,
-      title: "Voice of Solasta",
-      date: "28 Feb 2026",
-      time: "2:50 PM - 6:51 PM IST",
-      venue: "Solasta Stage, Kurnool",
-      img: esports,
+      _id: 16,
+      title: "Art Swap Challenge",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img17,
+      category: "Creative Arts",
+      link: "https://unstop.com/o/qcUboig?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
+    },
+    {
+      _id: 17,
+      title: "Duet Dance",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img18,
       category: "Performing arts",
-      link: "https://unstop.com/p/voice-of-solasta-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1640058",
+      link: "https://unstop.com/p/duet-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1640385",
+    },
+    {
+      _id: 18,
+      title: "Solo/Duo/Trio Dance",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img19,
+      category: "Performing arts",
+      link: "https://unstop.com/p/solo-duo-trio-dance-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1640370",
+    },
+    {
+      _id: 19,
+      title: "Group Dance",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img20,
+      category: "Performing arts",
+      link: "https://unstop.com/p/group-dance-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1640381",
+    },
+    {
+      _id: 20,
+      title: "Solo Music",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img21,
+      category: "Performing arts",
+      link: "https://unstop.com/events/solo-music-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1640309",
+    },
+    {
+      _id: 21,
+      title: "Duet Music",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img22,
+      category: "Performing arts",
+      link: "https://unstop.com/events/duet-music-performance-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1640300",
+    },
+    {
+      _id: 22,
+      title: "Music Band",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img23,
+      category: "Performing arts",
+      link: "https://unstop.com/events/music-band-performance-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1640295",
+    },
+    {
+      _id: 23,
+      title: "Rap Battle",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img24,
+      category: "Performing arts",
+      link: "https://unstop.com/events/rap-battle-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1640311",
+    },
+    {
+      _id: 24,
+      title: "GDG Hackathon",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img1,
+      category: "Technical Events",
+      link: "https://unstop.com/p/gdg-hackathon-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1641019",
     },
   ];
 
