@@ -66,7 +66,7 @@ const EventCard = ({ _id, title, date, time, venue, img, link }) => {
         </div>
 
         <a 
-          href="https://unstop.com/p/solasta-event-pass-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1641299" 
+          href={link} 
           target="_blank" 
           rel="noopener noreferrer"
           className="mt-6 w-full bg-[#FFA07A] hover:bg-[#FFB88C] text-white font-bold py-3 rounded-lg transition-all duration-300 min-h-[44px] flex items-center justify-center" 
@@ -259,7 +259,7 @@ const Events = () => {
     },
     {
       _id: 16,
-      title: "Art Swap Challenge",
+      title: "Glass Painting",
       date: "TBA",
       time: "TBA",
       venue: "IIITDM Kurnool",
