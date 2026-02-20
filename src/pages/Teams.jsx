@@ -19,7 +19,7 @@ import card10 from '../assets/card10.glb';
 const teamMembers = [
   { id: 1, cardModel: card1, name: "Sandeep", role: "Event Lead", email: "123ec0024@iiitk.ac.in", instagram: "@sandeep_likhithapudi" },
   { id: 2, cardModel: card, name: "Sujith", role: "Event Lead", email: "123ec0031@iiitk.ac.in", instagram: "" },
-  // { id: 5, cardModel: card5, name: "Praveen ", role: "Event Management Lead", email: "123ec0012@iiitk.ac.in", instagram: "@pravxxnbalaji" },
+  { id: 5, cardModel: card5, name: "Praveen ", role: "Event Management Lead", email: "123ec0012@iiitk.ac.in", instagram: "@pravxxnbalaji" },
   { id: 3, cardModel: card8, name: "Ashish", role: "Sponsorship Lead", email: "123ec0011@iiitk.ac.in", instagram: "@_ashish.130" },
   { id: 4, cardModel: card6, name: "Charan", role: "Sponsorship Lead", email: "123ad0002@iiitk.ac.in", instagram: "@charan.mulugula" },
   { id: 5, cardModel: card2, name: "Murari", role: "Finance Lead", email: "123ec0017@iiitk.ac.in", instagram: "@__.koushik07.__" },
@@ -28,6 +28,7 @@ const teamMembers = [
   { id: 8, cardModel: card9, name: "Sundeep", role: "PR Lead", email: "523ec0002@iiitk.ac.in", instagram: "@sundeeptejjj" },
   { id: 9, cardModel: card10, name: "Harsha", role: "PR Lead", email: "123ec0003@iiitk.ac.in", instagram: "@lazzy_winner__" },
   { id: 10, cardModel: card4, name: "Giridhar ", role: "Logistics Lead", email: "123ec0028@iiitk.ac.in", instagram: "@_giri_2_8_5_" },
+  { id: 11, cardModel: card4, name: "Hrishitha ", role: "Event Organizer", email: "123ad0057@iiitk.ac.in", instagram: "" },
 ];
 
 // Preload all card models
