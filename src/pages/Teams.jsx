@@ -14,6 +14,7 @@ import card7 from '../assets/card7.glb';
 import card8 from '../assets/card8.glb';
 import card9 from '../assets/card9.glb';
 import card10 from '../assets/card10.glb';
+import card11 from '../assets/card11.glb';
 
 // Team members data with their corresponding card models
 const teamMembers = [
@@ -28,7 +29,7 @@ const teamMembers = [
   { id: 8, cardModel: card9, name: "Sundeep", role: "PR Lead", email: "523ec0002@iiitk.ac.in", instagram: "@sundeeptejjj" },
   { id: 9, cardModel: card10, name: "Harsha", role: "PR Lead", email: "123ec0003@iiitk.ac.in", instagram: "@lazzy_winner__" },
   { id: 10, cardModel: card4, name: "Giridhar ", role: "Logistics Lead", email: "123ec0028@iiitk.ac.in", instagram: "@_giri_2_8_5_" },
-  { id: 11, cardModel: card4, name: "Hrishitha ", role: "Event Organizer", email: "123ad0057@iiitk.ac.in", instagram: "" },
+  { id: 11, cardModel: card11, name: "Hrishitha ", role: "Event Organizer", email: "123ad0057@iiitk.ac.in", instagram: "" },
 ];
 
 // Preload all card models
