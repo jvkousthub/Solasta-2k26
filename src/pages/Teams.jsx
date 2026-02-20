@@ -73,7 +73,7 @@ export default function Teams() {
               
               {member.instagram && (
                 <a
-                  href={`https://instagram.com/${member.instagram.replace('@', '')}`}
+                  href={`https://www.instagram.com/${member.instagram.replace('@', '')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs text-white/70 hover:text-[#FF6B35] transition-colors"
