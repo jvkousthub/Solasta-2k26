@@ -1,12 +1,14 @@
 import React from 'react'
 import TiltedCard from '../components/TiltedCard'
-import Sponsor1 from '../assets/Sponsor1.jpg'
-import Sponsor2 from '../assets/Sponsor2.jpg'
-import Sponsor3 from '../assets/Sponsor3.jpg'
-import Sponsor4 from '../assets/Sponsor4.jpg'
-import Sponsor5 from '../assets/Sponsor5.jpg'
-import Sponsor6 from '../assets/Sponsor6.jpg'
-import logo from '../assets/lanyard.png'
+
+// External images hosted on ImgBB to reduce Netlify bandwidth
+const logo = 'https://i.ibb.co/zTSCY800/lanyard.png'
+const Sponsor1 = 'https://i.ibb.co/99WZRFMT/Sponsor1.jpg'
+const Sponsor2 = 'https://i.ibb.co/YTT72JnY/Sponsor2.jpg'
+const Sponsor3 = 'https://i.ibb.co/jZQHr31F/Sponsor3.jpg'
+const Sponsor4 = 'https://i.ibb.co/XkjNs4V8/Sponsor4.jpg'
+const Sponsor5 = 'https://i.ibb.co/NgqTvv3h/Sponsor5.jpg'
+const Sponsor6 = 'https://i.ibb.co/qM0KcZHh/Sponsor6.jpg'
 
 const WhySponsorUs = () => {
   const sponsorData = [

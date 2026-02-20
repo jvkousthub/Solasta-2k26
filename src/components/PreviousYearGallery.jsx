@@ -1,36 +1,24 @@
 import React from 'react'
 import Stack from './Stack'
 import ImageWithLoader from './ImageWithLoader'
-import fallback2 from '../assets/SolastaHighlights/IMG_2296.jpg'
-import fallback3 from '../assets/SolastaHighlights/IMG_2950.jpg'
-import fallback4 from '../assets/SolastaHighlights/IMG_3447.jpg'
-import fallback5 from '../assets/SolastaHighlights/IMG_7187.jpg'
-import fallback6 from '../assets/SolastaHighlights/IMG_7489.jpg'
-import fallback7 from '../assets/SolastaHighlights/IMG_7821.jpg'
-import fallback8 from '../assets/SolastaHighlights/IMG_8217.jpg'
-import fallback9 from '../assets/SolastaHighlights/IMG_8318.jpg'
-import fallback10 from '../assets/SolastaHighlights/IMG_8326.jpg'
-import fallback11 from '../assets/SolastaHighlights/IMG_8356.JPG'
-import fallback12 from '../assets/SolastaHighlights/IMG_8580.jpg'
-import fallback13 from '../assets/SolastaHighlights/IMG_8635.jpg'
-import fallback14 from '../assets/SolastaHighlights/IMG_9116.jpg'
 
+// External images hosted on ImgBB to reduce Netlify bandwidth
 const PreviousYearGallery = () => {
   const images = [
-    { src: 'https://i.ibb.co/HDBWyngg/IMG-1956.jpg', alt: 'IMG-1956' },
-    { src: 'https://i.ibb.co/F4Pv19Wx/IMG-2296.jpg', alt: 'IMG-2296', fallback: fallback2 },
-    { src: 'https://i.ibb.co/V0X3Qhht/IMG-2950.jpg', alt: 'IMG-2950', fallback: fallback3 },
-    { src: 'https://i.ibb.co/JR6S0cc2/IMG-3447.jpg', alt: 'IMG-3447', fallback: fallback4 },
-    { src: 'https://i.ibb.co/xKpPd765/IMG-7187.jpg', alt: 'IMG-7187', fallback: fallback5 },
-    { src: 'https://i.ibb.co/YBxPm1jx/IMG-7489.jpg', alt: 'IMG-7489', fallback: fallback6 },
-    { src: 'https://i.ibb.co/Y7YKDN4d/IMG-7821.jpg', alt: 'IMG-7821', fallback: fallback7 },
-    { src: 'https://i.ibb.co/gLXdkDBP/IMG-8217.jpg', alt: 'IMG-8217', fallback: fallback8 },
-    { src: 'https://i.ibb.co/bgLBRpmT/IMG-8318.jpg', alt: 'IMG-8318', fallback: fallback9 },
-    { src: 'https://i.ibb.co/FLq9kp8P/IMG-8326.jpg', alt: 'IMG-8326', fallback: fallback10 },
-    { src: 'https://i.ibb.co/d4QhhhG4/IMG-8356.jpg', alt: 'IMG-8356', fallback: fallback11 },
-    { src: 'https://i.ibb.co/fYhZMXt7/IMG-8580.jpg', alt: 'IMG-8580', fallback: fallback12 },
-    { src: 'https://i.ibb.co/W4w2MWyK/IMG-8635.jpg', alt: 'IMG-8635', fallback: fallback13 },
-    { src: 'https://i.ibb.co/cS5FChbJ/IMG-9116.jpg', alt: 'IMG-9116', fallback: fallback14 }
+    { src: 'https://i.ibb.co/1GGbCY7S/IMG-1956.jpg', alt: 'IMG-1956' },
+    { src: 'https://i.ibb.co/d0Dm61qF/IMG-2296.jpg', alt: 'IMG-2296' },
+    { src: 'https://i.ibb.co/SX5C6z8f/IMG-2950.jpg', alt: 'IMG-2950' },
+    { src: 'https://i.ibb.co/4ZYX11V8/IMG-3447.jpg', alt: 'IMG-3447' },
+    { src: 'https://i.ibb.co/RGq23Rtf/IMG-7187.jpg', alt: 'IMG-7187' },
+    { src: 'https://i.ibb.co/JwyXQhnf/IMG-7489.jpg', alt: 'IMG-7489' },
+    { src: 'https://i.ibb.co/zHhZLqMx/IMG-7821.jpg', alt: 'IMG-7821' },
+    { src: 'https://i.ibb.co/BK31pCmp/IMG-8217.jpg', alt: 'IMG-8217' },
+    { src: 'https://i.ibb.co/HLbxXKQW/IMG-8318.jpg', alt: 'IMG-8318' },
+    { src: 'https://i.ibb.co/HfWhsCcP/IMG-8326.jpg', alt: 'IMG-8326' },
+    { src: 'https://i.ibb.co/GQFz6cw9/IMG-8356.jpg', alt: 'IMG-8356' },
+    { src: 'https://i.ibb.co/CpSDy0hv/IMG-8580.jpg', alt: 'IMG-8580' },
+    { src: 'https://i.ibb.co/7tMnxnK9/IMG-8635.jpg', alt: 'IMG-8635' },
+    { src: 'https://i.ibb.co/bR29GnC8/IMG-9116.jpg', alt: 'IMG-9116' }
   ]
 
   return (

@@ -9,7 +9,9 @@ import { webglContextManager } from '../utils/webglContextManager';
 
 // replace with your own imports, see the usage snippet for details
 import defaultCardGLB from '../assets/card.glb';
-import lanyard from '../assets/lanyard.png';
+
+// External image hosted on ImgBB to reduce Netlify bandwidth
+const lanyard = 'https://i.ibb.co/zTSCY800/lanyard.png';
 
 import * as THREE from 'three';
 

@@ -1,6 +1,8 @@
 import React from "react";
 import { Icon } from "@iconify/react";
-import clgLogo from "../assets/clg_logo.png";
+
+// External image hosted on ImgBB to reduce Netlify bandwidth
+const clgLogo = "https://i.ibb.co/n8bDSB2j/clg-logo.png";
 
 export default function Footer() {
   return (

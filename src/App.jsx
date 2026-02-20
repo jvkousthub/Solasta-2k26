@@ -1,16 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './pages/Hero'
 import CountdownTimer from './pages/CountdownTimer'
-import Events from './pages/Events'
-import AboutUs from './pages/AboutUs'
-import PreviousYearGallery from './components/PreviousYearGallery'
-import PreviousYearHighlights from './components/PreviousYearHighlights'
-import WhySponsorUs from './pages/WhySponsorUs'
-import FAQ from './pages/FAQ'
-import Footer from './components/Footer'
-import Teams from './pages/Teams'
+
+// Lazy load heavy components
+const Events = lazy(() => import('./pages/Events'))
+const AboutUs = lazy(() => import('./pages/AboutUs'))
+const PreviousYearGallery = lazy(() => import('./components/PreviousYearGallery'))
+const WhySponsorUs = lazy(() => import('./pages/WhySponsorUs'))
+const FAQ = lazy(() => import('./pages/FAQ'))
+const Footer = lazy(() => import('./components/Footer'))
+const Teams = lazy(() => import('./pages/Teams'))
 
 const App = () => {
   const [showPopup, setShowPopup] = useState(false)
@@ -23,17 +24,18 @@ const App = () => {
   return (
     <Router>
       <Navbar />
-      <Routes>
-        <Route path="/" element={
-          <div className="overflow-x-hidden">
-            <Hero />
-            <CountdownTimer />
-            <Events />
-            <PreviousYearGallery />
-            <AboutUs />
-            <WhySponsorUs />
-            <FAQ />
-            <Footer />
+      <Suspense fallback={<div className="min-h-screen bg-black" />}>
+        <Routes>
+          <Route path="/" element={
+            <div className="overflow-x-hidden">
+              <Hero />
+              <CountdownTimer />
+              <Events />
+              <PreviousYearGallery />
+              <AboutUs />
+              <WhySponsorUs />
+              <FAQ />
+              <Footer />
         {/* Temporarily commented out Get In Touch section */}
         {/* <div id="contact" className="min-h-screen bg-gradient-to-b from-gray-900 to-black flex items-center justify-center p-4 sm:p-8">
           <div className="text-center max-w-2xl mx-auto">
@@ -64,6 +66,7 @@ const App = () => {
           </>
         } />
       </Routes>
+      </Suspense>
       
       {/* Commented out Schedule Button - Register button moved to Navbar */}
       {/* <div className="fixed top-9 right-8 z-50 flex borderr items-center gap-3 sm:gap-4"> */}
