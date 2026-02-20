@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { useNavigate } from 'react-router-dom'
-import bg1 from '../assets/bg1.png'
+const bg1 = 'https://i.ibb.co/4BbL8TZ/bg1.jpg'
 const logonobg = 'https://i.ibb.co/JRtx8vMC/nobg.png'
 
 const Hero = () => {
