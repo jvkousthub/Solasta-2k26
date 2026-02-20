@@ -7,9 +7,6 @@ import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphe
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 import { webglContextManager } from '../utils/webglContextManager';
 
-// replace with your own imports, see the usage snippet for details
-import defaultCardGLB from '../assets/card.glb';
-
 // External image hosted on ImgBB to reduce Netlify bandwidth
 const lanyard = 'https://i.ibb.co/zTSCY800/lanyard.png';
 
@@ -99,7 +96,7 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
         <ambientLight intensity={Math.PI} />
         <Suspense fallback={null}>
           <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
-            <Band isMobile={isMobile} cardModel={cardModel || defaultCardGLB} />
+            <Band isMobile={isMobile} cardModel={cardModel} />
           </Physics>
         </Suspense>
         <Environment blur={0.75}>
@@ -149,7 +146,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, cardModel }) {
     dir = new THREE.Vector3();
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
   
-  // Load GLB model (preloaded in Teams.jsx for instant loading)
+  // Load 3D model
   const { nodes, materials } = useGLTF(cardModel);
   const texture = useTexture(lanyard);
   const [curve] = useState(
@@ -279,6 +276,5 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, cardModel }) {
   );
 }
 
-// Preload all card models and textures
-useGLTF.preload(defaultCardGLB);
+// Preload textures
 useTexture.preload(lanyard);
