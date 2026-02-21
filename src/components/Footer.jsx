@@ -53,7 +53,7 @@ export default function Footer() {
               </p>
               <div className="flex gap-3 sm:gap-4 flex-wrap justify-center">
                 <a
-                  href="https://www.instagram.com/iiitk.solasta?igsh=MWExODFwMXhucGxreA=="
+                  href="https://www.instagram.com/iiitk.solasta/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-white/10 hover:bg-[#FF6B35] p-3 sm:p-4 rounded-full transition-all duration-300 hover:scale-110 min-h-[48px] min-w-[48px] flex items-center justify-center"

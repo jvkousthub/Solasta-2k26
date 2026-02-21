@@ -30,6 +30,9 @@ const img22 = 'https://i.ibb.co/PGJtJd0Q/22.png'
 const img23 = 'https://i.ibb.co/2YpNKpWw/23.png'
 const img24 = 'https://i.ibb.co/KjRbJ0zb/24.png'
 const img25 = 'https://i.ibb.co/BKfBNQkG/25.jpg'
+const img26 = 'https://images.unsplash.com/photo-1478147427282-58a87a120781?w=396&h=256&fit=crop' // Institute got Talent - microphone/comedy show
+const img27 = 'https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=396&h=256&fit=crop' // Guess N' Win - quiz/games
+const img28 = 'https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=396&h=256&fit=crop' // Reel Competition - video/film
 
 const EventCard = ({ _id, title, date, time, venue, img, link }) => {
   return (
@@ -348,6 +351,36 @@ const Events = () => {
       img: img25,
       category: "Technical Events",
       link: "https://unstop.com/p/gdg-hackathon-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1641019",
+    },
+    {
+      _id: 25,
+      title: "Institute Got Talent",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img26,
+      category: "Performing arts",
+      link: "https://unstop.com/o/wa4j5EZ?utm_medium=Share&utm_source=jvkousthub&utm_campaign=Events",
+    },
+    {
+      _id: 26,
+      title: "Guess N' Win",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img27,
+      category: "Fun Games",
+      link: "https://unstop.com/o/qYnwfZB?utm_medium=Share&utm_source=jvkousthub&utm_campaign=Events",
+    },
+    {
+      _id: 27,
+      title: "Reel Competition",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img28,
+      category: "Creative Arts",
+      link: "https://unstop.com/o/eWkVS10?utm_medium=Share&utm_source=jvkousthub&utm_campaign=Events",
     },
   ];
 

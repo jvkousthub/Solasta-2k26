@@ -9,7 +9,7 @@ const teamMembers = [
   { id: 5, name: "Charan", role: "Sponsorship Lead", email: "123ad0002@iiitk.ac.in", instagram: "@charan.mulugula" },
   { id: 6, name: "Murari", role: "Finance Lead", email: "123ec0017@iiitk.ac.in", instagram: "@__.koushik07.__" },
   { id: 7, name: "Motheendra", role: "Finance Lead", email: "123ec0040@iiitk.ac.in", instagram: "" },
-  { id: 8, name: "Kousthub", role: "Web Developer", email: "123cs0074@iiitk.ac.in", instagram: "@kousthubjv" },
+  { id: 8, name: "Kousthub", role: "Tech Lead", email: "123cs0074@iiitk.ac.in", instagram: "@kousthubjv" },
   { id: 9, name: "Sundeep", role: "PR Lead", email: "523ec0002@iiitk.ac.in", instagram: "@sundeeptejjj" },
   { id: 10, name: "Harsha", role: "PR Lead", email: "123ec0003@iiitk.ac.in", instagram: "@lazzy_winner__" },
   { id: 11, name: "Giridhar", role: "Logistics Lead", email: "123ec0028@iiitk.ac.in", instagram: "@_giri_2_8_5_" },
@@ -73,7 +73,7 @@ export default function Teams() {
               
               {member.instagram && (
                 <a
-                  href={`https://www.instagram.com/${member.instagram.replace('@', '')}`}
+                  href={`https://www.instagram.com/${member.instagram.replace('@', '')}/`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs text-white/70 hover:text-[#FF6B35] transition-colors"
