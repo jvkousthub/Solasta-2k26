@@ -1,12 +1,15 @@
 import React from 'react'
 import TiltedCard from '../components/TiltedCard'
 import logo from '../assets/lanyard.png'
-import Sponsor1 from '../assets/Sponsor1.jpg'
-import Sponsor2 from '../assets/Sponsor2.jpg'
-import Sponsor3 from '../assets/Sponsor3.jpg'
-import Sponsor4 from '../assets/Sponsor4.jpg'
-import Sponsor5 from '../assets/Sponsor5.jpg'
-import Sponsor6 from '../assets/Sponsor6.jpg'
+
+// Large sponsor images hosted on GitHub CDN to reduce Netlify bandwidth
+const GITHUB_CDN = 'https://raw.githubusercontent.com/jvkousthub/Solasta-2k26/master/src/assets'
+const Sponsor1 = `${GITHUB_CDN}/Sponsor1.jpg`
+const Sponsor2 = `${GITHUB_CDN}/Sponsor2.jpg`
+const Sponsor3 = `${GITHUB_CDN}/Sponsor3.jpg`
+const Sponsor4 = `${GITHUB_CDN}/Sponsor4.jpg`
+const Sponsor5 = `${GITHUB_CDN}/Sponsor5.jpg`
+const Sponsor6 = `${GITHUB_CDN}/Sponsor6.jpg`
 
 const WhySponsorUs = () => {
   const sponsorData = [

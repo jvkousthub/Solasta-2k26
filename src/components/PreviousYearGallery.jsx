@@ -1,37 +1,26 @@
 import React from 'react'
 import Stack from './Stack'
 import ImageWithLoader from './ImageWithLoader'
-import IMG_1956 from '../assets/SolastaHighlights/IMG_1956.JPG'
-import IMG_2296 from '../assets/SolastaHighlights/IMG_2296.jpg'
-import IMG_2950 from '../assets/SolastaHighlights/IMG_2950.jpg'
-import IMG_3447 from '../assets/SolastaHighlights/IMG_3447.jpg'
-import IMG_7187 from '../assets/SolastaHighlights/IMG_7187.jpg'
-import IMG_7489 from '../assets/SolastaHighlights/IMG_7489.jpg'
-import IMG_7821 from '../assets/SolastaHighlights/IMG_7821.jpg'
-import IMG_8217 from '../assets/SolastaHighlights/IMG_8217.jpg'
-import IMG_8318 from '../assets/SolastaHighlights/IMG_8318.jpg'
-import IMG_8326 from '../assets/SolastaHighlights/IMG_8326.jpg'
-import IMG_8356 from '../assets/SolastaHighlights/IMG_8356.JPG'
-import IMG_8580 from '../assets/SolastaHighlights/IMG_8580.jpg'
-import IMG_8635 from '../assets/SolastaHighlights/IMG_8635.jpg'
-import IMG_9116 from '../assets/SolastaHighlights/IMG_9116.jpg'
+
+// Large gallery images hosted on GitHub CDN to reduce Netlify bandwidth
+const GITHUB_CDN = 'https://raw.githubusercontent.com/jvkousthub/Solasta-2k26/master/src/assets/SolastaHighlights'
 
 const PreviousYearGallery = () => {
   const images = [
-    { src: IMG_1956, alt: 'IMG-1956' },
-    { src: IMG_2296, alt: 'IMG-2296' },
-    { src: IMG_2950, alt: 'IMG-2950' },
-    { src: IMG_3447, alt: 'IMG-3447' },
-    { src: IMG_7187, alt: 'IMG-7187' },
-    { src: IMG_7489, alt: 'IMG-7489' },
-    { src: IMG_7821, alt: 'IMG-7821' },
-    { src: IMG_8217, alt: 'IMG-8217' },
-    { src: IMG_8318, alt: 'IMG-8318' },
-    { src: IMG_8326, alt: 'IMG-8326' },
-    { src: IMG_8356, alt: 'IMG-8356' },
-    { src: IMG_8580, alt: 'IMG-8580' },
-    { src: IMG_8635, alt: 'IMG-8635' },
-    { src: IMG_9116, alt: 'IMG-9116' }
+    { src: `${GITHUB_CDN}/IMG_1956.JPG`, alt: 'IMG-1956' },
+    { src: `${GITHUB_CDN}/IMG_2296.jpg`, alt: 'IMG-2296' },
+    { src: `${GITHUB_CDN}/IMG_2950.jpg`, alt: 'IMG-2950' },
+    { src: `${GITHUB_CDN}/IMG_3447.jpg`, alt: 'IMG-3447' },
+    { src: `${GITHUB_CDN}/IMG_7187.jpg`, alt: 'IMG-7187' },
+    { src: `${GITHUB_CDN}/IMG_7489.jpg`, alt: 'IMG-7489' },
+    { src: `${GITHUB_CDN}/IMG_7821.jpg`, alt: 'IMG-7821' },
+    { src: `${GITHUB_CDN}/IMG_8217.jpg`, alt: 'IMG-8217' },
+    { src: `${GITHUB_CDN}/IMG_8318.jpg`, alt: 'IMG-8318' },
+    { src: `${GITHUB_CDN}/IMG_8326.jpg`, alt: 'IMG-8326' },
+    { src: `${GITHUB_CDN}/IMG_8356.JPG`, alt: 'IMG-8356' },
+    { src: `${GITHUB_CDN}/IMG_8580.jpg`, alt: 'IMG-8580' },
+    { src: `${GITHUB_CDN}/IMG_8635.jpg`, alt: 'IMG-8635' },
+    { src: `${GITHUB_CDN}/IMG_9116.jpg`, alt: 'IMG-9116' }
   ]
 
   return (
