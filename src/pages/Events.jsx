@@ -36,6 +36,7 @@ const img28 = 'https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=39
 const img29 = 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=396&h=256&fit=crop' // CAD Design Championship - technical/design
 const img30 = 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=396&h=256&fit=crop' // Campus Combat - sports/combat
 const img31 = 'https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?w=396&h=256&fit=crop' // Snake and Ladder - board games
+const img32 = 'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=396&h=256&fit=crop' // Movie Theme Performance - dance/performance
 
 const EventCard = ({ _id, title, date, time, venue, img, link }) => {
   return (
@@ -414,6 +415,16 @@ const Events = () => {
       img: img31,
       category: "Fun Games",
       link: "https://unstop.com/o/b1yXYUa?lb=Lh5bOgEz&utm_medium=Share&utm_source=events&utm_campaign=123adsai3783",
+    },
+    {
+      _id: 31,
+      title: "Movie Theme Performance",
+      date: "28 Feb 2026",
+      time: "3:01 PM - 5:02 PM",
+      venue: "Solasta Stage, IIITDM Kurnool",
+      img: img32,
+      category: "Performing arts",
+      link: "https://unstop.com/o/lqCwY1N?utm_medium=Share&utm_source=jvkousthub&utm_campaign=Events",
     },
   ];
 
