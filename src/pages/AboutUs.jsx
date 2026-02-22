@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-const img = 'https://raw.githubusercontent.com/jvkousthub/Solasta-2k26/master/src/assets/lanyard.png'
+const img = 'https://raw.githubusercontent.com/jvkousthub/Solasta-2k26/master/src/assets/lanyard.webp'
 
 const AboutUs = () => {
   const sectionRef = useRef(null)

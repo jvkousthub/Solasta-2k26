@@ -1,15 +1,15 @@
 import React from 'react'
 import TiltedCard from '../components/TiltedCard'
 
-// All images hosted on GitHub CDN to reduce Netlify bandwidth
-const logo = 'https://raw.githubusercontent.com/jvkousthub/Solasta-2k26/master/src/assets/lanyard.png'
+// All images hosted on GitHub CDN (compressed to WebP for fast loading)
+const logo = 'https://raw.githubusercontent.com/jvkousthub/Solasta-2k26/master/src/assets/lanyard.webp'
 const GITHUB_CDN = 'https://raw.githubusercontent.com/jvkousthub/Solasta-2k26/master/src/assets'
-const Sponsor1 = `${GITHUB_CDN}/Sponsor1.jpg`
-const Sponsor2 = `${GITHUB_CDN}/Sponsor2.jpg`
-const Sponsor3 = `${GITHUB_CDN}/Sponsor3.jpg`
-const Sponsor4 = `${GITHUB_CDN}/Sponsor4.jpg`
-const Sponsor5 = `${GITHUB_CDN}/Sponsor5.jpg`
-const Sponsor6 = `${GITHUB_CDN}/Sponsor6.jpg`
+const Sponsor1 = `${GITHUB_CDN}/Sponsor1.webp`
+const Sponsor2 = `${GITHUB_CDN}/Sponsor2.webp`
+const Sponsor3 = `${GITHUB_CDN}/Sponsor3.webp`
+const Sponsor4 = `${GITHUB_CDN}/Sponsor4.webp`
+const Sponsor5 = `${GITHUB_CDN}/Sponsor5.webp`
+const Sponsor6 = `${GITHUB_CDN}/Sponsor6.webp`
 
 const WhySponsorUs = () => {
   const sponsorData = [

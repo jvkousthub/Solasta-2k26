@@ -2,25 +2,25 @@ import React from 'react'
 import Stack from './Stack'
 import ImageWithLoader from './ImageWithLoader'
 
-// Large gallery images hosted on GitHub CDN to reduce Netlify bandwidth
+// Gallery images hosted on GitHub CDN (compressed to WebP for fast loading)
 const GITHUB_CDN = 'https://raw.githubusercontent.com/jvkousthub/Solasta-2k26/master/src/assets/SolastaHighlights'
 
 const PreviousYearGallery = () => {
   const images = [
-    { src: `${GITHUB_CDN}/IMG_1956.JPG`, alt: 'IMG-1956' },
-    { src: `${GITHUB_CDN}/IMG_2296.jpg`, alt: 'IMG-2296' },
-    { src: `${GITHUB_CDN}/IMG_2950.jpg`, alt: 'IMG-2950' },
-    { src: `${GITHUB_CDN}/IMG_3447.jpg`, alt: 'IMG-3447' },
-    { src: `${GITHUB_CDN}/IMG_7187.jpg`, alt: 'IMG-7187' },
-    { src: `${GITHUB_CDN}/IMG_7489.jpg`, alt: 'IMG-7489' },
-    { src: `${GITHUB_CDN}/IMG_7821.jpg`, alt: 'IMG-7821' },
-    { src: `${GITHUB_CDN}/IMG_8217.jpg`, alt: 'IMG-8217' },
-    { src: `${GITHUB_CDN}/IMG_8318.jpg`, alt: 'IMG-8318' },
-    { src: `${GITHUB_CDN}/IMG_8326.jpg`, alt: 'IMG-8326' },
-    { src: `${GITHUB_CDN}/IMG_8356.JPG`, alt: 'IMG-8356' },
-    { src: `${GITHUB_CDN}/IMG_8580.jpg`, alt: 'IMG-8580' },
-    { src: `${GITHUB_CDN}/IMG_8635.jpg`, alt: 'IMG-8635' },
-    { src: `${GITHUB_CDN}/IMG_9116.jpg`, alt: 'IMG-9116' }
+    { src: `${GITHUB_CDN}/IMG_1956.webp`, alt: 'IMG-1956' },
+    { src: `${GITHUB_CDN}/IMG_2296.webp`, alt: 'IMG-2296' },
+    { src: `${GITHUB_CDN}/IMG_2950.webp`, alt: 'IMG-2950' },
+    { src: `${GITHUB_CDN}/IMG_3447.webp`, alt: 'IMG-3447' },
+    { src: `${GITHUB_CDN}/IMG_7187.webp`, alt: 'IMG-7187' },
+    { src: `${GITHUB_CDN}/IMG_7489.webp`, alt: 'IMG-7489' },
+    { src: `${GITHUB_CDN}/IMG_7821.webp`, alt: 'IMG-7821' },
+    { src: `${GITHUB_CDN}/IMG_8217.webp`, alt: 'IMG-8217' },
+    { src: `${GITHUB_CDN}/IMG_8318.webp`, alt: 'IMG-8318' },
+    { src: `${GITHUB_CDN}/IMG_8326.webp`, alt: 'IMG-8326' },
+    { src: `${GITHUB_CDN}/IMG_8356.webp`, alt: 'IMG-8356' },
+    { src: `${GITHUB_CDN}/IMG_8580.webp`, alt: 'IMG-8580' },
+    { src: `${GITHUB_CDN}/IMG_8635.webp`, alt: 'IMG-8635' },
+    { src: `${GITHUB_CDN}/IMG_9116.webp`, alt: 'IMG-9116' }
   ]
 
   return (

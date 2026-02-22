@@ -4,33 +4,33 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../utils/motion";
 import ImageWithLoader from "../components/ImageWithLoader";
 
-// Event images hosted on GitHub CDN to reduce Netlify bandwidth
+// Event images hosted on GitHub CDN (compressed to WebP for fast loading)
 const GITHUB_CDN = 'https://raw.githubusercontent.com/jvkousthub/Solasta-2k26/master/src/assets/s'
-const img1 = `${GITHUB_CDN}/1.png`
-const img2 = `${GITHUB_CDN}/2.png`
-const img3 = `${GITHUB_CDN}/3.png`
-const img4 = `${GITHUB_CDN}/4.png`
-const img5 = `${GITHUB_CDN}/5.png`
-const img6 = `${GITHUB_CDN}/6.png`
-const img7 = `${GITHUB_CDN}/7.png`
-const img8 = `${GITHUB_CDN}/8.png`
-const img9 = `${GITHUB_CDN}/9.png`
-const img10 = `${GITHUB_CDN}/10.png`
-const img11 = `${GITHUB_CDN}/11.png`
-const img12 = `${GITHUB_CDN}/12.png`
-const img13 = `${GITHUB_CDN}/13.png`
-const img14 = `${GITHUB_CDN}/14.png`
-const img15 = `${GITHUB_CDN}/15.png`
-const img16 = `${GITHUB_CDN}/16.png`
-const img17 = `${GITHUB_CDN}/17.png`
-const img18 = `${GITHUB_CDN}/18.png`
-const img19 = `${GITHUB_CDN}/19.png`
-const img20 = `${GITHUB_CDN}/20.png`
-const img21 = `${GITHUB_CDN}/21.png`
-const img22 = `${GITHUB_CDN}/22.png`
-const img23 = `${GITHUB_CDN}/23.png`
-const img24 = `${GITHUB_CDN}/24.png`
-const img25 = `${GITHUB_CDN}/25.jpeg`
+const img1 = `${GITHUB_CDN}/1.webp`
+const img2 = `${GITHUB_CDN}/2.webp`
+const img3 = `${GITHUB_CDN}/3.webp`
+const img4 = `${GITHUB_CDN}/4.webp`
+const img5 = `${GITHUB_CDN}/5.webp`
+const img6 = `${GITHUB_CDN}/6.webp`
+const img7 = `${GITHUB_CDN}/7.webp`
+const img8 = `${GITHUB_CDN}/8.webp`
+const img9 = `${GITHUB_CDN}/9.webp`
+const img10 = `${GITHUB_CDN}/10.webp`
+const img11 = `${GITHUB_CDN}/11.webp`
+const img12 = `${GITHUB_CDN}/12.webp`
+const img13 = `${GITHUB_CDN}/13.webp`
+const img14 = `${GITHUB_CDN}/14.webp`
+const img15 = `${GITHUB_CDN}/15.webp`
+const img16 = `${GITHUB_CDN}/16.webp`
+const img17 = `${GITHUB_CDN}/17.webp`
+const img18 = `${GITHUB_CDN}/18.webp`
+const img19 = `${GITHUB_CDN}/19.webp`
+const img20 = `${GITHUB_CDN}/20.webp`
+const img21 = `${GITHUB_CDN}/21.webp`
+const img22 = `${GITHUB_CDN}/22.webp`
+const img23 = `${GITHUB_CDN}/23.webp`
+const img24 = `${GITHUB_CDN}/24.webp`
+const img25 = `${GITHUB_CDN}/25.webp`
 const img26 = 'https://images.unsplash.com/photo-1478147427282-58a87a120781?w=396&h=256&fit=crop' // Institute got Talent - microphone/comedy show
 const img27 = 'https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=396&h=256&fit=crop' // Guess N' Win - quiz/games
 const img28 = 'https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=396&h=256&fit=crop' // Reel Competition - video/film

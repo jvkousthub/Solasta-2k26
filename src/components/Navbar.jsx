@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-const lanyardImg = 'https://raw.githubusercontent.com/jvkousthub/Solasta-2k26/master/src/assets/lanyard.png'
+const lanyardImg = 'https://raw.githubusercontent.com/jvkousthub/Solasta-2k26/master/src/assets/lanyard.webp'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
