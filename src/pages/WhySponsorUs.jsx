@@ -1,8 +1,8 @@
 import React from 'react'
 import TiltedCard from '../components/TiltedCard'
-import logo from '../assets/lanyard.png'
 
-// Large sponsor images hosted on GitHub CDN to reduce Netlify bandwidth
+// All images hosted on GitHub CDN to reduce Netlify bandwidth
+const logo = 'https://raw.githubusercontent.com/jvkousthub/Solasta-2k26/master/src/assets/lanyard.png'
 const GITHUB_CDN = 'https://raw.githubusercontent.com/jvkousthub/Solasta-2k26/master/src/assets'
 const Sponsor1 = `${GITHUB_CDN}/Sponsor1.jpg`
 const Sponsor2 = `${GITHUB_CDN}/Sponsor2.jpg`

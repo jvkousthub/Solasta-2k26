@@ -6,7 +6,7 @@ import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier';
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 import { webglContextManager } from '../utils/webglContextManager';
-import lanyard from '../assets/lanyard.png';
+const lanyard = 'https://raw.githubusercontent.com/jvkousthub/Solasta-2k26/master/src/assets/lanyard.png';
 import * as THREE from 'three';
 
 extend({ MeshLineGeometry, MeshLineMaterial });

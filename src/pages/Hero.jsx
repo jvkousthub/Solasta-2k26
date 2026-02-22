@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { useNavigate } from 'react-router-dom'
-import bg1 from '../assets/bg1.png'
-import logonobg from '../assets/nobg.png'
+const bg1 = 'https://raw.githubusercontent.com/jvkousthub/Solasta-2k26/master/src/assets/bg1.png'
+const logonobg = 'https://raw.githubusercontent.com/jvkousthub/Solasta-2k26/master/src/assets/nobg.png'
 
 const Hero = () => {
   const navigate = useNavigate()

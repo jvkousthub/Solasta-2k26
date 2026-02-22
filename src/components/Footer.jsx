@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
-import clgLogo from "../assets/clg_logo.png";
+const clgLogo = "https://raw.githubusercontent.com/jvkousthub/Solasta-2k26/master/src/assets/clg_logo.png";
 
 export default function Footer() {
   return (
