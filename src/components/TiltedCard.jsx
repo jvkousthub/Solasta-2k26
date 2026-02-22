@@ -152,7 +152,7 @@ export default function TiltedCard({
             width: imageWidth,
             height: imageHeight
           }}
-          loading="eager"
+          loading="lazy"
         />
 
         {displayOverlayContent && overlayContent && (
