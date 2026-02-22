@@ -418,7 +418,7 @@ const Events = () => {
     },
     {
       _id: 31,
-      title: "Movie Theme Performance",
+      title: "Movie Theme Dance Performance",
       date: "28 Feb 2026",
       time: "3:01 PM - 5:02 PM",
       venue: "Solasta Stage, IIITDM Kurnool",
