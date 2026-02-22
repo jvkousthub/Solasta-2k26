@@ -33,6 +33,9 @@ const img25 = 'https://i.ibb.co/BKfBNQkG/25.jpg'
 const img26 = 'https://images.unsplash.com/photo-1478147427282-58a87a120781?w=396&h=256&fit=crop' // Institute got Talent - microphone/comedy show
 const img27 = 'https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=396&h=256&fit=crop' // Guess N' Win - quiz/games
 const img28 = 'https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=396&h=256&fit=crop' // Reel Competition - video/film
+const img29 = 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=396&h=256&fit=crop' // CAD Design Championship - technical/design
+const img30 = 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=396&h=256&fit=crop' // Campus Combat - sports/combat
+const img31 = 'https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?w=396&h=256&fit=crop' // Snake and Ladder - board games
 
 const EventCard = ({ _id, title, date, time, venue, img, link }) => {
   return (
@@ -381,6 +384,36 @@ const Events = () => {
       img: img28,
       category: "Creative Arts",
       link: "https://unstop.com/o/eWkVS10?utm_medium=Share&utm_source=jvkousthub&utm_campaign=Events",
+    },
+    {
+      _id: 28,
+      title: "CAD Design Championship",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img29,
+      category: "Technical Events",
+      link: "https://unstop.com/p/cad-design-championship-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1642812",
+    },
+    {
+      _id: 29,
+      title: "Campus Combat",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img30,
+      category: "Fun Games",
+      link: "https://unstop.com/p/campus-combat-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1646237",
+    },
+    {
+      _id: 30,
+      title: "Snake and Ladder",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img31,
+      category: "Fun Games",
+      link: "https://unstop.com/o/b1yXYUa?lb=Lh5bOgEz&utm_medium=Share&utm_source=events&utm_campaign=123adsai3783",
     },
   ];
 
