@@ -1,7 +1,5 @@
 import React, { useRef } from 'react'
-
-// External image hosted on ImgBB to reduce Netlify bandwidth
-const img = 'https://i.ibb.co/zTSCY800/lanyard.png'
+import img from '../assets/lanyard.png'
 
 const AboutUs = () => {
   const sectionRef = useRef(null)

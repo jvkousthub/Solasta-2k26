@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-
-// External image hosted on ImgBB to reduce Netlify bandwidth
-const lanyardImg = 'https://i.ibb.co/zTSCY800/lanyard.png'
+import lanyardImg from '../assets/lanyard.png'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
