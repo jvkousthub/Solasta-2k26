@@ -31,9 +31,9 @@ const img22 = `${GITHUB_CDN}/22.webp`
 const img23 = `${GITHUB_CDN}/23.webp`
 const img24 = `${GITHUB_CDN}/24.webp`
 const img25 = `${GITHUB_CDN}/25.webp`
-const img26 = `${GITHUB_CDN}/Institue's Got Talent.png` // Institute got Talent
-const img27 = `${GITHUB_CDN}/Guess N Win.png` // Guess N' Win
-const img28 = `${GITHUB_CDN}/Reel It Feel It.png` // Reel Competition
+const img26 = `${GITHUB_CDN}/Institue's Got Talent.webp` // Institute got Talent
+const img27 = `${GITHUB_CDN}/Guess N Win.webp` // Guess N' Win
+const img28 = `${GITHUB_CDN}/Reel It Feel It.webp` // Reel Competition
 const img29 = 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=396&h=256&fit=crop' // CAD Design Championship - technical/design
 const img30 = 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=396&h=256&fit=crop' // Campus Combat - sports/combat
 const img31 = 'https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?w=396&h=256&fit=crop' // Snake and Ladder - board games
