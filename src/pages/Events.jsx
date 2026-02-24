@@ -245,7 +245,7 @@ const Events = () => {
       venue: "IIITDM Kurnool",
       img: img14,
       category: "Fun Games",
-      link: "https://unstop.com/o/Bb576nG?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Quizzes",
+      link: "https://unstop.com/o/Bb576nG?lb=ILK1A0HG&utm_medium=Share&utm_source=quizzes&utm_campaign=Jvkousthub",
     },
     {
       _id: 14,
@@ -305,7 +305,7 @@ const Events = () => {
       venue: "IIITDM Kurnool",
       img: img20,
       category: "Performing arts",
-      link: "https://unstop.com/p/group-dance-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1640381",
+      link: "https://unstop.com/p/group-dance-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1640381?lb=ILK1A0HG&utm_medium=Share&utm_source=events&utm_campaign=Jvkousthub",
     },
     {
       _id: 20,
@@ -355,7 +355,7 @@ const Events = () => {
       venue: "IIITDM Kurnool",
       img: img25,
       category: "Technical Events",
-      link: "https://unstop.com/p/gdg-hackathon-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1641019",
+      link: "https://unstop.com/p/gdg-hackathon-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1641019?lb=ILK1A0HG&utm_medium=Share&utm_source=online_coding_challenge&utm_campaign=Jvkousthub",
     },
     {
       _id: 25,
@@ -405,7 +405,7 @@ const Events = () => {
       venue: "IIITDM Kurnool",
       img: img30,
       category: "Fun Games",
-      link: "https://unstop.com/p/campus-combat-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1646237",
+      link: "https://unstop.com/p/campus-combat-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1646237?lb=ILK1A0HG&utm_medium=Share&utm_source=events&utm_campaign=Jvkousthub",
     },
     {
       _id: 30,
