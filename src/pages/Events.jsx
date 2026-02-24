@@ -115,7 +115,7 @@ const Events = () => {
       venue: "IIITDM Kurnool",
       img: img1,
       category: "Esports",
-      link: "https://unstop.com/o/Eq7sGrD?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
+      link: "https://unstop.com/p/free-fire-tournament-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1641578?lb=ILK1A0HG&utm_medium=Share&utm_source=events&utm_campaign=Jvkousthub",
     },
     {
       _id: 1,
@@ -125,7 +125,7 @@ const Events = () => {
       venue: "IIITDM Kurnool",
       img: img2,
       category: "Esports",
-      link: "https://unstop.com/o/7jMnKdl?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
+      link: "https://unstop.com/o/7jMnKdl?lb=ILK1A0HG&utm_medium=Share&utm_source=events&utm_campaign=Jvkousthub",
     },
     {
       _id: 2,
@@ -135,7 +135,7 @@ const Events = () => {
       venue: "IIITDM Kurnool",
       img: img3,
       category: "Esports",
-      link: "https://unstop.com/o/8UuZzaq?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
+      link: "https://unstop.com/o/8UuZzaq?lb=ILK1A0HG&utm_medium=Share&utm_source=events&utm_campaign=Jvkousthub",
     },
     {
       _id: 3,
@@ -145,7 +145,7 @@ const Events = () => {
       venue: "IIITDM Kurnool",
       img: img4,
       category: "Technical Events",
-      link: "https://unstop.com/o/XBskqDL?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
+      link: "https://unstop.com/o/XBskqDL?lb=ILK1A0HG&utm_medium=Share&utm_source=events&utm_campaign=Jvkousthub",
     },
     {
       _id: 4,
@@ -165,7 +165,7 @@ const Events = () => {
       venue: "IIITDM Kurnool",
       img: img6,
       category: "Fun Games",
-      link: "https://unstop.com/p/planet-hunt-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1640735",
+      link: "https://unstop.com/p/planet-hunt-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1640735?lb=ILK1A0HG&utm_medium=Share&utm_source=events&utm_campaign=Jvkousthub",
     },
     {
       _id: 6,
@@ -195,7 +195,7 @@ const Events = () => {
       venue: "IIITDM Kurnool",
       img: img9,
       category: "Photography",
-      link: "https://unstop.com/o/aCXqsK7?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
+      link: "https://unstop.com/o/aCXqsK7?lb=ILK1A0HG&utm_medium=Share&utm_source=events&utm_campaign=Jvkousthub",
     },
     {
       _id: 9,
@@ -205,7 +205,7 @@ const Events = () => {
       venue: "IIITDM Kurnool",
       img: img10,
       category: "Photography",
-      link: "https://unstop.com/o/i3e0NPn?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
+      link: "https://unstop.com/o/i3e0NPn?lb=ILK1A0HG&utm_medium=Share&utm_source=events&utm_campaign=Jvkousthub",
     },
     {
       _id: 10,
@@ -215,7 +215,7 @@ const Events = () => {
       venue: "IIITDM Kurnool",
       img: img11,
       category: "Photography",
-      link: "https://unstop.com/o/6nH2V9T?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
+      link: "https://unstop.com/o/6nH2V9T?lb=ILK1A0HG&utm_medium=Share&utm_source=events&utm_campaign=Jvkousthub",
     },
     {
       _id: 11,
@@ -295,7 +295,7 @@ const Events = () => {
       venue: "IIITDM Kurnool",
       img: img19,
       category: "Performing arts",
-      link: "https://unstop.com/p/solo-duo-trio-dance-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1640370",
+      link: "https://unstop.com/p/solo-duo-trio-dance-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1640370?lb=ILK1A0HG&utm_medium=Share&utm_source=events&utm_campaign=Jvkousthub",
     },
     {
       _id: 19,
@@ -415,7 +415,7 @@ const Events = () => {
       venue: "IIITDM Kurnool",
       img: img31,
       category: "Fun Games",
-      link: "https://unstop.com/o/b1yXYUa?lb=Lh5bOgEz&utm_medium=Share&utm_source=events&utm_campaign=123adsai3783",
+      link: "https://unstop.com/p/snake-and-ladder-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1646233?lb=ILK1A0HG&utm_medium=Share&utm_source=events&utm_campaign=Jvkousthub",
     },
     {
       _id: 31,

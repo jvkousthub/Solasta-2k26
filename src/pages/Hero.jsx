@@ -284,7 +284,7 @@ const Hero = () => {
         <div className={`mt-4 sm:mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 items-center justify-center transition-opacity duration-200 ${showElements ? 'opacity-100' : 'opacity-0'}`}>
           {/* Register Button */}
           <a
-            href="https://unstop.com/o/tqpFvrj?utm_medium=Share&utm_source=jvkousthub&utm_campaign=Events"
+            href="https://unstop.com/o/tqpFvrj?lb=ILK1A0HG&utm_medium=Share&utm_source=events&utm_campaign=Jvkousthub"
             target="_blank"
             rel="noopener noreferrer"
             className={`bg-white text-[#FF6B35] px-8 py-3 sm:px-10 sm:py-4 md:px-12 md:py-5 rounded-full font-bold text-lg sm:text-xl md:text-3xl shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:scale-110 hover:shadow-[0_15px_50px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out border-2 border-white hover:bg-transparent hover:text-white active:scale-95 min-h-[44px]`}
