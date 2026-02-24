@@ -38,6 +38,8 @@ const img29 = 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=39
 const img30 = 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=396&h=256&fit=crop' // Campus Combat - sports/combat
 const img31 = 'https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?w=396&h=256&fit=crop' // Snake and Ladder - board games
 const img32 = 'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=396&h=256&fit=crop' // Movie Theme Performance - dance/performance
+const img33 = `${GITHUB_CDN}/concert.webp` // Music Concert - Pronites
+const img34 = 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=396&h=256&fit=crop' // DJ Night - Pronites
 
 const EventCard = ({ _id, title, date, time, venue, img, link }) => {
   return (
@@ -190,42 +192,42 @@ const Events = () => {
     {
       _id: 8,
       title: "Photo Scavenger Hunt",
-      date: "TBA",
-      time: "TBA",
+      date: "28 Feb - 1 Mar 2026",
+      time: "9AM - 11PM",
       venue: "IIITDM Kurnool",
       img: img9,
       category: "Photography",
-      link: "https://unstop.com/o/aCXqsK7?lb=ILK1A0HG&utm_medium=Share&utm_source=events&utm_campaign=Jvkousthub",
+      link: "https://unstop.com/o/aCXqsK7?lb=Lh5bOgEz&utm_medium=Share&utm_source=events&utm_campaign=123adsai3783",
     },
     {
       _id: 9,
       title: "Pic of the Day",
-      date: "3-Day Event",
-      time: "TBA",
+      date: "28 Feb - 1 Mar 2026",
+      time: "9AM - 11PM",
       venue: "IIITDM Kurnool",
       img: img10,
       category: "Photography",
-      link: "https://unstop.com/o/i3e0NPn?lb=ILK1A0HG&utm_medium=Share&utm_source=events&utm_campaign=Jvkousthub",
+      link: "https://unstop.com/o/i3e0NPn?lb=Lh5bOgEz&utm_medium=Share&utm_source=events&utm_campaign=123adsai3783",
     },
     {
       _id: 10,
       title: "People Poster",
-      date: "TBA",
-      time: "TBA",
+      date: "28Feb - 1 Mar 2026",
+      time: "9AM - 11PM",
       venue: "IIITDM Kurnool",
       img: img11,
       category: "Photography",
-      link: "https://unstop.com/o/6nH2V9T?lb=ILK1A0HG&utm_medium=Share&utm_source=events&utm_campaign=Jvkousthub",
+      link: "https://unstop.com/o/6nH2V9T?lb=Lh5bOgEz&utm_medium=Share&utm_source=events&utm_campaign=123adsai3783",
     },
     {
       _id: 11,
       title: "Scribe Pen",
-      date: "TBA",
-      time: "TBA",
+      date: "28 Feb 2026",
+      time: "2PM - 3PM",
       venue: "IIITDM Kurnool",
       img: img12,
       category: "Literary",
-      link: "https://unstop.com/o/haeIQmc?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
+      link: "https://unstop.com/o/haeIQmc?lb=ILK1A0HG&utm_medium=Share&utm_source=events&utm_campaign=Jvkousthub",
     },
     {
       _id: 12,
@@ -235,7 +237,7 @@ const Events = () => {
       venue: "IIITDM Kurnool",
       img: img13,
       category: "Literary",
-      link: "https://unstop.com/o/P6WBsLV?lb=Lh5bOgEz&utm_medium=Share&utm_source=123adsai3783&utm_campaign=Events",
+      link: "https://unstop.com/o/P6WBsLV?lb=ILK1A0HG&utm_medium=Share&utm_source=events&utm_campaign=Jvkousthub",
     },
     {
       _id: 13,
@@ -261,11 +263,11 @@ const Events = () => {
       _id: 15,
       title: "Art Fusion",
       date: "28 Feb 2026",
-      time: "TBA",
+      time: "11AM - 2PM",
       venue: "IIITDM Kurnool",
       img: img16,
       category: "Creative Arts",
-      link: "https://unstop.com/events/art-fusion-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1638947",
+      link: "https://unstop.com/events/art-fusion-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1638947?lb=ILK1A0HG&utm_medium=Share&utm_source=events&utm_campaign=Jvkousthub",
     },
     {
       _id: 16,
@@ -360,8 +362,8 @@ const Events = () => {
     {
       _id: 25,
       title: "Institute Got Talent",
-      date: "TBA",
-      time: "TBA",
+      date: "28 Feb 2026",
+      time: "11AM - 2PM",
       venue: "IIITDM Kurnool",
       img: img26,
       category: "Performing arts",
@@ -370,8 +372,8 @@ const Events = () => {
     {
       _id: 26,
       title: "Guess N' Win",
-      date: "TBA",
-      time: "TBA",
+      date: "28 Feb 2026",
+      time: "11AM - 2PM",
       venue: "IIITDM Kurnool",
       img: img27,
       category: "Fun Games",
@@ -380,8 +382,8 @@ const Events = () => {
     {
       _id: 27,
       title: "Reel Competition",
-      date: "TBA",
-      time: "TBA",
+      date: "28 Feb 2026 - 1 Mar 2026",
+      time: "9AM - 12PM",
       venue: "IIITDM Kurnool",
       img: img28,
       category: "Creative Arts",
@@ -426,6 +428,26 @@ const Events = () => {
       img: img32,
       category: "Performing arts",
       link: "https://unstop.com/o/lqCwY1N?utm_medium=Share&utm_source=jvkousthub&utm_campaign=Events",
+    },
+    {
+      _id: 32,
+      title: "Music Concert",
+      date: "1 Mar 2026",
+      time: "7:00 PM",
+      venue: "IIITDM Kurnool",
+      img: img33,
+      category: "Pronites",
+      link: "https://unstop.com/p/solasta-access-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1641299?lb=ILK1A0HG&utm_medium=Share&utm_source=events&utm_campaign=Jvkousthub",
+    },
+    {
+      _id: 33,
+      title: "DJ Night",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: img34,
+      category: "Pronites",
+      link: "https://unstop.com/p/solasta-access-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-kurnool-1641299?lb=ILK1A0HG&utm_medium=Share&utm_source=events&utm_campaign=Jvkousthub",
     },
   ];
 
