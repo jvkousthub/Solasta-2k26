@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Stack from './Stack'
 import ImageWithLoader from './ImageWithLoader'
 
@@ -22,6 +22,15 @@ const PreviousYearGallery = () => {
     { src: `${GITHUB_CDN}/IMG_8635.webp`, alt: 'IMG-8635' },
     { src: `${GITHUB_CDN}/IMG_9116.webp`, alt: 'IMG-9116' }
   ]
+
+  // Preload first 3 images for instant visibility
+  useEffect(() => {
+    const preloadImages = images.slice(0, 3).map(img => {
+      const image = new Image();
+      image.src = img.src;
+      return image;
+    });
+  }, []);
 
   return (
     <section className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8">
@@ -65,6 +74,7 @@ const PreviousYearGallery = () => {
                     alt={img.alt} 
                     className="w-full h-full object-cover pointer-events-none select-none rounded-2xl"
                     loading="eager"
+                    priority={i < 4}
                     onError={(e) => { if(img.fallback) e.target.src = img.fallback }}
                   />
                 ))}

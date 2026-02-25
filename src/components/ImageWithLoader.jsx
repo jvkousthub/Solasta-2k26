@@ -7,9 +7,10 @@ const ImageWithLoader = ({
   style = {},
   onError = null,
   loading = 'lazy',
-  aspectRatio = null 
+  aspectRatio = null,
+  priority = false 
 }) => {
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(priority);
   const [imageError, setImageError] = useState(false);
 
   const handleImageLoad = () => {
@@ -26,7 +27,7 @@ const ImageWithLoader = ({
   return (
     <div className={`relative ${aspectRatio ? '' : 'w-full h-full'}`} style={aspectRatio ? { aspectRatio } : {}}>
       {/* Skeleton Loader */}
-      {!imageLoaded && !imageError && (
+      {!imageLoaded && !imageError && !priority && (
         <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 animate-pulse rounded-inherit">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer" />
         </div>
@@ -36,7 +37,7 @@ const ImageWithLoader = ({
       <img
         src={src}
         alt={alt}
-        className={`${className} ${!imageLoaded ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
+        className={`${className} ${!imageLoaded && !priority ? 'opacity-0' : 'opacity-100'} transition-opacity duration-${priority ? '0' : '300'}`}
         style={style}
         onLoad={handleImageLoad}
         onError={handleImageError}
