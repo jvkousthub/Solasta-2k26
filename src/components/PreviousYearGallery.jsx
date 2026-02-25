@@ -64,7 +64,7 @@ const PreviousYearGallery = () => {
                     src={img.src} 
                     alt={img.alt} 
                     className="w-full h-full object-cover pointer-events-none select-none rounded-2xl"
-                    loading="lazy"
+                    loading="eager"
                     onError={(e) => { if(img.fallback) e.target.src = img.fallback }}
                   />
                 ))}

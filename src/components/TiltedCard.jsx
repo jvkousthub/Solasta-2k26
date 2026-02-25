@@ -21,7 +21,8 @@ export default function TiltedCard({
   showMobileWarning = false,
   showTooltip = true,
   overlayContent = null,
-  displayOverlayContent = false
+  displayOverlayContent = false,
+  loading = 'lazy'
 }) {
   const ref = useRef(null);
   const x = useMotionValue(0);
@@ -152,7 +153,7 @@ export default function TiltedCard({
             width: imageWidth,
             height: imageHeight
           }}
-          loading="lazy"
+          loading={loading}
         />
 
         {displayOverlayContent && overlayContent && (
