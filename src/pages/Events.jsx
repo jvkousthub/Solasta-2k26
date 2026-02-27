@@ -6,6 +6,7 @@ import ImageWithLoader from "../components/ImageWithLoader";
 
 // Event images hosted on GitHub CDN (compressed to WebP for fast loading)
 const GITHUB_CDN = 'https://raw.githubusercontent.com/jvkousthub/Solasta-2k26/master/src/assets/s'
+import imgMaterialDesign from '../assets/s/material-design.webp'; // Material Design Competition
 const img1 = `${GITHUB_CDN}/1.webp`
 const img2 = `${GITHUB_CDN}/2.webp`
 const img3 = `${GITHUB_CDN}/3.webp`
@@ -488,6 +489,16 @@ const Events = () => {
       img: 'https://images.unsplash.com/photo-1635372722656-389f87a941b7?w=396&h=256&fit=crop',
       category: "Technical Events",
       link: "https://unstop.com/o/j1haPfK?lb=Lh5bOgEz&utm_medium=Share&utm_source=events&utm_campaign=123adsai3783",
+    },
+    {
+      _id: 38,
+      title: "Material Design Competition",
+      date: "TBA",
+      time: "TBA",
+      venue: "IIITDM Kurnool",
+      img: imgMaterialDesign,
+      category: "Technical Events",
+      link: "https://unstop.com/events/material-design-competition-solasta-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-ku-1648887?lb=ILK1A0HG&utm_medium=Share&utm_source=events&utm_campaign=Jvkousthub",
     },
   ];
 
