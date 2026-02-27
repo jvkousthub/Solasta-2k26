@@ -7,6 +7,7 @@ import ImageWithLoader from "../components/ImageWithLoader";
 // Event images hosted on GitHub CDN (compressed to WebP for fast loading)
 const GITHUB_CDN = 'https://raw.githubusercontent.com/jvkousthub/Solasta-2k26/master/src/assets/s'
 // import imgMaterialDesign from '../assets/s/material-design.webp'; // Material Design Competition
+const imgMaterialDesign = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSptpONxDn9ehu5-5cuBkEPATwOVIiZseYJVQ&s"
 const img1 = `${GITHUB_CDN}/1.webp`
 const img2 = `${GITHUB_CDN}/2.webp`
 const img3 = `${GITHUB_CDN}/3.webp`
