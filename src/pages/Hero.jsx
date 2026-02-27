@@ -292,6 +292,15 @@ const Hero = () => {
           >
             Register Now
           </a>
+                      <a
+              href="https://drive.google.com/file/d/1GfbcJoGLRBSYcG_bEfJx3aS48gBq8ZK3/view"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`bg-white text-[#FF6B35] px-8 py-3 sm:px-10 sm:py-4 md:px-12 md:py-5 rounded-full font-bold text-lg sm:text-xl md:text-3xl shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:scale-110 hover:shadow-[0_15px_50px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out border-2 border-white hover:bg-transparent hover:text-white active:scale-95 min-h-[44px]`}
+              style={{ fontFamily: '"Oxanium", sans-serif', transform: 'translateZ(0)', position: 'relative', zIndex: 10 }}
+            >
+              Download Schedule
+            </a>
           
 
           
